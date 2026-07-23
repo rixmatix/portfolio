@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circana: An Enterprise Design System — Ricky Sunay</title>
+  <meta name="description" content="How Ricky Sunay built Circana's enterprise design system — a nine-month, accessibility-first initiative that cut design-to-engineering handoff time in half.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="../index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#outcomes"><span class="subnav-label">Outcomes</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#challenges"><span class="subnav-label">Challenges</span></a>
+    <a href="#architecture"><span class="subnav-label">Architecture</span></a>
+    <a href="#enablement"><span class="subnav-label">Enablement</span></a>
+    <a href="#impact"><span class="subnav-label">Impact</span></a>
+    <a href="#launch"><span class="subnav-label">Launch story</span></a>
+  </div>
+</nav>
+
+  <!-- ================= COPY: CASE HERO ================= -->
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study ds/unify-plus · Circana</p>
+    <h1 class="display-lg">Circana: an enterprise design system</h1>
+    <p class="lede">
+      A nine-month initiative that transformed how Circana builds digital
+      products — addressing fundamental challenges around consistency, quality,
+      and accessibility across an enterprise analytics platform.
+    </p>
+    <p>
+      Circana is a global leader in consumer intelligence, providing analytics
+      and insights that help the world's leading brands and retailers understand
+      consumer behavior. With thousands of clients relying on its data platforms
+      to make critical business decisions, the need for consistent, accessible,
+      high-quality digital experiences grew increasingly urgent as the product
+      portfolio expanded.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Product Design Lead — Design Systems</dd></div>
+      <div><dt>Duration</dt><dd>9-month initiative</dd></div>
+      <div><dt>Organization</dt><dd>Circana</dd></div>
+      <div><dt>Teams</dt><dd>Distributed global · India-based engineering</dd></div>
+    </dl>
+  </section>
+  <!-- ================= END COPY: CASE HERO ================= -->
+  <div class="container">
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-hero-screens.jpg" alt="A spread of Unify+ analytics screens built on the design system — planning dashboards, brand decomposition tables, weekly flighting charts, scenario cards, and recommendation views, all sharing one component language." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The Unify+ platform — one component language across planning, analysis, and recommendation surfaces.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: OUTCOMES ================= -->
+  <section class="section container prose case-section" id="outcomes">
+    <p class="eyebrow">Impact</p>
+    <h2>Outcomes</h2>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">50%</span><span class="metric__label">design-to-engineering handoff time cut in half</span></li>
+      <li class="metric"><span class="metric__value">45</span><span class="metric__label">core components accounting for 80% of screens</span></li>
+      <li class="metric"><span class="metric__value">AA</span><span class="metric__label">foundations redesigned to be WCAG AA compliant</span></li>
+    </ul>
+    <p>Cross-product consistency improved measurably, raising the quality bar across the platform.</p>
+  </section>
+  <!-- ================= END COPY: OUTCOMES ================= -->
+
+  <!-- ================= COPY: THE PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>Building a scalable foundation for data-driven products</h2>
+    <p>
+      As Circana's suite of analytics applications grew, so did the fragmentation
+      across their user interfaces.
+    </p>
+    <h3>What I observed</h3>
+    <ul>
+      <li>Each new feature or application meant reinventing solutions that had already been solved elsewhere in the organization.</li>
+      <li>UI patterns were inconsistent across applications.</li>
+      <li>Core elements were not WCAG compliant.</li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: THE PROBLEM ================= -->
+
+  <!-- ================= COPY: UNIQUE CHALLENGES ================= -->
+  <section class="section container prose case-section" id="challenges">
+    <p class="eyebrow">Unique challenges</p>
+    <h2>A fast-moving analytics business</h2>
+    <p>
+      The challenge was compounded by the nature of the business. In a fast-moving
+      analytics space where data visualization and complex interfaces are core to
+      the product experience, teams needed a system that could adapt quickly while
+      maintaining quality.
+    </p>
+    <ul>
+      <li>Need for rapid adaptation.</li>
+      <li>Complex data visualization requirements.</li>
+      <li>Distributed global teams, with engineering based in India.</li>
+      <li>Bridging geographical and knowledge gaps.</li>
+    </ul>
+    <p>
+      Over nine months, I led the creation and implementation of the system,
+      working closely with engineering teams and analyst stakeholders to build a
+      comprehensive foundation that would scale across the organization —
+      architected with accessibility as a first-class concern, not an
+      afterthought. That required clear standards and comprehensive training to
+      ensure successful adoption across distributed teams.
+    </p>
+
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-foresight-views.jpg" alt="Four views of the Marketing Foresight product in Unify+: channel mix allocation with a donut chart and efficiency index, an audience performance heat map, budget pacing and forecast with cumulative spend, and a competitive share-of-voice radar — each with an AI insights panel." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> Marketing Foresight — the data-dense, insight-heavy surfaces the system had to serve.</figcaption>
+    </figure>
+    <!-- NOTE: these three scope descriptions need your review — see chat -->
+    <ul class="principles">
+      <li class="principle">
+        <span class="principle__index">scope/01</span>
+        <h3>Foundations</h3>
+        <p>Color, type, spacing, and interaction standards — architected to meet WCAG AA from the ground up.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">scope/02</span>
+        <h3>Components</h3>
+        <p>45 core components covering 80% of screens, plus a purpose-built data visualization library.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">scope/03</span>
+        <h3>Layouts</h3>
+        <p>Page-level patterns composed from the core set, built for analytics-dense screens.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: UNIQUE CHALLENGES ================= -->
+
+  <!-- ================= COPY: ARCHITECTURE ================= -->
+  <section class="section container prose case-section" id="architecture">
+    <p class="eyebrow">Foundational architecture</p>
+    <h2>Accessibility-first, analytics-ready</h2>
+
+    <h3>Accessibility-first architecture</h3>
+    <ul>
+      <li>WCAG compliance from the ground up.</li>
+      <li>Minimum AA color contrast ratios.</li>
+      <li>Keyboard navigation patterns.</li>
+      <li>Screen reader support.</li>
+      <li>Focus management.</li>
+    </ul>
+
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-neutral-palette.jpg" alt="Documentation of the neutral foreground color scale: semantic roles from Neutral Main to Neutral On Dark, each mapped to gray steps with hex and RGB values, shown against both light and dark themes." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 03</span> Semantic neutral scale — every foreground role documented with its contrast-safe value in both themes.</figcaption>
+    </figure>
+    <h3>Analytics-specific components</h3>
+    <p>A purpose-built data visualization library:</p>
+    <ul>
+      <li>Line graphs, bar charts, scatter plots, heat maps.</li>
+      <li>Colorblind-safe palettes.</li>
+      <li>Proper labeling and alternative representations.</li>
+      <li>Flexible, yet accessible.</li>
+    </ul>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-chart-frame-spec.jpg" alt="A 'Ready for Dev' Figma spec for the Chart Frame component: annotated anatomy separating controllers from the chart area, alongside real usages — flighting recommendations, waterfall decomposition, weekly flighting, and impact comparison charts." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 04</span> The Chart Frame component spec — one accessible container powering every chart type on the platform.</figcaption>
+    </figure>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-dataviz-components.jpg" alt="Data visualization components in use: a combined bar-and-line weekly flighting chart plotting spend against volume sales, a mobile report card, and an editable scenario table with weekly spend inputs." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 05</span> Purpose-built analytics components — charts and editable data tables sharing the same foundations.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: ARCHITECTURE ================= -->
+
+  <!-- ================= COPY: ENABLEMENT ================= -->
+  <section class="section container prose case-section" id="enablement">
+    <p class="eyebrow">Training &amp; enablement</p>
+    <h2>Enabling teams across the globe</h2>
+    <ul>
+      <li>Comprehensive training materials.</li>
+      <li>Hands-on workshops for India-based teams.</li>
+      <li>Component composition training.</li>
+      <li>Accessibility testing practices.</li>
+      <li>Extension best practices.</li>
+    </ul>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-file-actions-doc.jpg" alt="Component documentation for the File Actions bar: full anatomy with numbered properties, default, hover, and clicked states, and detailed layout-and-spacing redlines for every child element." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 06</span> Documentation built for distributed teams — anatomy, states, and spacing redlines for every component.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: ENABLEMENT ================= -->
+
+  <!-- ================= COPY: IMPACT ================= -->
+  <section class="section container prose case-section" id="impact">
+    <p class="eyebrow">Impact</p>
+    <h2>Transforming how the organization builds</h2>
+    <p>
+      The system transformed how Circana builds digital products — creating a
+      foundation that balances consistency with flexibility, raises the quality
+      bar for accessibility, and lets teams move faster while building better
+      experiences for the analysts and business users who depend on their tools.
+    </p>
+    <p>
+      Establishing standards for the most-used components allowed teams to build
+      interfaces with less oversight and greater speed to market. Design never
+      became a bottleneck: engineering teams could create screens seamlessly. I
+      reviewed new interfaces in a testing environment, and only when a genuinely
+      new need surfaced did I build a new iteration of a component or dashboard.
+    </p>
+    <h3>Accomplishments</h3>
+    <ul>
+      <li>A foundation for consistency with flexibility.</li>
+      <li>Elevated accessibility standards.</li>
+      <li>Faster delivery of better experiences.</li>
+      <li>Empowered teams across the organization.</li>
+    </ul>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/circana-impact-collage.png" alt="A collage of shipped Unify+ surfaces built on the system: scenario cards, recommendation charts, brand decomposition tables, hierarchical data grids, chart-type pickers, and dimension chip states." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 07</span> The system in production — scenarios, recommendations, data grids, and controls all drawing from one set of parts.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: IMPACT ================= -->
+
+  <!-- ================= COPY: LAUNCH STORY ================= -->
+  <section class="section container prose case-section" id="launch">
+    <p class="eyebrow">Launch story</p>
+    <h2>Marketing Predictions: shipping a new product in one month</h2>
+    <p class="pullquote">With the system in place, a brand-new product shipped in 1 month instead of 3.</p>
+    <p>
+      With the established design system, we delivered brand-new experiences
+      faster. Marketing Predictions borrowed the system's styles and components
+      to create an entirely new experience for customers — shipped in one month
+      instead of the three it would have taken without a system, and ultimately
+      increasing revenue.
+    </p>
+  </section>
+  <!-- ================= END COPY: LAUNCH STORY ================= -->
+
+  <nav class="case-nav container" aria-label="Case study navigation">
+    <a class="btn btn--ghost" href="../index.html">← All work</a>
+    <a class="btn btn--ghost" href="liquid-m1.html">Next: Building Liquid →</a>
+  </nav>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, one small JS file. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

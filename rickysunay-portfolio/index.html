@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricky Sunay — Design System Leader</title>
+  <meta name="description" content="Ricky Sunay is a design system leader in Chicago with 15+ years building token-driven systems across fintech, analytics, and healthcare education.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER (identical on every page — edit everywhere if you change it) ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= COPY: HERO (two versions — one per mode) ================= -->
+  <section class="hero container">
+
+    <!-- Design systems mode -->
+    <div class="mode-ds">
+      <p class="eyebrow">Design system leader · Chicago</p>
+      <h1 class="display-xl">I design <em>systems</em> that make teams faster.</h1>
+      <p class="lede">
+        Fifteen-plus years building and scaling token-driven design systems across
+        fintech, analytics, and healthcare education. I build systems from zero,
+        govern them at scale, and connect design to engineering through Figma,
+        Storybook, and AI-augmented workflows.
+      </p>
+    </div>
+
+    <!-- Generalist mode -->
+    <div class="mode-gen">
+      <p class="eyebrow">Senior / Staff product designer · Chicago</p>
+      <h1 class="display-xl">I design complex, data-heavy products — <em>end to end</em>.</h1>
+      <p class="lede">
+        Design systems are my passion, but I ship end-to-end product work too:
+        turning dense workflows, onboarding funnels, and financial tools into
+        intuitive, high-confidence experiences that improve clarity, conversion,
+        and long-term product growth.
+      </p>
+    </div>
+
+  </section>
+  <!-- ================= END COPY: HERO ================= -->
+
+  <!-- ================= MODE TOGGLE BAND ================= -->
+  <div class="mode-band">
+    <div class="container mode-band__inner">
+      <p class="mode-band__label"><span class="t-name">// two portfolios, one token system</span> — pick your view:</p>
+      <div class="mode-toggle" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true">Design systems</button>
+        <button type="button" data-mode="gen" aria-pressed="false">Generalist</button>
+      </div>
+    </div>
+  </div>
+  <!-- ================= END MODE TOGGLE BAND ================= -->
+
+  <!-- ================= COPY: CASE STUDY GRID — DESIGN SYSTEMS MODE ================= -->
+  <section class="section section--flush container mode-ds">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="display-lg">Six systems, six organizations.</h2>
+
+    <ul class="case-grid">
+
+      <li>
+        <a class="case-card" href="work/liquid-m1.html">
+          <div class="case-card__thumb">
+            <img src="assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 Finance screens across web and mobile, all built on Liquid components." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/liquid — M1 Finance</span>
+          <h3 class="case-card__title">Building Liquid: M1's first design system</h3>
+          <p class="case-card__desc">From zero to 80% company-wide adoption in 12 months — coalition-building, centralized governance, and a 9-month redesign that made the system unavoidable.</p>
+          <span class="case-card__tags">
+            <span class="tag">governance</span><span class="tag">tokens</span><span class="tag">adoption metrics</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="case-card" href="work/ama-edhub.html">
+          <div class="case-card__thumb">
+            <div class="thumb-placeholder"><span>artwork pending</span></div>
+          </div>
+          <span class="case-card__id">ds/edhub — American Medical Association</span>
+          <h3 class="case-card__title">AMA Ed Hub: token architecture at brand scale</h3>
+          <p class="case-card__desc">A three-tier token architecture and flexible component system built to carry 50+ partner brands — with an AI-powered documentation workflow behind it.</p>
+          <span class="case-card__tags">
+            <span class="tag">token architecture</span><span class="tag">multi-brand</span><span class="tag">AI workflows</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="case-card" href="work/unify.html">
+          <div class="case-card__thumb">
+            <img src="assets/img/circana-thumb.jpg" alt="The Unify+ login screen on a laptop — 'Welcome to Unify+, powered by Liquid Data' with Circana branding." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/unify-plus — Circana</span>
+          <h3 class="case-card__title">Circana's enterprise design system</h3>
+          <p class="case-card__desc">A nine-month, accessibility-first system for a global analytics platform — 45 core components covering 80% of screens, and handoff time cut in half.</p>
+          <span class="case-card__tags">
+            <span class="tag">accessibility</span><span class="tag">data viz</span><span class="tag">enablement</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="case-card case-card--pending" href="work/zs.html">
+          <div class="case-card__thumb">
+            <div class="thumb-placeholder"><span>artwork pending</span></div>
+          </div>
+          <span class="case-card__id">ds/zs</span>
+          <h3 class="case-card__title">ZS Design System</h3>
+          <p class="case-card__desc">Case study in progress.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="case-card case-card--pending" href="work/pangea.html">
+          <div class="case-card__thumb">
+            <div class="thumb-placeholder"><span>artwork pending</span></div>
+          </div>
+          <span class="case-card__id">ds/pangea — Pangea Money Transfer</span>
+          <h3 class="case-card__title">Pangea Design System</h3>
+          <p class="case-card__desc">Case study in progress.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="case-card" href="work/bmw.html">
+          <div class="case-card__thumb">
+            <div class="thumb-placeholder"><span>artwork pending</span></div>
+          </div>
+          <span class="case-card__id">ds/bmw — BMW Technology</span>
+          <h3 class="case-card__title">BMW's first internal design system</h3>
+          <p class="case-card__desc">The first reusable pattern library for the BMW and MINI companion apps, aligning design and engineering teams across Chicago and Munich.</p>
+          <span class="case-card__tags">
+            <span class="tag">pattern library</span><span class="tag">global teams</span>
+          </span>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+  <!-- ================= END COPY: CASE STUDY GRID — DESIGN SYSTEMS MODE ================= -->
+
+  <!-- ================= COPY: CASE STUDY GRID — GENERALIST MODE (placeholders for now) ================= -->
+  <section class="section section--flush container mode-gen">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="display-lg">Product work, end to end.</h2>
+
+    <ul class="case-grid">
+
+      <li>
+        <a class="case-card" href="work/m1-onboarding.html">
+          <div class="case-card__thumb">
+            <img src="assets/img/m1ob-hero.png" alt="M1 portfolio screens across desktop and mobile in dark and light themes." loading="lazy">
+          </div>
+          <span class="case-card__id">product/m1-onboarding — M1 Finance</span>
+          <h3 class="case-card__title">M1 onboarding: following the data</h3>
+          <p class="case-card__desc">Onboarding optimization through experiments and data — a 10% lift in overall conversion, premium sign-ups up from 14% to over 50%, and multi-product selection at sign-up.</p>
+          <span class="case-card__tags"><span class="tag">growth</span><span class="tag">onboarding</span><span class="tag">a/b testing</span><span class="tag">kyc</span></span>
+        </a>
+      </li>
+
+      <li>
+        <div class="case-card case-card--pending">
+          <div class="case-card__thumb"><div class="thumb-placeholder"><span>case study coming soon</span></div></div>
+          <span class="case-card__id">product/pangea — Pangea Money Transfer</span>
+          <h3 class="case-card__title">Launching a debit card</h3>
+          <p class="case-card__desc">Evolving a remittance app into a full-service banking app — end-to-end product design for a new debit card across mobile and web.</p>
+          <span class="case-card__tags"><span class="tag">0→1 product</span><span class="tag">fintech</span></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="case-card case-card--pending">
+          <div class="case-card__thumb"><div class="thumb-placeholder"><span>case study coming soon</span></div></div>
+          <span class="case-card__id">product/bmw — BMW Technology</span>
+          <h3 class="case-card__title">Companion apps for a luxury brand</h3>
+          <p class="case-card__desc">Android feature development for the MINI and BMW companion apps, with motion specs and micro-interaction prototypes guiding implementation.</p>
+          <span class="case-card__tags"><span class="tag">mobile</span><span class="tag">motion</span></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="case-card case-card--pending">
+          <div class="case-card__thumb"><div class="thumb-placeholder"><span>case study coming soon</span></div></div>
+          <span class="case-card__id">product/purple-pen</span>
+          <h3 class="case-card__title">Empowering teachers and students</h3>
+          <p class="case-card__desc">An application meant to reinvent the way curriculums are created, giving every individual the best learning experience possible.</p>
+          <span class="case-card__tags"><span class="tag">edtech</span></span>
+        </div>
+      </li>
+
+      <li>
+        <div class="case-card case-card--pending">
+          <div class="case-card__thumb"><div class="thumb-placeholder"><span>case study coming soon</span></div></div>
+          <span class="case-card__id">product/olab — OpinionLab</span>
+          <h3 class="case-card__title">Enterprise SaaS dashboards</h3>
+          <p class="case-card__desc">Custom dashboards and reporting that helped companies listen to their customers by capturing their feedback.</p>
+          <span class="case-card__tags"><span class="tag">enterprise</span><span class="tag">data viz</span></span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+  <!-- ================= END COPY: CASE STUDY GRID — GENERALIST MODE ================= -->
+
+</main>
+
+<!-- ================= FOOTER (identical on every page) ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, one small JS file. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

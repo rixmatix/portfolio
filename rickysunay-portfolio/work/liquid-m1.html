@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Liquid: M1's First Design System — Ricky Sunay</title>
+  <meta name="description" content="How Ricky Sunay built Liquid, M1 Finance's first design system, from zero to 80% company-wide adoption and a 30% efficiency improvement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="../index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#outcomes"><span class="subnav-label">Outcomes</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#advocacy"><span class="subnav-label">Advocacy</span></a>
+    <a href="#foundation"><span class="subnav-label">Foundation</span></a>
+    <a href="#governance"><span class="subnav-label">Governance</span></a>
+    <a href="#redesign"><span class="subnav-label">Redesign</span></a>
+    <a href="#results"><span class="subnav-label">Results</span></a>
+    <a href="#reflection"><span class="subnav-label">Reflection</span></a>
+  </div>
+</nav>
+
+
+  <!-- ================= COPY: CASE HERO ================= -->
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study ds/liquid · M1 Finance · 2022–2024</p>
+    <h1 class="display-lg">Building Liquid: M1's first design system</h1>
+    <p class="lede">
+      When I joined M1 Finance there was no design system — just duplicated work
+      and inefficiency. I identified the gap, advocated for the investment, and
+      built Liquid from the ground up. Within 12 months it reached 80%
+      company-wide adoption and improved team efficiency by 30%, helping M1 ship
+      faster in a competitive fintech market.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Design System Lead</dd></div>
+      <div><dt>Timeline</dt><dd>Aug 2022 – May 2024</dd></div>
+      <div><dt>Team</dt><dd>Solo, then DS Manager + designer + PM</dd></div>
+      <div><dt>Platforms</dt><dd>React.js · Jetpack · Swift</dd></div>
+    </dl>
+  </section>
+  <!-- ================= END COPY: CASE HERO ================= -->
+
+  <figure class="spec-figure container">
+    <div class="spec-figure__frame">
+      <img src="../assets/img/m1-hero-app.png" alt="Two M1 Finance mobile app screens built on Liquid: a home dashboard showing net worth, assets, and liabilities, and a portfolio view with a donut chart of holdings.">
+    </div>
+    <figcaption><span class="fig-id">FIG 01</span> The M1 mobile experience, rebuilt on Liquid components.</figcaption>
+  </figure>
+
+  <!-- ================= COPY: OUTCOMES ================= -->
+  <section class="section container prose case-section" id="outcomes">
+    <p class="eyebrow">Impact</p>
+    <h2>Outcomes</h2>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">80%</span><span class="metric__label">company-wide adoption across design and engineering</span></li>
+      <li class="metric"><span class="metric__value">30%</span><span class="metric__label">efficiency improvement — 2–3 days recovered per sprint, per team member</span></li>
+      <li class="metric"><span class="metric__value">−1 sprint</span><span class="metric__label">saved in foundational engineering time per initiative, with another saved in total development time</span></li>
+    </ul>
+    <p>Design defects surfacing in QA dropped significantly, and teams stopped paying a per-project tax to rebuild foundations that already existed.</p>
+  </section>
+  <!-- ================= END COPY: OUTCOMES ================= -->
+
+  <!-- ================= COPY: THE PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>Moving fast, building slow</h2>
+    <p>
+      M1 operates in a fast-paced fintech environment where speed to market is
+      critical. When crypto got hot, we needed to ship quickly to capitalize on
+      market momentum — but our reality didn't match our ambitions. The team
+      wasn't working inefficiently by choice; they lacked the infrastructure. We
+      needed a design system, and no one had built one at M1 before.
+    </p>
+    <h3>What I observed</h3>
+    <ul>
+      <li>Designers were rebuilding the same components repeatedly.</li>
+      <li>Engineers spent 2–3 days per sprint — 20–30% of their time — clarifying design specs and fixing design defects in QA.</li>
+      <li>There was no scalable foundation as the team grew from 3 to 11 designers.</li>
+      <li>Our visual language didn't reflect our premium brand positioning.</li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: THE PROBLEM ================= -->
+
+  <!-- ================= COPY: BUILDING THE CASE ================= -->
+  <section class="section container prose case-section" id="advocacy">
+    <p class="eyebrow">Building the case</p>
+    <h2>Data-driven advocacy</h2>
+    <p>
+      Securing organizational buy-in and resources required more than conviction —
+      it required evidence. I surveyed designers and engineers across the company
+      with specific questions: How much time per sprint do you spend clarifying
+      design requirements? How often are design defects found in QA? What slows
+      down your workflow?
+    </p>
+    <p>
+      <strong>The findings were clear:</strong> teams spent 2–3 days of every
+      two-week sprint on avoidable design-related work — roughly 20–30% of their
+      capacity.
+    </p>
+
+    <h3>Building coalition</h3>
+    <p>I took a methodical approach to gaining support:</p>
+    <ul>
+      <li><strong>Design leadership</strong> — presented my reasoning and data to my manager, who became an early champion.</li>
+      <li><strong>Design team</strong> — built alignment across the growing team through training.</li>
+      <li><strong>Engineering</strong> — demonstrated how a system would improve their efficiency and code quality.</li>
+    </ul>
+    <p>
+      The team was open-minded but inexperienced with design systems. I positioned
+      Liquid not as a design tool, but as an investment in organizational
+      efficiency.
+    </p>
+  </section>
+  <!-- ================= END COPY: BUILDING THE CASE ================= -->
+
+  <!-- ================= COPY: PRINCIPLES ================= -->
+  <section class="section container prose case-section" id="foundation">
+    <p class="eyebrow">Foundation</p>
+    <h2>Building Liquid from zero</h2>
+    <p>I established three north-star principles, aligned to our business and design principles, to guide every team decision:</p>
+    <ul class="principles">
+      <li class="principle">
+        <span class="principle__index">principle/01</span>
+        <h3>Upscale our design</h3>
+        <p>Improve our design to reflect the premium brand — move beyond functional to inspirational.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">principle/02</span>
+        <h3>Empower teams</h3>
+        <p>Help teams be more efficient and consistent, and eliminate duplicative work.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">principle/03</span>
+        <h3>Drive adoption</h3>
+        <p>A design system is only valuable if it's used. Scale it across the organization.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: PRINCIPLES ================= -->
+
+  <!-- ================= COPY: GOVERNANCE ================= -->
+  <section class="section container prose case-section" id="governance">
+    <p class="eyebrow">Governance</p>
+    <h2>Starting centralized, on purpose</h2>
+    <p>I chose a centralized governance model intentionally:</p>
+    <ul>
+      <li>All contributions flowed through me for quality control.</li>
+      <li>Engineers could propose components or follow a defined process to add to the backlog.</li>
+      <li>I finalized components, documented them, and managed releases.</li>
+    </ul>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-governance-flow.jpg" alt="Flowchart titled 'New components into the design system,' mapping how a new pattern request moves from product need through design and engineering syncs to a decision, with swim lanes for design and engineering responsibilities.">
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> Component intake flow — every new pattern request routed through a shared, documented decision path.</figcaption>
+    </figure>
+
+    <h3>Prioritization framework</h3>
+    <p>A simple two-question framework kept the backlog honest:</p>
+    <ul>
+      <li><strong>Team demand</strong> — how many teams need this component?</li>
+      <li><strong>Project dependency</strong> — is this blocking a current initiative?</li>
+    </ul>
+    <p>This kept us focused on high-impact work and prevented us from building components no one would use.</p>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-asana-backlog.png" alt="Asana board for the Liquid Design System with columns for requests, backlog, triage, on deck, in progress, and under review, populated with component and documentation tasks.">
+      </div>
+      <figcaption><span class="fig-id">FIG 03</span> The Liquid backlog — requests triaged against team demand and project dependency.</figcaption>
+    </figure>
+
+    <h3>Establishing rituals</h3>
+    <p>To maintain momentum and alignment, I created structure:</p>
+    <ul>
+      <li><strong>Two weekly meetings</strong> — one for designers, one for engineering.</li>
+      <li><strong>Two Slack channels</strong> — announcements and async collaboration.</li>
+      <li><strong>Weekly updates</strong> — progress, upcoming work, and adoption metrics.</li>
+    </ul>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-slack-rituals.jpg" alt="Slack workspace showing the design-system-committee channel, where designers and engineers review a new accordion component proposal, assign code snippet work, and share accessibility testing updates.">
+      </div>
+      <figcaption><span class="fig-id">FIG 04</span> The #design-system-committee channel — where proposals, reviews, and accessibility findings moved asynchronously.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: GOVERNANCE ================= -->
+
+
+  <!-- ================= COPY: GOVERNANCE — PINNED LAYOUT TEST =================
+       This duplicates the Governance content in the new scrollytelling layout
+       for comparison. Keep whichever version wins and delete the other.
+       To reuse elsewhere: copy .scrolly through its closing div, set --steps
+       to the number of .scrolly-step pairs, keep copy/media step counts equal. -->
+  <section class="section container prose case-section" id="governance-scrolly">
+    <p class="eyebrow">Governance · pinned layout test</p>
+    <h2>Starting centralized, on purpose</h2>
+
+    <div class="scrolly" data-scrolly style="--steps: 3;">
+      <div class="scrolly__stage">
+
+        <div class="scrolly__copy">
+          <div class="scrolly-step is-current">
+            <p class="step-index">01 / 03 — the model</p>
+            <h3>Centralized by design</h3>
+            <ul>
+              <li>All contributions flowed through me for quality control.</li>
+              <li>Engineers could propose components or follow a defined process to add to the backlog.</li>
+              <li>I finalized components, documented them, and managed releases.</li>
+            </ul>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">02 / 03 — the backlog</p>
+            <h3>A two-question prioritization framework</h3>
+            <ul>
+              <li><strong>Team demand</strong> — how many teams need this component?</li>
+              <li><strong>Project dependency</strong> — is this blocking a current initiative?</li>
+            </ul>
+            <p>This kept us focused on high-impact work and prevented us from building components no one would use.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">03 / 03 — the rituals</p>
+            <h3>Structure that maintained momentum</h3>
+            <ul>
+              <li><strong>Two weekly meetings</strong> — one for designers, one for engineering.</li>
+              <li><strong>Two Slack channels</strong> — announcements and async collaboration.</li>
+              <li><strong>Weekly updates</strong> — progress, upcoming work, and adoption metrics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scrolly__media">
+          <div class="scrolly-step is-current">
+            <figure class="spec-figure">
+              <div class="spec-figure__frame spec-figure__frame--light">
+                <img src="../assets/img/m1-governance-flow.jpg" alt="Flowchart mapping how a new pattern request moves from product need through design and engineering syncs to a decision." loading="lazy">
+              </div>
+              <figcaption><span class="fig-id">FIG A</span> Component intake flow.</figcaption>
+            </figure>
+          </div>
+          <div class="scrolly-step">
+            <figure class="spec-figure">
+              <div class="spec-figure__frame spec-figure__frame--light">
+                <img src="../assets/img/m1-asana-backlog.png" alt="Asana board for the Liquid Design System with columns from requests through under review." loading="lazy">
+              </div>
+              <figcaption><span class="fig-id">FIG B</span> The Liquid backlog, triaged against demand and dependency.</figcaption>
+            </figure>
+          </div>
+          <div class="scrolly-step">
+            <figure class="spec-figure">
+              <div class="spec-figure__frame spec-figure__frame--light">
+                <img src="../assets/img/m1-slack-rituals.jpg" alt="Slack design-system-committee channel with a component proposal under review." loading="lazy">
+              </div>
+              <figcaption><span class="fig-id">FIG C</span> Async collaboration in #design-system-committee.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: GOVERNANCE — PINNED LAYOUT TEST ================= -->
+
+  <!-- ================= COPY: TURNING POINT ================= -->
+  <section class="section container prose case-section" id="redesign">
+    <p class="eyebrow">The turning point</p>
+    <h2>The 9-month redesign</h2>
+    <p>
+      While we built Liquid incrementally, adoption stayed slow. Components
+      existed, but teams weren't consistently using them. We needed a catalyst.
+    </p>
+    <p>
+      Then the opportunity surfaced: executives wanted the product to match our
+      premium brand. Engineering leadership supported overhauling the codebase to
+      improve performance and reduce technical debt. Design leadership wanted the
+      brand to feel more premium and trustworthy. I saw the chance to align all
+      three initiatives with Liquid adoption.
+    </p>
+    <p class="pullquote">The strategy: use the redesign as the vehicle to rebuild every pattern and style on top of Liquid.</p>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-before-after.jpg" alt="Side-by-side comparison of M1's home and invest experiences before and after the redesign, across desktop and mobile — the redesign shows a unified navigation, clearer hierarchy, and consistent Liquid components.">
+      </div>
+      <figcaption><span class="fig-id">FIG 05</span> Home and Invest, before and after — every pattern rebuilt on Liquid.</figcaption>
+    </figure>
+
+    <h3>Execution</h3>
+    <p>Over nine months, I led the redesign while simultaneously:</p>
+    <ul>
+      <li>Redefining our foundational elements — color, typography, spacing.</li>
+      <li>Rebuilding components to reflect our premium positioning.</li>
+      <li>Documenting everything in both Figma and Confluence.</li>
+      <li>Training designers and engineers on the new system.</li>
+    </ul>
+    <p>This wasn't a visual refresh — it was a complete rearchitecture of how we built products at M1.</p>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-token-annotations.jpg" alt="Annotated mobile screen spec mapping every background and foreground element to a semantic token — header, card, and tab bar surfaces to background tokens; titles, section headers, and CTAs to foreground and type-style tokens.">
+      </div>
+      <figcaption><span class="fig-id">FIG 06</span> Semantic token annotations — every surface and text style in the redesign mapped to a named token, not a hex value.</figcaption>
+    </figure>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens across Invest, Spend, and Borrow surfaces on web and mobile, all built from the same Liquid component set.">
+      </div>
+      <figcaption><span class="fig-id">FIG 07</span> Invest, Spend, and Borrow — one component set, every surface.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: TURNING POINT ================= -->
+
+  <!-- ================= COPY: RESULTS ================= -->
+  <section class="section container prose case-section" id="results">
+    <p class="eyebrow">Results</p>
+    <h2>Adoption through strategy, not mandate</h2>
+    <p>
+      We reached <strong>80% company-wide adoption</strong> by tying Liquid to a
+      strategic business initiative rather than asking teams to adopt it on faith.
+    </p>
+    <p>
+      For most of the project I operated solo — building components while managing
+      governance, advocacy, and adoption. The dual role was demanding but
+      strategic. The breakthrough came when I presented the 30% efficiency
+      improvement to leadership: it unlocked resources, I was promoted to Design
+      System Manager, and the team grew to include a designer and a PM for backlog
+      management and communications.
+    </p>
+
+    <h3>Cultural shift</h3>
+    <p>
+      The impact went beyond metrics. Liquid became part of M1's identity — we
+      even made t-shirts. It transformed how teams worked together and established
+      design as a strategic function, not just a service organization. By the time
+      I left, Liquid was being extended into marketing assets.
+    </p>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/m1-liquid-tshirts.jpg" alt="Stacks of folded navy t-shirts printed with the Liquid design system logo, laid out on an office table.">
+      </div>
+      <figcaption><span class="fig-id">FIG 08</span> When your design system gets merch, adoption is no longer the problem.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: RESULTS ================= -->
+
+  <!-- ================= COPY: REFLECTION ================= -->
+  <section class="section container prose case-section" id="reflection">
+    <p class="eyebrow">Reflection</p>
+    <h2>It's really about people</h2>
+    <p>
+      The most important lesson: a design system is not a project with an end
+      date. It's living infrastructure that evolves with the organization. Success
+      isn't building it — it's maintaining momentum and adoption over time.
+    </p>
+    <p>The technical work of building components is table stakes. The harder, more important work is:</p>
+    <ul>
+      <li>Building coalition across disciplines.</li>
+      <li>Creating clear governance and contribution models.</li>
+      <li>Maintaining adoption through education and advocacy.</li>
+      <li>Tying the design system to strategic business initiatives.</li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: REFLECTION ================= -->
+
+  <nav class="case-nav container" aria-label="Case study navigation">
+    <a class="btn btn--ghost" href="../index.html">← All work</a>
+    <a class="btn btn--ghost" href="ama-edhub.html">Next: AMA Ed Hub →</a>
+  </nav>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, 40 lines of JS. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

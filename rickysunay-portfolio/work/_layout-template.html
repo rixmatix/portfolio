@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Template — internal — Ricky Sunay</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="../index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume &#8595;</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<nav class="case-subnav" aria-label="Layout sections">
+  <div class="case-subnav__inner">
+    <a href="#full-width" class="is-active"><span class="subnav-label">Full width</span></a>
+    <a href="#full-bleed"><span class="subnav-label">Full bleed</span></a>
+    <a href="#centered"><span class="subnav-label">Centered</span></a>
+    <a href="#split"><span class="subnav-label">Half &amp; half</span></a>
+    <a href="#sticky-split"><span class="subnav-label">Sticky split</span></a>
+    <a href="#portrait-grid"><span class="subnav-label">3:4 grid</span></a>
+    <a href="#aside-split"><span class="subnav-label">3/4 aside</span></a>
+    <a href="#bento"><span class="subnav-label">Bento</span></a>
+    <a href="#scrolly-demo"><span class="subnav-label">Scrolly</span></a>
+    <a href="#carousel-demo"><span class="subnav-label">Carousel</span></a>
+  </div>
+</nav>
+
+  <section class="case-hero container case-section">
+    <p class="eyebrow">Internal &middot; layout template</p>
+    <h1 class="display-lg">Layout pattern library</h1>
+    <p class="lede">
+      Every layout available for case study pages, with real markup to copy.
+      This page is not linked from anywhere and is marked noindex &mdash; it ships
+      harmlessly, or delete it before launch. Each section has an HTML comment
+      explaining usage.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: FULL-WIDTH FIGURE (container width — the default)
+       Usage: <figure class="spec-figure"> inside any .container section.
+       ============================================================ -->
+  <section class="section container prose case-section" id="full-width">
+    <p class="eyebrow">layout/01</p>
+    <h2>Full-width figure</h2>
+    <p>The default. Spans the content container (1200px max).</p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> Container-width figure &mdash; the workhorse.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: FULL-BLEED FIGURE (edge to edge of the viewport)
+       Usage: place the <figure> OUTSIDE any .container element.
+       No special class needed — it's a markup position, not a style.
+       ============================================================ -->
+  <div class="case-section" id="full-bleed">
+    <div class="container prose">
+      <p class="eyebrow">layout/02</p>
+      <h2>Full-bleed figure</h2>
+      <p>Edge to edge. Simply place the figure outside the container &mdash; no class needed. Best for wide, atmospheric imagery.</p>
+    </div>
+    <figure class="spec-figure" style="margin-left: 0; margin-right: 0;">
+      <div class="spec-figure__frame spec-figure__frame--light" style="border-radius: 0; border-left: none; border-right: none;">
+        <img src="../assets/img/circana-hero-screens.jpg" alt="Wide spread of Unify+ analytics screens." loading="lazy">
+      </div>
+      <figcaption class="container"><span class="fig-id">FIG 02</span> Full-bleed &mdash; caption stays in the container.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ============================================================
+       PATTERN: CENTERED FIGURES
+       Usage: add spec-figure--narrow (680px) or spec-figure--medium (920px).
+       ============================================================ -->
+  <section class="section container prose case-section" id="centered">
+    <p class="eyebrow">layout/03</p>
+    <h2>Centered figures</h2>
+    <p>Add <code>spec-figure--narrow</code> or <code>spec-figure--medium</code> to the figure class.</p>
+    <figure class="spec-figure spec-figure--narrow">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/m1-token-annotations.jpg" alt="Annotated mobile screen mapping elements to semantic tokens." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 03</span> Narrow (680px), centered &mdash; portrait shots and diagrams.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: HALF & HALF SPLIT
+       Usage: .split > .split__copy + .split__media
+       Add .split--flip to put the image on the left.
+       Stacks to one column below 900px.
+       ============================================================ -->
+  <section class="section container prose case-section" id="split">
+    <p class="eyebrow">layout/04</p>
+    <h2>Half &amp; half breakout</h2>
+
+    <div class="split">
+      <div class="split__copy">
+        <h3>Copy left, image right</h3>
+        <p>Use this when a single image needs explanation that deserves more than a caption. The columns vertically center against each other.</p>
+        <p>Add <code>split--flip</code> to the wrapper to mirror it.</p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--light">
+            <img src="../assets/img/m1-governance-flow.jpg" alt="Component intake flowchart." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 04</span> The split pattern.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="split split--flip">
+      <div class="split__copy">
+        <h3>Flipped variant</h3>
+        <p>Same markup, one extra class. Alternate flipped and unflipped splits down a page for editorial rhythm.</p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--light">
+            <img src="../assets/img/circana-chart-frame-spec.jpg" alt="Chart Frame component spec." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 05</span> Image left via <code>split--flip</code>.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: STICKY SPLIT
+       Usage: .split.split--sticky — copy pins while a tall media column
+       scrolls past. Give the media side 2+ figures.
+       ============================================================ -->
+  <section class="section container prose case-section" id="sticky-split">
+    <p class="eyebrow">layout/05</p>
+    <h2>Sticky split</h2>
+    <div class="split split--sticky">
+      <div class="split__copy">
+        <h3>Pinned copy, scrolling media</h3>
+        <p>The copy stays put while multiple images scroll by on the right. Good for showing several views of one idea without repeating yourself.</p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--light">
+            <img src="../assets/img/circana-foresight-views.jpg" alt="Marketing Foresight planning views." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 06</span> First of several.</figcaption>
+        </figure>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--light">
+            <img src="../assets/img/circana-dataviz-components.jpg" alt="Data visualization components." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 07</span> Second &mdash; the copy on the left hasn't moved.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: 3:4 PORTRAIT GRID
+       Usage: .grid-portrait > figures. Tiles crop to 3:4 via object-fit.
+       3 cols desktop, 2 cols below 640px.
+       ============================================================ -->
+  <section class="section container prose case-section" id="portrait-grid">
+    <p class="eyebrow">layout/06</p>
+    <h2>3:4 portrait grid</h2>
+    <p>Three portrait tiles, cropped to 3:4. Ideal for mobile screens.</p>
+    <div class="grid-portrait">
+      <figure class="spec-figure">
+        <div class="spec-figure__frame"><img src="../assets/img/m1-hero-app.png" alt="M1 mobile app screens." loading="lazy"></div>
+        <figcaption><span class="fig-id">FIG 08</span> Tile one.</figcaption>
+      </figure>
+      <figure class="spec-figure">
+        <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/m1-before-after.jpg" alt="Before and after redesign comparison." loading="lazy"></div>
+        <figcaption><span class="fig-id">FIG 09</span> Tile two.</figcaption>
+      </figure>
+      <figure class="spec-figure">
+        <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/circana-thumb.jpg" alt="Unify+ login screen." loading="lazy"></div>
+        <figcaption><span class="fig-id">FIG 10</span> Tile three.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: 3/4 + 1/4 ASIDE SPLIT
+       Usage: .aside-split > main content + .aside-note
+       ============================================================ -->
+  <section class="section container prose case-section" id="aside-split">
+    <p class="eyebrow">layout/07</p>
+    <h2>3/4 content with 1/4 aside</h2>
+    <div class="aside-split">
+      <figure class="spec-figure">
+        <div class="spec-figure__frame spec-figure__frame--light">
+          <img src="../assets/img/circana-file-actions-doc.jpg" alt="File Actions component documentation." loading="lazy">
+        </div>
+        <figcaption><span class="fig-id">FIG 11</span> Main content at three quarters.</figcaption>
+      </figure>
+      <p class="aside-note">The aside column: a margin note, a stat, or a pull-fact that annotates the main content without interrupting it.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: BENTO GRID
+       Usage: .bento > .bento__item tiles.
+       Modifiers: --wide (2 cols), --tall (2 rows), --text (padded text tile).
+       ============================================================ -->
+  <section class="section container prose case-section" id="bento">
+    <p class="eyebrow">layout/08</p>
+    <h2>Bento grid</h2>
+    <p>Mixed-size tiles for a dense visual summary &mdash; images and stats together.</p>
+    <div class="bento">
+      <div class="bento__item bento__item--wide bento__item--tall"><img src="../assets/img/m1-redesigned-screens.jpg" alt="Redesigned M1 screens." loading="lazy"></div>
+      <div class="bento__item bento__item--text">
+        <span class="metric__value">80%</span>
+        <span class="metric__label">adoption</span>
+      </div>
+      <div class="bento__item"><img src="../assets/img/m1-liquid-tshirts.jpg" alt="Liquid t-shirts." loading="lazy"></div>
+      <div class="bento__item"><img src="../assets/img/circana-neutral-palette.jpg" alt="Neutral color scale." loading="lazy"></div>
+      <div class="bento__item bento__item--wide"><img src="../assets/img/m1-slack-rituals.jpg" alt="Slack design system channel." loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: SCROLLYTELLING (pinned copy + image steps)
+       Usage: see the commented instructions on work/liquid-m1.html —
+       .scrolly[data-scrolly][style="--steps: N"] with equal copy/media steps.
+       ============================================================ -->
+  <section class="section container prose case-section" id="scrolly-demo">
+    <p class="eyebrow">layout/09</p>
+    <h2>Scrollytelling</h2>
+    <div class="scrolly" data-scrolly style="--steps: 2;">
+      <div class="scrolly__stage">
+        <div class="scrolly__copy">
+          <div class="scrolly-step is-current">
+            <p class="step-index">01 / 02</p>
+            <h3>Step one</h3>
+            <p>The stage pins while scroll progress advances the steps. Copy changes here&hellip;</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">02 / 02</p>
+            <h3>Step two</h3>
+            <p>&hellip;while the image crossfades in place. Below 900px this collapses to a stacked column.</p>
+          </div>
+        </div>
+        <div class="scrolly__media">
+          <div class="scrolly-step is-current">
+            <figure class="spec-figure">
+              <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/m1-asana-backlog.png" alt="Asana backlog board." loading="lazy"></div>
+            </figure>
+          </div>
+          <div class="scrolly-step">
+            <figure class="spec-figure">
+              <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/circana-impact-collage.png" alt="Collage of shipped Unify+ surfaces." loading="lazy"></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: CAROUSEL
+       Usage: .carousel[data-carousel] > buttons + .carousel__track > slides.
+       Scroll-snap does the work; buttons are wired in site.js.
+       Swipes natively on touch.
+       ============================================================ -->
+  <section class="section container prose case-section" id="carousel-demo">
+    <p class="eyebrow">layout/10</p>
+    <h2>Carousel</h2>
+    <p>Scroll-snap track &mdash; swipe on touch, arrows on desktop.</p>
+    <div class="carousel" data-carousel>
+      <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Previous slide">&#8592;</button>
+      <button type="button" class="carousel__btn carousel__btn--next" aria-label="Next slide">&#8594;</button>
+      <div class="carousel__track" tabindex="0" aria-label="Image carousel">
+        <div class="carousel__slide">
+          <figure class="spec-figure">
+            <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/m1-governance-flow.jpg" alt="Component intake flowchart." loading="lazy"></div>
+            <figcaption><span class="fig-id">SLIDE 01</span> Governance flow.</figcaption>
+          </figure>
+        </div>
+        <div class="carousel__slide">
+          <figure class="spec-figure">
+            <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/m1-before-after.jpg" alt="Before and after redesign." loading="lazy"></div>
+            <figcaption><span class="fig-id">SLIDE 02</span> Before / after.</figcaption>
+          </figure>
+        </div>
+        <div class="carousel__slide">
+          <figure class="spec-figure">
+            <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/circana-foresight-views.jpg" alt="Marketing Foresight views." loading="lazy"></div>
+            <figcaption><span class="fig-id">SLIDE 03</span> Foresight views.</figcaption>
+          </figure>
+        </div>
+        <div class="carousel__slide">
+          <figure class="spec-figure">
+            <div class="spec-figure__frame spec-figure__frame--light"><img src="../assets/img/circana-dataviz-components.jpg" alt="Data viz components." loading="lazy"></div>
+            <figcaption><span class="fig-id">SLIDE 04</span> Data viz set.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>&copy; 2026 Ricky Sunay &middot; Chicago, IL</span>
+      <span>Internal layout template &mdash; not linked publicly.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> &middot;
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> &middot;
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

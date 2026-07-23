@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Ricky Sunay</title>
+  <meta name="description" content="Ricky Sunay is a design systems leader in Chicago with 15+ years designing complex, data-heavy products across fintech, analytics, and healthcare education.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= COPY: ABOUT ================= -->
+  <section class="case-hero container">
+    <p class="eyebrow">About</p>
+    <h1 class="display-lg">I build the systems <em>behind</em> the screens.</h1>
+
+    <!-- NOTE: add a headshot here when ready:
+    <figure class="spec-figure" style="max-width: 420px;">
+      <div class="spec-figure__frame"><img src="assets/img/headshot.jpg" alt="Portrait of Ricky Sunay."></div>
+      <figcaption><span class="fig-id">FIG 01</span> Chicago, IL.</figcaption>
+    </figure>
+    -->
+  </section>
+
+  <section class="section section--flush container prose">
+    <p class="lede">
+      I'm Ricky — a design systems leader in Chicago with 15+ years designing
+      complex, data-heavy products across fintech, analytics, and healthcare
+      education.
+    </p>
+    <p>
+      I've built systems from zero — Liquid at M1 Finance, BMW's first internal
+      pattern library — governed them at scale, and connected design to
+      engineering through tokens, Storybook, and Figma-to-code workflows.
+    </p>
+    <p>
+      Lately I've been integrating AI into design operations: using Claude and
+      Figma's MCP to accelerate documentation, audit token architecture, and make
+      design systems machine-readable as well as human-usable.
+    </p>
+    <p>
+      I still believe what got me into this: design changes outcomes — for the
+      business, and for the person on the other side of the screen. Systems are
+      just how you make that change stick.
+    </p>
+  </section>
+
+  <section class="section container prose">
+    <p class="eyebrow">How I work</p>
+    <h2>Four steps, on repeat</h2>
+    <ul class="principles how-i-work">
+      <li class="principle">
+        <span class="principle__index">step/01</span>
+        <h3>Define</h3>
+        <p>Understand why it matters before deciding what to build. What problem are we solving, and what does it unlock for the business?</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">step/02</span>
+        <h3>Understand</h3>
+        <p>The people using it — and the teams maintaining it. Both audiences shape what "good" means.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">step/03</span>
+        <h3>Design</h3>
+        <p>Tangible solutions, shared early, refined in the open. The fastest way to improve design is to show it to others.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">step/04</span>
+        <h3>Validate</h3>
+        <p>Test, measure adoption, evolve. A system is never done — it's living infrastructure.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: ABOUT ================= -->
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, 40 lines of JS. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+/* ==========================================================================
+   TOKENS.CSS — Design tokens for rickysunay.com
+   --------------------------------------------------------------------------
+   Architecture mirrors a Figma variable setup:
+
+     TIER 1 · PRIMITIVES  — raw values. Never referenced directly in layout
+                            CSS. Change these to retheme globally.
+     TIER 2 · SEMANTIC    — role-based aliases (what a color/size is FOR).
+                            All component CSS references THIS tier only.
+
+   To retheme the site: edit Tier 1. To change what a role points to
+   (e.g. make links use a different red step): edit Tier 2.
+   ========================================================================== */
+
+:root {
+
+  /* ------------------------------------------------------------------
+     TIER 1 · PRIMITIVES
+     ------------------------------------------------------------------ */
+
+  /* Ink scale (cool dark neutrals, 0 = darkest) */
+  --ink-0:   #0B0D10;   /* canvas */
+  --ink-50:  #12151A;   /* raised surface */
+  --ink-100: #191D24;   /* raised surface, hover */
+  --ink-200: #232830;   /* hairlines, borders */
+  --ink-300: #3A414C;   /* strong borders, disabled */
+  --ink-400: #828B99;   /* tertiary text · 5.6:1 on ink-0 (AA) */
+  --ink-500: #A8B0BC;   /* secondary text · 8.9:1 on ink-0 (AA+) */
+  --ink-600: #E9ECF1;   /* primary text · 16.4:1 on ink-0 (AAA) */
+  --ink-700: #FFFFFF;
+
+  /* Signal red (accent family) */
+  --red-300: #FF8578;   /* large display use, washes */
+  --red-400: #FF5C49;   /* core accent · 6.4:1 on ink-0 (AA) */
+  --red-500: #E8442F;   /* pressed/active states, large text only */
+  --red-wash: rgba(255, 92, 73, 0.08);   /* tinted backgrounds */
+  --red-line: rgba(255, 92, 73, 0.35);   /* tinted borders */
+
+  /* Type families */
+  --family-display: "Fraunces", Georgia, serif;
+  --family-body:    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --family-mono:    "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  /* Type scale — 1.25 (major third), rem-based */
+  --scale-100: 0.75rem;    /* 12px */
+  --scale-200: 0.875rem;   /* 14px */
+  --scale-300: 1rem;       /* 16px */
+  --scale-400: 1.25rem;    /* 20px */
+  --scale-500: 1.5625rem;  /* 25px */
+  --scale-600: 1.953rem;   /* 31px */
+  --scale-700: 2.441rem;   /* 39px */
+  --scale-800: 3.052rem;   /* 49px */
+  --scale-900: 3.815rem;   /* 61px */
+
+  /* Space scale — 4px base grid */
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Radii */
+  --radius-1: 2px;
+  --radius-2: 6px;
+  --radius-3: 12px;
+
+  /* Line */
+  --line-1: 1px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-1: 150ms;
+  --duration-2: 300ms;
+
+  /* Paper scale (light mode primitives — used by generalist mode only) */
+  --paper-0:   #F7F8FA;   /* light canvas */
+  --paper-50:  #FFFFFF;   /* light raised surface */
+  --paper-100: #EFF1F4;   /* light raised surface, hover */
+  --paper-200: #E2E5EA;   /* light hairlines */
+  --paper-300: #C6CCD4;   /* light strong borders */
+  --paper-400: #66707D;   /* light tertiary text · 4.7:1 on paper-0 (AA) */
+  --paper-500: #454C57;   /* light secondary text · 8.2:1 (AA+) */
+  --paper-600: #1A1E24;   /* light primary text · 15.8:1 (AAA) */
+
+  /* Signal red, light-mode step */
+  --red-600: #BE3520;     /* accent on light · 5.3:1 on paper-0 (AA) */
+  --red-700: #9E2C1A;     /* pressed on light */
+  --red-wash-light: rgba(190, 53, 32, 0.06);
+  --red-line-light: rgba(190, 53, 32, 0.35);
+
+  /* Layout */
+  --measure: 68ch;          /* max line length for prose */
+  --content-max: 1200px;    /* page container */
+  --header-h: 64px;         /* sticky header height (sub-navs offset by this) */
+  --gutter: var(--space-6); /* page side padding; widens below 1280px (see main.css) */
+
+
+  /* ------------------------------------------------------------------
+     TIER 2 · SEMANTIC — components reference these only
+     ------------------------------------------------------------------ */
+
+  /* Backgrounds */
+  --bg-canvas:        var(--ink-0);
+  --bg-raised:        var(--ink-50);
+  --bg-raised-hover:  var(--ink-100);
+  --bg-accent:        var(--red-400);
+  --bg-accent-hover:  var(--red-500);
+  --bg-accent-wash:   var(--red-wash);
+
+  /* Foregrounds */
+  --fg-primary:    var(--ink-600);
+  --fg-secondary:  var(--ink-500);
+  --fg-tertiary:   var(--ink-400);
+  --fg-accent:     var(--red-400);
+  --fg-on-accent:  var(--ink-0);      /* dark text on red fills (6.4:1) */
+  --fg-inverse:    var(--ink-0);
+
+  /* Borders */
+  --border-hairline:  var(--ink-200);
+  --border-strong:    var(--ink-300);
+  --border-accent:    var(--red-line);
+
+  /* Type roles */
+  --text-display:  var(--family-display);
+  --text-body:     var(--family-body);
+  --text-technical: var(--family-mono);
+
+  /* Focus ring */
+  --focus-ring: 2px solid var(--red-400);
+  --focus-offset: 3px;
+
+  color-scheme: dark;
+}
+
+
+/* ==========================================================================
+   MODE: GENERALIST (light theme)
+   --------------------------------------------------------------------------
+   Only Tier 2 semantic tokens are remapped — no component CSS changes.
+   This is the whole point of the two-tier architecture: retheming the site
+   is a remap, not a rewrite. Toggled by data-mode="gen" on <html>.
+   ========================================================================== */
+
+:root[data-mode="gen"] {
+  --bg-canvas:        var(--paper-0);
+  --bg-raised:        var(--paper-50);
+  --bg-raised-hover:  var(--paper-100);
+  --bg-accent:        var(--red-600);
+  --bg-accent-hover:  var(--red-700);
+  --bg-accent-wash:   var(--red-wash-light);
+
+  --fg-primary:    var(--paper-600);
+  --fg-secondary:  var(--paper-500);
+  --fg-tertiary:   var(--paper-400);
+  --fg-accent:     var(--red-600);     /* darker red step: #FF5C49 fails AA on light */
+  --fg-on-accent:  #FFFFFF;            /* white passes on red-600 (5.7:1) */
+
+  --border-hairline:  var(--paper-200);
+  --border-strong:    var(--paper-300);
+  --border-accent:    var(--red-line-light);
+
+  --focus-ring: 2px solid var(--red-600);
+
+  color-scheme: light;
+}
