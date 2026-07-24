@@ -22,7 +22,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; /* absorbs 100vw scrollbar overshoot from --bleed figures */ }
 
 body {
   margin: 0;
@@ -53,6 +53,17 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
+
+/* Force ANY image to fill its container's full width, even when its natural
+   size is smaller (bare <img> tags only stretch up to natural size by default).
+   Usage: <img class="img-stretch" src="..."> — combine with a
+   spec-figure--bleed wrapper for true edge-to-edge.
+   Note: upscales small images; export at 2x the display width for sharpness. */
+.img-stretch { width: 100%; }
+
+/* Removes the padded well from a light frame so the image itself reaches
+   the frame edges: class="spec-figure__frame--light spec-figure__frame--flush" */
+.spec-figure__frame--flush { padding: 0; }
 
 h1, h2, h3, h4 { color: var(--fg-primary); line-height: 1.15; margin: 0 0 var(--space-4); }
 
@@ -355,6 +366,25 @@ li { margin-bottom: var(--space-2); }
    (captions center-align automatically with the frame) */
 .spec-figure--narrow { max-width: 680px; margin-left: auto; margin-right: auto; }
 .spec-figure--medium { max-width: 920px; margin-left: auto; margin-right: auto; }
+
+/* FULL-BLEED — stretches viewport edge to edge from INSIDE any container:
+     <figure class="spec-figure spec-figure--bleed">
+   The calc breaks out of the centered container; captions stay aligned
+   with the content column. */
+.spec-figure--bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+.spec-figure--bleed .spec-figure__frame {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+.spec-figure--bleed figcaption {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
 .spec-figure__frame {
   position: relative;
   border: var(--line-1) solid var(--border-hairline);
