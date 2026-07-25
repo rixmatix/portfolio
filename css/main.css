@@ -62,8 +62,10 @@ img { max-width: 100%; height: auto; display: block; }
 .img-stretch { width: 100%; }
 
 /* Removes the padded well from a light frame so the image itself reaches
-   the frame edges: class="spec-figure__frame--light spec-figure__frame--flush" */
-.spec-figure__frame--flush { padding: 0; }
+   the frame edges: class="spec-figure__frame--light spec-figure__frame--flush"
+   (the doubled selector outranks the --light padding rule defined later) */
+.spec-figure__frame--flush,
+.spec-figure__frame.spec-figure__frame--flush { padding: 0; }
 
 h1, h2, h3, h4 { color: var(--fg-primary); line-height: 1.15; margin: 0 0 var(--space-4); }
 
@@ -73,8 +75,10 @@ ul { padding-left: 1.2em; max-width: var(--measure); }
 li { margin-bottom: var(--space-2); }
 
 /* Component lists are layout, not prose — they escape the prose ul constraints.
-   (This is the fix for the case grid rendering single-column on desktop.) */
-.case-grid, .metrics, .principles, .how-i-work, .contact-list {
+   (Fix for the case grid rendering single-column, and the card trio capping
+   at reading width.) NOTE: any future ul-based layout component must be
+   added to this list, or it will be capped at 68ch. */
+.case-grid, .metrics, .principles, .how-i-work, .contact-list, .card-trio {
   max-width: none;
   padding-left: 0;
 }
@@ -846,6 +850,98 @@ html:not([data-mode="gen"]) .mode-gen { display: none !important; }
 .carousel__btn:hover { border-color: var(--fg-accent); color: var(--fg-accent); }
 .carousel__btn--prev { left: calc(-1 * var(--space-2)); }
 .carousel__btn--next { right: calc(-1 * var(--space-2)); }
+
+
+/* --- Numbered card trio: joined cells in one frame, hairline dividers ---
+   3-across on desktop, stacked below 900px. For a different count, change
+   the repeat() value (it still stacks on mobile). */
+.card-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: var(--line-1) solid var(--border-hairline);
+  border-radius: var(--radius-3);
+  background: var(--bg-raised);
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin: var(--space-12) 0;
+}
+.card-trio__cell {
+  padding: var(--space-8);
+  border-left: var(--line-1) solid var(--border-hairline);
+  margin: 0;
+}
+.card-trio__cell:first-child { border-left: none; }
+.card-trio__index {
+  display: block;
+  font-family: var(--text-technical);
+  font-size: var(--scale-100);
+  color: var(--fg-accent);
+  margin-bottom: var(--space-3);
+}
+.card-trio__cell h3 {
+  font-size: var(--scale-400);
+  font-weight: 600;
+  margin: 0 0 var(--space-2);
+}
+.card-trio__cell p {
+  font-size: var(--scale-200);
+  color: var(--fg-secondary);
+  margin: 0;
+}
+
+/* --- Process flow: pipeline steps in a frame, arrows between ---
+   Horizontal with right-arrows on desktop; vertical with down-arrows
+   below 900px. Mark one step .process-flow__step--active to highlight. */
+.process-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+  border: var(--line-1) solid var(--border-hairline);
+  border-radius: var(--radius-3);
+  background: var(--bg-raised);
+  padding: var(--space-8);
+  margin: var(--space-12) 0;
+}
+.process-flow__step {
+  flex: 1;
+  border: var(--line-1) solid var(--border-strong);
+  border-radius: var(--radius-2);
+  padding: var(--space-4) var(--space-6);
+}
+.process-flow__label {
+  display: block;
+  font-family: var(--text-technical);
+  font-size: var(--scale-100);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  margin-bottom: var(--space-1);
+}
+.process-flow__name {
+  font-weight: 600;
+  color: var(--fg-primary);
+}
+.process-flow__arrow {
+  align-self: center;
+  flex: none;
+  font-family: var(--text-technical);
+  color: var(--fg-accent);
+}
+.process-flow__arrow::before { content: "\2192"; } /* right arrow */
+.process-flow__step--active {
+  background: var(--bg-accent-wash);
+  border-color: var(--fg-accent);
+}
+.process-flow__step--active .process-flow__label { color: var(--fg-accent); }
+
+@media (max-width: 899px) {
+  .card-trio { grid-template-columns: 1fr; }
+  .card-trio__cell { border-left: none; border-top: var(--line-1) solid var(--border-hairline); }
+  .card-trio__cell:first-child { border-top: none; }
+  .process-flow { flex-direction: column; }
+  .process-flow__arrow::before { content: "\2193"; } /* down arrow */
+}
 
 /* --- Pattern library responsive collapse --- */
 @media (max-width: 899px) {

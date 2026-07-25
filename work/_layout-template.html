@@ -48,6 +48,8 @@
     <a href="#bento"><span class="subnav-label">Bento</span></a>
     <a href="#scrolly-demo"><span class="subnav-label">Scrolly</span></a>
     <a href="#carousel-demo"><span class="subnav-label">Carousel</span></a>
+    <a href="#card-trio-demo"><span class="subnav-label">Card trio</span></a>
+    <a href="#process-flow-demo"><span class="subnav-label">Process flow</span></a>
   </div>
 </nav>
 
@@ -87,14 +89,16 @@
     <div class="container prose">
       <p class="eyebrow">layout/02</p>
       <h2>Full-bleed figure</h2>
-      <p>Edge to edge. Simply place the figure outside the container &mdash; no class needed. Best for wide, atmospheric imagery.</p>
+      <p>Edge to edge: add <code>spec-figure--bleed</code> to the figure &mdash; from inside any container. Best for wide, atmospheric imagery.</p>
     </div>
-    <figure class="spec-figure" style="margin-left: 0; margin-right: 0;">
-      <div class="spec-figure__frame spec-figure__frame--light" style="border-radius: 0; border-left: none; border-right: none;">
-        <img src="../assets/img/circana-hero-screens.jpg" alt="Wide spread of Unify+ analytics screens." loading="lazy">
-      </div>
-      <figcaption class="container"><span class="fig-id">FIG 02</span> Full-bleed &mdash; caption stays in the container.</figcaption>
-    </figure>
+    <div class="container prose">
+      <figure class="spec-figure spec-figure--bleed">
+        <div class="spec-figure__frame spec-figure__frame--light">
+          <img src="../assets/img/circana-hero-screens.jpg" alt="Wide spread of Unify+ analytics screens." loading="lazy">
+        </div>
+        <figcaption><span class="fig-id">FIG 02</span> Full-bleed via <code>spec-figure--bleed</code> &mdash; works from inside any container; caption stays aligned with the content column.</figcaption>
+      </figure>
+    </div>
   </div>
 
   <!-- ============================================================
@@ -325,6 +329,69 @@
             <figcaption><span class="fig-id">SLIDE 04</span> Data viz set.</figcaption>
           </figure>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PATTERN: NUMBERED CARD TRIO
+       Usage: .card-trio > li.card-trio__cell (index span + h3 + p).
+       One frame, hairline dividers. 3-across desktop, stacked <900px.
+       For 2 or 4 cells, change repeat(3, 1fr) in main.css.
+       ============================================================ -->
+  <section class="section container prose case-section" id="card-trio-demo">
+    <p class="eyebrow">layout/11</p>
+    <h2>Numbered card trio</h2>
+    <p>Joined cells sharing one frame &mdash; for problems, principles, or pillars.</p>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Flat token model</h3>
+        <p>A single tier of primitives meant one brand change had knock-on effects elsewhere. Teams hard-coded values to cope.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>Manual handoff</h3>
+        <p>Engineers copied brand colours and type specs by hand from Figma. Decisions were missed; rework was routine.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>No component / pattern boundary</h3>
+        <p>All UI routed through the DS before product teams could use it &mdash; a bottleneck that owned decisions belonging to product.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: PROCESS FLOW
+       Usage: .process-flow > .process-flow__step (+ .process-flow__arrow
+       spans between). Add --active to highlight a step. Horizontal with
+       right-arrows on desktop, vertical with down-arrows below 900px.
+       ============================================================ -->
+  <section class="section container prose case-section" id="process-flow-demo">
+    <p class="eyebrow">layout/12</p>
+    <h2>Process flow</h2>
+    <p>A pipeline in a frame &mdash; arrows flip from horizontal to vertical responsively.</p>
+    <div class="process-flow">
+      <div class="process-flow__step">
+        <span class="process-flow__label">Figma</span>
+        <span class="process-flow__name">TokensStudio</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">W3C DTCG</span>
+        <span class="process-flow__name">JSON in git</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step process-flow__step--active">
+        <span class="process-flow__label">Transform</span>
+        <span class="process-flow__name">StyleDictionary</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Output</span>
+        <span class="process-flow__name">Figma Variables &middot; CSS</span>
       </div>
     </div>
   </section>
