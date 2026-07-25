@@ -50,6 +50,7 @@
     <a href="#carousel-demo"><span class="subnav-label">Carousel</span></a>
     <a href="#card-trio-demo"><span class="subnav-label">Card trio</span></a>
     <a href="#process-flow-demo"><span class="subnav-label">Process flow</span></a>
+    <a href="#case-cards-demo"><span class="subnav-label">Case cards</span></a>
   </div>
 </nav>
 
@@ -394,6 +395,145 @@
         <span class="process-flow__name">Figma Variables &middot; CSS</span>
       </div>
     </div>
+  </section>
+
+
+  <!-- ============================================================
+       PATTERN: CASE CARD GRIDS (the home page card, at four densities)
+       Usage: .case-grid (2-across default) or add a density class:
+       .case-grid--1 (horizontal card, square 1:1 image | text),
+       .case-grid--3, .case-grid--4.
+       Cards use the exact home page markup — copy them straight across.
+       ============================================================ -->
+  <section class="section container prose case-section" id="case-cards-demo">
+    <p class="eyebrow">layout/13</p>
+    <h2>Case card grids</h2>
+
+    <h3>1-across &mdash; horizontal, 1:1 image</h3>
+    <ul class="case-grid case-grid--1">
+      <li>
+        <a class="case-card" href="liquid-m1.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/liquid — M1 Finance</span>
+          <h3 class="case-card__title">Building Liquid: M1's first design system</h3>
+          <p class="case-card__desc">From zero to 80% company-wide adoption in 12 months.</p>
+          <span class="case-card__tags"><span class="tag">governance</span><span class="tag">tokens</span></span>
+        </a>
+      </li>
+    </ul>
+
+    <h3>2-across (home page default)</h3>
+    <ul class="case-grid">
+      <li>
+        <a class="case-card" href="liquid-m1.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/liquid — M1 Finance</span>
+          <h3 class="case-card__title">Building Liquid: M1's first design system</h3>
+          <p class="case-card__desc">From zero to 80% company-wide adoption in 12 months.</p>
+          <span class="case-card__tags"><span class="tag">governance</span><span class="tag">tokens</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="case-card" href="unify.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/circana-thumb.jpg" alt="Unify+ login screen on a laptop." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/unify-plus — Circana</span>
+          <h3 class="case-card__title">Circana's enterprise design system</h3>
+          <p class="case-card__desc">Accessibility-first system — 45 core components covering 80% of screens.</p>
+          <span class="case-card__tags"><span class="tag">accessibility</span><span class="tag">data viz</span></span>
+        </a>
+      </li>
+    </ul>
+
+    <h3>3-across</h3>
+    <ul class="case-grid case-grid--3">
+      <li>
+        <a class="case-card" href="liquid-m1.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/liquid — M1 Finance</span>
+          <h3 class="case-card__title">Building Liquid: M1's first design system</h3>
+          <p class="case-card__desc">From zero to 80% company-wide adoption in 12 months.</p>
+          <span class="case-card__tags"><span class="tag">governance</span><span class="tag">tokens</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="case-card" href="unify.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/circana-thumb.jpg" alt="Unify+ login screen on a laptop." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/unify-plus — Circana</span>
+          <h3 class="case-card__title">Circana's enterprise design system</h3>
+          <p class="case-card__desc">Accessibility-first system — 45 core components covering 80% of screens.</p>
+          <span class="case-card__tags"><span class="tag">accessibility</span><span class="tag">data viz</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="case-card" href="m1-onboarding.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1ob-hero.png" alt="M1 portfolio screens in dark and light themes." loading="lazy">
+          </div>
+          <span class="case-card__id">product/m1-onboarding — M1 Finance</span>
+          <h3 class="case-card__title">M1 onboarding: following the data</h3>
+          <p class="case-card__desc">A 10% conversion lift; premium sign-ups up from 14% to 50%+.</p>
+          <span class="case-card__tags"><span class="tag">growth</span><span class="tag">kyc</span></span>
+        </a>
+      </li>
+    </ul>
+
+    <h3>4-across</h3>
+    <ul class="case-grid case-grid--4">
+      <li>
+        <a class="case-card" href="liquid-m1.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/liquid — M1 Finance</span>
+          <h3 class="case-card__title">Building Liquid: M1's first design system</h3>
+          <p class="case-card__desc">From zero to 80% company-wide adoption in 12 months.</p>
+          <span class="case-card__tags"><span class="tag">governance</span><span class="tag">tokens</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="case-card" href="unify.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/circana-thumb.jpg" alt="Unify+ login screen on a laptop." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/unify-plus — Circana</span>
+          <h3 class="case-card__title">Circana's enterprise design system</h3>
+          <p class="case-card__desc">Accessibility-first system — 45 core components covering 80% of screens.</p>
+          <span class="case-card__tags"><span class="tag">accessibility</span><span class="tag">data viz</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="case-card" href="m1-onboarding.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1ob-hero.png" alt="M1 portfolio screens in dark and light themes." loading="lazy">
+          </div>
+          <span class="case-card__id">product/m1-onboarding — M1 Finance</span>
+          <h3 class="case-card__title">M1 onboarding: following the data</h3>
+          <p class="case-card__desc">A 10% conversion lift; premium sign-ups up from 14% to 50%+.</p>
+          <span class="case-card__tags"><span class="tag">growth</span><span class="tag">kyc</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="case-card" href="bmw.html">
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1-liquid-tshirts.jpg" alt="Placeholder image of Liquid t-shirts." loading="lazy">
+          </div>
+          <span class="case-card__id">ds/bmw — BMW Technology</span>
+          <h3 class="case-card__title">BMW's first internal design system</h3>
+          <p class="case-card__desc">Pattern library aligning Chicago and Munich teams.</p>
+          <span class="case-card__tags"><span class="tag">pattern library</span></span>
+        </a>
+      </li>
+    </ul>
   </section>
 
 </main>

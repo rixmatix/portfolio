@@ -943,6 +943,52 @@ html:not([data-mode="gen"]) .mode-gen { display: none !important; }
   .process-flow__arrow::before { content: "\2193"; } /* down arrow */
 }
 
+
+/* --- Case-card grid density variants ---
+   Default .case-grid = 2-across (the home page). Add one class for others:
+     .case-grid--1  one per row, card goes horizontal: square 1:1 image | text
+     .case-grid--3  three across
+     .case-grid--4  four across (tighter padding + smaller titles)
+   Responsive: 4 -> 3 -> 2 -> 1 as the viewport narrows. */
+
+.case-grid--1 { grid-template-columns: 1fr; }
+.case-grid--1 .case-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--space-8);
+  align-content: start;
+}
+.case-grid--1 .case-card__thumb {
+  grid-column: 1;
+  grid-row: 1 / span 6; /* spans all text rows; empty implicit rows collapse */
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  margin-bottom: 0;
+}
+.case-grid--1 .case-card > :not(.case-card__thumb) { grid-column: 2; }
+
+.case-grid--3 { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.case-grid--4 { grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+.case-grid--3 .case-card, .case-grid--4 .case-card { padding: var(--space-6); }
+.case-grid--4 .case-card__title { font-size: var(--scale-400); }
+
+@media (max-width: 1200px) {
+  .case-grid--4 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .case-grid--3, .case-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .case-grid--3, .case-grid--4 { grid-template-columns: 1fr; }
+  /* horizontal card returns to the standard stacked layout */
+  .case-grid--1 .case-card { display: block; }
+  .case-grid--1 .case-card__thumb {
+    aspect-ratio: 16 / 10;
+    height: auto;
+    margin-bottom: var(--space-6);
+  }
+}
+
 /* --- Pattern library responsive collapse --- */
 @media (max-width: 899px) {
   .split, .split--sticky { grid-template-columns: 1fr; gap: var(--space-8); }
