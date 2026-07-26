@@ -5,8 +5,8 @@
   <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
   <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pangea Design System — Ricky Sunay</title>
-  <meta name="description" content="Pangea Design System — case study by Ricky Sunay.">
+  <title>Pangea: Launching a Debit Card &mdash; Ricky Sunay</title>
+  <meta name="description" content="How Ricky Sunay helped Pangea Money Transfer bring a brand-new debit card product to market &mdash; 250k unique sign-ups, from waitlist tests to a gamified funding flow.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
       <a href="../index.html" aria-current="page">Work</a>
       <a href="../about.html">About</a>
       <a href="../contact.html">Contact</a>
-      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume &#8595;</a>
       <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
         <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
         <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
@@ -36,18 +36,348 @@
 </header>
 
 <main id="main">
+
+<!-- ================= STICKY SECTION NAV ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#outcomes"><span class="subnav-label">Outcomes</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#data"><span class="subnav-label">Data-driven</span></a>
+    <a href="#signup"><span class="subnav-label">Sign-up flow</span></a>
+    <a href="#waitlists"><span class="subnav-label">Waitlists</span></a>
+    <a href="#market"><span class="subnav-label">Market ready</span></a>
+    <a href="#iterating"><span class="subnav-label">Iterating</span></a>
+    <a href="#epilogue"><span class="subnav-label">Epilogue</span></a>
+  </div>
+</nav>
+
   <!-- ================= COPY: CASE HERO ================= -->
-  <section class="case-hero container">
-    <p class="eyebrow">Case study ds/pangea · Pangea Money Transfer</p>
-    <h1 class="display-lg">Pangea Design System</h1>
-    <p class="lede">Full case study coming soon.</p>
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study product/pangea-card &middot; Pangea Money Transfer</p>
+    <h1 class="display-lg">Pangea: launching a debit card</h1>
+    <p class="lede">
+      On a mission to give everyone the power to move their money effortlessly
+      &mdash; starting with those who need it most. I helped Pangea improve
+      their cross-platform application and bring a brand-new product to market.
+    </p>
+    <p>
+      Pangea Money Transfer is a data-driven fintech startup specializing in
+      money remittances &mdash; international money transfers made as easy and
+      intuitive as possible. With a majority of users of Mexican descent, 66% of
+      the user base is non-native speaking, unbanked or underbanked, and often
+      undocumented. We were driven by the purpose of empowering an underserved
+      class to manage their money and care for their loved ones.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Senior Product Designer</dd></div>
+      <div><dt>Timeline</dt><dd>9 months</dd></div>
+      <div><dt>Team</dt><dd>Sole designer &middot; 2 PMs &middot; 3 developers</dd></div>
+      <div><dt>Partner</dt><dd>Green Dot Bank</dd></div>
+    </dl>
+    <p style="font-family: var(--text-technical); font-size: var(--scale-100); color: var(--fg-tertiary); margin-top: var(--space-4);">Illustrations by <a class="inline-link" href="https://www.linkedin.com/in/rubiopinto/">Nico Rubio</a></p>
   </section>
   <!-- ================= END COPY: CASE HERO ================= -->
 
+  <div class="container">
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-hero.jpg" alt="The Pangea Visa Debit Card arriving in the app — a teal card over a celebration screen reading 'Your Pangea Visa Debit Card is on its way,' with direct deposit setup below." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The Pangea Visa&reg; Debit Card — a banking product built for remittance customers.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: OUTCOMES ================= -->
+  <section class="section container prose case-section" id="outcomes">
+    <p class="eyebrow">Impact</p>
+    <h2>Outcomes</h2>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">250k</span><span class="metric__label">unique user sign-ups</span></li>
+      <li class="metric"><span class="metric__value">0 &rarr; 1</span><span class="metric__label">a brand-new banking product brought to market</span></li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: OUTCOMES ================= -->
+
+  <!-- ================= COPY: PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>Finding a differentiator</h2>
+    <p>
+      To continue Pangea's success we looked for a differentiator within our
+      space, coupled with the needs of our unique user base. Looking to be the
+      first remittance application to offer banking services to this niche
+      market, Pangea set out to release a debit card specifically targeted at
+      our remittance customers.
+    </p>
+    <p>
+      Over the following months we iteratively released The Pangea Visa&reg;
+      Debit Card, working with our banking partner Green Dot. I was the only
+      designer on the product team, alongside two PMs and three developers,
+      slowly releasing features and measuring their impact.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-wireframes.jpg" alt="Early greyscale wireframe map of the entire new-user experience: onboarding carousel, splash pages, sign-up and KYC screens, remit flow, deposit paths, card management, and reset PIN." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> The full new-user experience, wireframed end to end before a pixel of UI.</figcaption>
+    </figure>
+
+    <h3>Defining success</h3>
+    <p>From the beginning we noted rough success metrics, adjusting them as the product evolved, but always setting goals against KPIs:</p>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">kpi/01</span>
+        <h3>Activation</h3>
+        <p>How well are we bringing in new users?</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">kpi/02</span>
+        <h3>Retention</h3>
+        <p>How well do we keep our existing users?</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">kpi/03</span>
+        <h3>Payback</h3>
+        <p>Months to break even.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: PROBLEM ================= -->
+
+  <!-- ================= COPY: DATA-DRIVEN ================= -->
+  <section class="section container prose case-section" id="data">
+    <p class="eyebrow">Data-driven mindset</p>
+    <h2>Awareness of customer impact</h2>
+    <p>
+      Even before the addition of a new card, our application features were
+      quickly increasing in complexity. Given the number of changes we were
+      proposing, it was important to have an awareness of customer impact. I
+      regularly integrated customer feedback into final design decisions through
+      user research and customer surveys.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-pattern-library.png" alt="The Pangea pattern library: typography scale, color palette, iconography, navigation, buttons, elevation styles, list items, form fields, special components, and illustration set." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 03</span> The Pangea pattern library — the foundations under every screen in this story.</figcaption>
+    </figure>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-before-after.jpg" alt="Before and after of the Pangea home screen: the redesign adds a card promo module and a richer repeat-transfers list beneath the FX calculator." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 04</span> Home, before and after — promo placement and repeat transfers, both instrumented.</figcaption>
+    </figure>
+
+  </section>
+  <!-- ================= END COPY: DATA-DRIVEN ================= -->
+
+  <!-- ================= COPY: SIGN-UP FLOW ================= -->
+  <section class="section container prose case-section" id="signup">
+    <p class="eyebrow">Testing the sign-up flow</p>
+    <h2>Trust, identity, and the SSN barrier</h2>
+    <p>
+      It was important to start learning about our customers' feelings and
+      behaviors around banking &mdash; specifically the sharing of personal
+      information. Our users are known, for multiple reasons, not to trust
+      banks. Understandably so; we needed to uncover how to make it easier.
+    </p>
+    <p>
+      The SSN requirement for an account is a huge barrier for our customers,
+      with an estimated 25% representing undocumented workers. We looked to
+      introduce support for other forms of government-issued IDs specific to
+      Mexico, such as the Matr&iacute;cula Consular.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-signup-flow.jpg" alt="The linear sign-up flow from phone number through phone verify, name, email, date of birth, address, SSN, password, and agreements, ending at the debit card confirmation screen." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 05</span> The sign-up and KYC path — every screen a potential drop-off, the SSN screen most of all.</figcaption>
+    </figure>
+
+    <figure class="spec-figure spec-figure--narrow">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-onboarding-demo.gif" alt="Animated onboarding welcome screen: 'Welcome to Pangea. There's a better world out there. You are a part of it,' with an illustrated globe and confetti." loading="lazy"style="width:50%; height: auto; margin: 0 auto;">
+      </div>
+      <figcaption><span class="fig-id">FIG 06</span> The onboarding welcome, in motion.</figcaption>
+    </figure>
+
+  </section>
+  <!-- ================= END COPY: SIGN-UP FLOW ================= -->
+
+  <!-- ================= COPY: WAITLISTS ================= -->
+  <section class="section container prose case-section" id="waitlists">
+    <p class="eyebrow">First launch</p>
+    <h2>Learning through waitlists</h2>
+    <p>
+      To quickly start learning from the real product and live customers, we ran
+      a waitlist as the first exposure test: a controlled group of users began
+      seeing promotion banners for the upcoming Pangea Card, giving us a read on
+      demand within the existing base. Only 15% of our English-language users
+      saw the promo. Beyond the usual metrics, we wanted to see how the new
+      promotion and splash pages impacted overall use of the app.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-waitlist-flow.jpg" alt="The internal waitlist flow: FX page promo, card splash page, phone entry and verification, SMS opt-in, email capture, and a $10 give-$10 referral screen with SMS sharing." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 07</span> Waitlist v1 — promo to splash to join to referral.</figcaption>
+    </figure>
+
+    <h3>Waitlist: goals vs. results</h3>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">44%</span><span class="metric__label">saw the promotion and clicked &mdash; goal: 30%</span></li>
+      <li class="metric"><span class="metric__value">46%</span><span class="metric__label">reached the splash page and tapped &ldquo;Join&rdquo; &mdash; goal: 50%</span></li>
+      <li class="metric"><span class="metric__value">18%</span><span class="metric__label">shared the card info &mdash; goal: 25%</span></li>
+    </ul>
+    <p>With the success of the first waitlist, the business felt comfortable investing in another release.</p>
+
+    <h3>External waitlist</h3>
+    <p>A revised version of the waitlist, coordinated with an external marketing campaign.</p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-external-waitlist.jpg" alt="The external waitlist flow in Spanish, entered from home promo, SMS, and email campaigns into a splash page, phone verification, email capture, and referral sharing." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 08</span> The external waitlist — same funnel, now fed by SMS and email marketing, localized.</figcaption>
+    </figure>
+
+    <p>
+      After adjusting our main promotional banner and splash page, we increased
+      conversion from the home page into sign-up. Comfortable with our discovery
+      and sign-up path, we were ready to push out full functionality.
+    </p>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">48%</span><span class="metric__label">saw the promotion and clicked &mdash; up from 44%</span></li>
+      <li class="metric"><span class="metric__value">64%</span><span class="metric__label">reached the splash page and tapped &ldquo;Join&rdquo; &mdash; up from 46%</span></li>
+      <li class="metric"><span class="metric__value">24%</span><span class="metric__label">shared the card info &mdash; up from 18%</span></li>
+    </ul>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-splash-variants.jpg" alt="Nine splash page copy and layout variants testing different benefit orderings: free transfers, early pay, $0 fees, ATM access, and Matrícula Consular acceptance." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 09</span> Splash page variants — benefit positioning under continuous A/B test.</figcaption>
+    </figure>
+
+    <p>
+      We learned a lot about how to position product features and which benefits
+      to highlight, running A/B tests on anything uncertain and continually
+      measuring performance of promotions and splash pages.
+    </p>
+    <p class="pullquote">In interviews, people emphasized $0 down, no minimum balance, no overdraft fees. In the data, those benefits weren't unique enough to move our users.</p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-ad-variations.jpg" alt="The home promo module beside Android and iOS ad banner variations, each testing different card benefit copy: send for free, get paid early, no hidden fees, no minimum balance." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 10</span> Promo banner variations across Android and iOS — copy as a test surface.</figcaption>
+    </figure>
+
+  </section>
+  <!-- ================= END COPY: WAITLISTS ================= -->
+
+  <!-- ================= COPY: MARKET READY ================= -->
+  <section class="section container prose case-section" id="market">
+    <p class="eyebrow">Market ready</p>
+    <h2>Half the user base, full functionality</h2>
+    <p>
+      50% of our users would be exposed to the full functionality of the
+      application &mdash; while I already had improvements designed and spec'd
+      for ACH and Matr&iacute;cula support.
+    </p>
+    <h3>Targets for the release</h3>
+    <ul>
+      <li><strong>Activation:</strong> 25% tap the promo &middot; 70% tap &ldquo;Get Started&rdquo; &middot; 10% finish the application.</li>
+      <li><strong>Retention:</strong> 60% approval rate &middot; 8% funded-account rate &middot; 3% sign up and fund their account.</li>
+    </ul>
+    <figure class="spec-figure spec-figure--bleed">
+      <div class="spec-figure__frame spec-figure__frame--light spec-figure__frame--flush">
+        <img src="../assets/img/pg-newuser-flow.jpg" alt="The full market-ready new-user flow: onboarding, home, splash pages, complete sign-up and KYC in Spanish, remit flow, deposit cash and bank paths, ATM locator, statements, card management, and support screens." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 11</span> The market-ready new-user flow, end to end.</figcaption>
+    </figure>
+
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-returning-user.jpg" alt="The returning-user flow: login with phone verification and password recovery, fraud check branch, logged-in home with card module, payment method and confirm amount screens with balance limits, and card and transfer activity views." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 12</span> Returning users — login, fraud states, payment methods, and activity.</figcaption>
+    </figure>
+
+  </section>
+  <!-- ================= END COPY: MARKET READY ================= -->
+
+  <!-- ================= COPY: ITERATING ================= -->
+  <section class="section container prose case-section" id="iterating">
+    <p class="eyebrow">Still iterating</p>
+    <h2>Following the funnel</h2>
+    <p>
+      The latest data showed where the product needed the biggest improvements.
+      Ultimate success meant getting people to fund their accounts &mdash; we
+      needed to move users through the Pangea Card funnel more effectively by
+      consistently and strategically reminding them of their next step.
+    </p>
+    <h3>Activation results</h3>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">23%</span><span class="metric__label">tapped the promo &mdash; goal: 25%</span></li>
+      <li class="metric"><span class="metric__value">60%</span><span class="metric__label">tapped &ldquo;Get Started&rdquo; &mdash; goal: 70%</span></li>
+      <li class="metric"><span class="metric__value">5.7%</span><span class="metric__label">finished the application &mdash; goal: 10%</span></li>
+    </ul>
+    <h3>Retention results</h3>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">76%</span><span class="metric__label">approval rate &mdash; goal: 60%</span></li>
+      <li class="metric"><span class="metric__value">3.7%</span><span class="metric__label">funded-account rate &mdash; goal: 8%</span></li>
+      <li class="metric"><span class="metric__value">&minus;5.8%</span><span class="metric__label">lift in remittance activation among promo-exposed users</span></li>
+    </ul>
+    <p>
+      That last number mattered: remittances dipped among users who could see the
+      promo. Our early hypothesis was that the card promo pushed repeat
+      transfers below the fold, decreasing their use. In response we redesigned
+      the promo banners and built a system of app notifications that
+      strategically nudged users down the funding flow.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-funding-optimizations.jpg" alt="Funding flow optimizations: home banners for Android and iOS, a direct deposit modal, cash-or-ACH funding paths, and payment and thank-you intercepts reminding users to fund their card." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 13</span> Funding flow optimizations — banners, modals, and intercepts nudging the next step.</figcaption>
+    </figure>
+
+    <h3>Gamifying the funding flow</h3>
+    <p>
+      I proposed a flow that would encourage users to follow through on funding
+      their cards &mdash; a visible apply &rarr; activate &rarr; deposit &rarr;
+      earn progression, tested as both a timeline and interactive tabs.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--light">
+        <img src="../assets/img/pg-gamified-setup.jpg" alt="The gamified card setup process in two treatments: a progress timeline and interactive tabs, both stepping through apply, activate, deposit, and earn with celebratory end states." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 14</span> Apply &rarr; activate &rarr; deposit &rarr; earn — the setup funnel made visible, as a timeline and as tabs.</figcaption>
+    </figure>
+
+  </section>
+  <!-- ================= END COPY: ITERATING ================= -->
+
+  <!-- ================= COPY: EPILOGUE ================= -->
+  <section class="section container prose case-section" id="epilogue">
+    <p class="eyebrow">Epilogue</p>
+    <h2>An honest ending</h2>
+    <p>
+      We planned to keep pushing the product and learning from our users &mdash;
+      but due to COVID, front-end development was paused and a handful of the
+      team was let go, including me. I hope the team keeps the product
+      progressing and helping its users. If you ever need to send money
+      internationally, check out Pangea Money Transfer.
+    </p>
+  </section>
+  <!-- ================= END COPY: EPILOGUE ================= -->
+
   <nav class="case-nav container" aria-label="Case study navigation">
-    <a class="btn btn--ghost" href="../index.html">← All work</a>
-    <a class="btn btn--primary" href="../contact.html">Ask me about this project →</a>
+    <a class="btn btn--ghost" href="../index.html">&#8592; All work</a>
+    <a class="btn btn--ghost" href="m1-onboarding.html">Next: M1 onboarding &#8594;</a>
   </nav>
+
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -58,11 +388,11 @@
       <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
     </details>
     <div class="site-footer__meta">
-      <span>© 2026 Ricky Sunay · Chicago, IL</span>
-      <span>Built by hand — HTML, CSS custom properties, 40 lines of JS. Press <kbd>G</kbd> for the grid.</span>
+      <span>&copy; 2026 Ricky Sunay &middot; Chicago, IL</span>
+      <span>Built by hand &mdash; HTML, CSS custom properties, one small JS file. Press <kbd>G</kbd> for the grid.</span>
       <span>
-        <a href="mailto:RickySunay@gmail.com">Email</a> ·
-        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="mailto:RickySunay@gmail.com">Email</a> &middot;
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> &middot;
         <a href="https://www.behance.net/rsunay">Behance</a>
       </span>
     </div>
