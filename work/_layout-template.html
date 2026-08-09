@@ -51,6 +51,7 @@
     <a href="#card-trio-demo"><span class="subnav-label">Card trio</span></a>
     <a href="#process-flow-demo"><span class="subnav-label">Process flow</span></a>
     <a href="#case-cards-demo"><span class="subnav-label">Case cards</span></a>
+    <a href="#token-chips-demo"><span class="subnav-label">Token chips</span></a>
   </div>
 </nav>
 
@@ -428,7 +429,9 @@
     <ul class="case-grid">
       <li>
         <a class="case-card" href="liquid-m1.html">
-          <div class="case-card__thumb"><div class="thumb-placeholder"><span>case study coming soon</span></div></div>
+          <div class="case-card__thumb">
+            <img src="../assets/img/m1-redesigned-screens.jpg" alt="Isometric spread of redesigned M1 screens." loading="lazy">
+          </div>
           <span class="case-card__id">ds/liquid — M1 Finance</span>
           <h3 class="case-card__title">Building Liquid: M1's first design system</h3>
           <p class="case-card__desc">From zero to 80% company-wide adoption in 12 months.</p>
@@ -532,6 +535,145 @@
         </a>
       </li>
     </ul>
+  </section>
+
+
+  <!-- ============================================================
+       PATTERN: TOKEN CHIPS (process-flow variant for token architecture)
+       .token-flow          = resolution chain, arrows between chips
+       .token-flow--set     = documented set, no arrows, wraps to a grid
+       Chip color: style="--chip: #HEX" on .token-chip__swatch
+       Non-color tokens: add .token-chip__swatch--value and put the value
+       inside the square. Add .token-chip--active to highlight a tier.
+       ============================================================ -->
+  <section class="section container prose case-section" id="token-chips-demo">
+    <p class="eyebrow">layout/14</p>
+    <h2>Token chips</h2>
+    <p>For explaining token architecture &mdash; how a raw value resolves up through the tiers.</p>
+
+    <h3>Resolution chain</h3>
+    <div class="token-flow">
+      <div class="token-chip">
+        <span class="token-chip__tier">Tier 1 &middot; Primitive</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #FF5C49"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Red 400</span>
+            <span class="token-chip__var">--red-400</span>
+            <span class="token-chip__hex">#FF5C49</span>
+          </span>
+        </div>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="token-chip token-chip--active">
+        <span class="token-chip__tier">Tier 2 &middot; Semantic</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #FF5C49"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Accent, foreground</span>
+            <span class="token-chip__var">--fg-accent</span>
+            <span class="token-chip__hex">&rarr; --red-400</span>
+          </span>
+        </div>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="token-chip">
+        <span class="token-chip__tier">Tier 3 &middot; Component</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #FF5C49"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Button, primary fill</span>
+            <span class="token-chip__var">--btn-primary-bg</span>
+            <span class="token-chip__hex">&rarr; --fg-accent</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Documented set &mdash; colors</h3>
+    <div class="token-flow token-flow--set">
+      <div class="token-chip">
+        <span class="token-chip__tier">Surface</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #0B0D10"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Canvas</span>
+            <span class="token-chip__var">--bg-canvas</span>
+            <span class="token-chip__hex">#0B0D10</span>
+          </span>
+        </div>
+      </div>
+      <div class="token-chip">
+        <span class="token-chip__tier">Surface</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #12151A"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Raised</span>
+            <span class="token-chip__var">--bg-raised</span>
+            <span class="token-chip__hex">#12151A</span>
+          </span>
+        </div>
+      </div>
+      <div class="token-chip">
+        <span class="token-chip__tier">Text</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #E9ECF1"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Primary</span>
+            <span class="token-chip__var">--fg-primary</span>
+            <span class="token-chip__hex">#E9ECF1</span>
+          </span>
+        </div>
+      </div>
+      <div class="token-chip">
+        <span class="token-chip__tier">Text</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #A8B0BC"></span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Secondary</span>
+            <span class="token-chip__var">--fg-secondary</span>
+            <span class="token-chip__hex">#A8B0BC</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Documented set &mdash; non-color tokens</h3>
+    <div class="token-flow token-flow--set">
+      <div class="token-chip">
+        <span class="token-chip__tier">Space</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch token-chip__swatch--value">16px</span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Space 4</span>
+            <span class="token-chip__var">--space-4</span>
+            <span class="token-chip__hex">1rem</span>
+          </span>
+        </div>
+      </div>
+      <div class="token-chip">
+        <span class="token-chip__tier">Radius</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch token-chip__swatch--value">6px</span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Radius 2</span>
+            <span class="token-chip__var">--radius-2</span>
+            <span class="token-chip__hex">6px</span>
+          </span>
+        </div>
+      </div>
+      <div class="token-chip">
+        <span class="token-chip__tier">Type</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch token-chip__swatch--value">16px</span>
+          <span class="token-chip__meta">
+            <span class="token-chip__name">Scale 300</span>
+            <span class="token-chip__var">--scale-300</span>
+            <span class="token-chip__hex">1rem</span>
+          </span>
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
