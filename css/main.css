@@ -407,8 +407,8 @@ li { margin-bottom: var(--space-2); }
 }
 .spec-figure figcaption .fig-id { color: var(--fg-accent); white-space: nowrap; }
 
-/* light-background screenshots sit on a subtle well so they don't glare */
-.spec-figure__frame--light { padding: var(--space-6); background: #F4F5F7; }
+/* light-background screenshots sit on a subtle well so they don't glare
+.spec-figure__frame--light { padding: var(--space-6); background: #F4F5F7; }. */
 
 .principles {
   display: grid;
