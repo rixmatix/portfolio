@@ -1,0 +1,333 @@
+{
+  "$description": "Charts/data-visualization tier. Independent from UI semantic tokens -- do not reuse chart.categorical.* for UI elements.",
+  "chart": {
+    "categorical": {
+      "$description": "8 mutually distinguishable, colorblind-safe categorical colors. Found via farthest-point sampling maximizing worst-case Euclidean sRGB distance across {normal, protanopia, deuteranopia, tritanopia}. Minimum pairwise worst-case distance: 48.56. See scripts/optimize_categorical.py.",
+      "1-purple": {
+        "$type": "color",
+        "$value": "#8959DB",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.58,
+            "C": 0.19,
+            "H": 297
+          }
+        }
+      },
+      "2-coral": {
+        "$type": "color",
+        "$value": "#F89D79",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.78,
+            "C": 0.12,
+            "H": 42
+          }
+        }
+      },
+      "3-rose": {
+        "$type": "color",
+        "$value": "#BB3F58",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.55,
+            "C": 0.16,
+            "H": 12
+          }
+        }
+      },
+      "4-sky-blue": {
+        "$type": "color",
+        "$value": "#93B7FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.78,
+            "C": 0.12,
+            "H": 264
+          }
+        }
+      },
+      "5-mustard": {
+        "$type": "color",
+        "$value": "#B28D00",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.66,
+            "C": 0.145,
+            "H": 90
+          }
+        }
+      },
+      "6-deep-teal": {
+        "$type": "color",
+        "$value": "#007F96",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.55,
+            "C": 0.16,
+            "H": 216
+          }
+        }
+      },
+      "7-mint": {
+        "$type": "color",
+        "$value": "#42D0C3",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.78,
+            "C": 0.12,
+            "H": 186
+          }
+        }
+      },
+      "8-olive-green": {
+        "$type": "color",
+        "$value": "#7CA130",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.66,
+            "C": 0.145,
+            "H": 126
+          }
+        }
+      }
+    },
+    "sequential": {
+      "$description": "9-step magnitude/heatmap ramp derived from the primary purple hue. Index 0 = lowest magnitude, 8 = highest.",
+      "0": {
+        "$type": "color",
+        "$value": "#F6F3FE",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.97,
+            "C": 0.015,
+            "H": 297.0
+          }
+        }
+      },
+      "1": {
+        "$type": "color",
+        "$value": "#E1D8FC",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.9,
+            "C": 0.05,
+            "H": 297.0
+          }
+        }
+      },
+      "2": {
+        "$type": "color",
+        "$value": "#CBB7FD",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.82,
+            "C": 0.1,
+            "H": 297.0
+          }
+        }
+      },
+      "3": {
+        "$type": "color",
+        "$value": "#B291FA",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.73,
+            "C": 0.15,
+            "H": 297.0
+          }
+        }
+      },
+      "4": {
+        "$type": "color",
+        "$value": "#9769EC",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.63,
+            "C": 0.19,
+            "H": 297.0
+          }
+        }
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#7D40D6",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.53,
+            "C": 0.215,
+            "H": 297.0
+          }
+        }
+      },
+      "6": {
+        "$type": "color",
+        "$value": "#612BAC",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.44,
+            "C": 0.19,
+            "H": 297.0
+          }
+        }
+      },
+      "7": {
+        "$type": "color",
+        "$value": "#43187C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.34,
+            "C": 0.155,
+            "H": 297.0
+          }
+        }
+      },
+      "8": {
+        "$type": "color",
+        "$value": "#27084D",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.24,
+            "C": 0.115,
+            "H": 297.0
+          }
+        }
+      }
+    },
+    "diverging": {
+      "$description": "9-step diverging ramp around a neutral midpoint (0). Negative = danger red (loss/below baseline), positive = teal (gain/above baseline). Deliberately not success-green on the positive side, to avoid diverging charts being misread as success/danger pairs.",
+      "neg-4": {
+        "$type": "color",
+        "$value": "#5D0009",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.3,
+            "C": 0.145,
+            "H": 25
+          }
+        }
+      },
+      "neg-3": {
+        "$type": "color",
+        "$value": "#940014",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.42,
+            "C": 0.185,
+            "H": 25
+          }
+        }
+      },
+      "neg-2": {
+        "$type": "color",
+        "$value": "#CE2F34",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.56,
+            "C": 0.195,
+            "H": 25
+          }
+        }
+      },
+      "neg-1": {
+        "$type": "color",
+        "$value": "#EB827B",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.72,
+            "C": 0.13,
+            "H": 25
+          }
+        }
+      },
+      "0": {
+        "$type": "color",
+        "$value": "#DEDDE2",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.9,
+            "C": 0.006,
+            "H": 297.0
+          }
+        }
+      },
+      "pos-1": {
+        "$type": "color",
+        "$value": "#36BABA",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.72,
+            "C": 0.11,
+            "H": 195
+          }
+        }
+      },
+      "pos-2": {
+        "$type": "color",
+        "$value": "#008686",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.56,
+            "C": 0.155,
+            "H": 195
+          }
+        }
+      },
+      "pos-3": {
+        "$type": "color",
+        "$value": "#005959",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.42,
+            "C": 0.135,
+            "H": 195
+          }
+        }
+      },
+      "pos-4": {
+        "$type": "color",
+        "$value": "#003636",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.3,
+            "C": 0.1,
+            "H": 195
+          }
+        }
+      }
+    },
+    "supporting": {
+      "$description": "Axis/gridline/label tokens. Chart-specific contrast floor: 3:1 for non-text (axis-line, gridline), 4.5:1 for text (data-label-text) -- see audit report for the rationale on why this differs from the general UI 7:1/4.5:1-internal targets.",
+      "axis-line": {
+        "light": {
+          "$type": "color",
+          "$value": "#69686E"
+        },
+        "dark": {
+          "$type": "color",
+          "$value": "#86858A"
+        }
+      },
+      "gridline": {
+        "light": {
+          "$type": "color",
+          "$value": "#86858A"
+        },
+        "dark": {
+          "$type": "color",
+          "$value": "#69686E"
+        }
+      },
+      "data-label-text": {
+        "light": {
+          "$type": "color",
+          "$value": "#514F55"
+        },
+        "dark": {
+          "$type": "color",
+          "$value": "#B2B1B5"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "$description": "Semantic tokens, dark theme. All values alias into primitives.json.",
+  "semantic": {
+    "surface": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{color.neutral.950}"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{color.neutral.900}"
+      },
+      "sunken": {
+        "$type": "color",
+        "$value": "{color.base.black}"
+      },
+      "overlay": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.64)"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.50}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.neutral.50}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.neutral.100}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{color.neutral.300}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.neutral.600}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.700}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.purple.300}"
+      },
+      "on-primary": {
+        "$type": "color",
+        "$value": "{color.base.black}"
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.500}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral.800}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral.400}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.purple.400}"
+      }
+    },
+    "focus-ring": {
+      "$type": "color",
+      "$value": "{color.purple.400}"
+    },
+    "interactive": {
+      "primary": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.purple.400}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.purple.300}"
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.purple.200}"
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.neutral.800}"
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{color.purple.950}"
+        },
+        "on-primary": {
+          "$type": "color",
+          "$value": "{color.base.black}"
+        }
+      }
+    },
+    "feedback": {
+      "success": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.green.950}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.green.400}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.green.300}"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.green.600}"
+        },
+        "on-status": {
+          "$type": "color",
+          "$value": "{color.base.white}"
+        }
+      },
+      "warning": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.amber.950}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.amber.400}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.amber.300}"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.amber.600}"
+        },
+        "on-status": {
+          "$type": "color",
+          "$value": "{color.base.white}"
+        }
+      },
+      "danger": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.red.950}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.red.400}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.red.300}"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.red.600}"
+        },
+        "on-status": {
+          "$type": "color",
+          "$value": "{color.base.white}"
+        }
+      },
+      "info": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.blue.950}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.blue.400}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.blue.300}"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.blue.600}"
+        },
+        "on-status": {
+          "$type": "color",
+          "$value": "{color.base.white}"
+        }
+      }
+    }
+  }
+}

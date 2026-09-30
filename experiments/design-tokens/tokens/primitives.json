@@ -1,0 +1,1465 @@
+{
+  "$description": "Primitive color ramps. Raw, unthemed, meaning-agnostic -- families are named by color (green/amber/red/blue/teal/indigo/orange/purple/neutral), never by functional role. Functional meaning (success/warning/danger/info) is assigned only in semantic.*.json. Do not reference primitives directly from components -- go through semantic tokens.",
+  "color": {
+    "base": {
+      "$description": "Absolute white/black. Used sparingly (on-status/on-primary text, pure overlays) where a themed ramp step isn't appropriate.",
+      "white": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "black": {
+        "$type": "color",
+        "$value": "#000000"
+      }
+    },
+    "neutral": {
+      "$description": "Cool-leaning gray ramp (hue 297, harmonized with primary purple). Used for surfaces, borders, and neutral text.",
+      "25": {
+        "$type": "color",
+        "$value": "#FDFDFF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.995,
+            "C": 0.0025,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9835,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#FAFAFC",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.003,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9572,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#F2F1F4",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.96,
+            "C": 0.004,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.8832,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#DCDCDF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.895,
+            "C": 0.005,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7173,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#B2B1B5",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7609,
+            "C": 0.006,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4425,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#A5A4A8",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.72,
+            "C": 0.007,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3738,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#86858A",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.62,
+            "C": 0.008,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.2368,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#69686E",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.52,
+            "C": 0.009,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1403,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#514F55",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4326,
+            "C": 0.009,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.08,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#38373C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.34,
+            "C": 0.008,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.039,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#222124",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.25,
+            "C": 0.006,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0156,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#1A191C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.2174,
+            "C": 0.005,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.01,
+          "com.circana-ds.gamutClipped": false
+        }
+      }
+    },
+    "purple": {
+      "$description": "Primary brand hue. H=297 in OKLCH -- calibrated to read as unambiguous purple, distinct from indigo/blue (<285) and fuchsia/magenta (>310).",
+      "25": {
+        "$type": "color",
+        "$value": "#FAF9FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.012,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.953,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#F4F1FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.965,
+            "C": 0.022,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.8936,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#E9E1FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.925,
+            "C": 0.045,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7839,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#D3C3FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.85,
+            "C": 0.085,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.601,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#BEA3FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7732,
+            "C": 0.135,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4436,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#A97DFE",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.69,
+            "C": 0.185,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3026,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#9153F1",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.595,
+            "C": 0.225,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1856,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#7C36D9",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.52,
+            "C": 0.23,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1193,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#672AB7",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4554,
+            "C": 0.205,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0796,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#461184",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.345,
+            "C": 0.17,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0337,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#30085E",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.27,
+            "C": 0.135,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0161,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#1C023B",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.195,
+            "C": 0.1,
+            "H": 297.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0061,
+          "com.circana-ds.gamutClipped": false
+        }
+      }
+    },
+    "green": {
+      "$description": "Hue 149. Assigned the 'success' functional role in the semantic layer -- see semantic.light/dark.json feedback.success.*.",
+      "25": {
+        "$type": "color",
+        "$value": "#F4FDF5",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.014,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9608,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#E8F9EA",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.965,
+            "C": 0.026,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9085,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#D0F0D4",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.925,
+            "C": 0.05,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.8048,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#A5DFAE",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.85,
+            "C": 0.09,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.6383,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#6DC47F",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7465,
+            "C": 0.13,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4426,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#46B362",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.685,
+            "C": 0.155,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3442,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#009941",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.595,
+            "C": 0.17,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.2316,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#007D34",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.515,
+            "C": 0.165,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1492,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#005D25",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4191,
+            "C": 0.15,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0796,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#004519",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.34,
+            "C": 0.125,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0433,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#002F0E",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.265,
+            "C": 0.1,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0206,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#001A05",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.19,
+            "C": 0.075,
+            "H": 149.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0075,
+          "com.circana-ds.gamutClipped": true
+        }
+      }
+    },
+    "amber": {
+      "$description": "Hue 75, gold-leaning rather than bright yellow -- pure yellow cannot reach usable dark-text contrast without looking muddy; gold holds saturation better across the AAA-required dark steps. Assigned the 'warning' functional role -- see semantic feedback.warning.*.",
+      "25": {
+        "$type": "color",
+        "$value": "#FFF9F1",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.018,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9536,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#FFF2E2",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.968,
+            "C": 0.032,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9026,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFE3BE",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.93,
+            "C": 0.062,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7992,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#FDC87E",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.865,
+            "C": 0.11,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.637,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#EAA42B",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7671,
+            "C": 0.15,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4422,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#D99300",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.715,
+            "C": 0.175,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3562,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#B77B00",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.63,
+            "C": 0.185,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.2423,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#976500",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.545,
+            "C": 0.18,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1589,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#6E4800",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4354,
+            "C": 0.16,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0795,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#543600",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.36,
+            "C": 0.13,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0452,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#3A2400",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.28,
+            "C": 0.1,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0216,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#211300",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.2,
+            "C": 0.075,
+            "H": 75.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0079,
+          "com.circana-ds.gamutClipped": true
+        }
+      }
+    },
+    "red": {
+      "$description": "Hue 25. Assigned the 'danger' functional role -- see semantic feedback.danger.*.",
+      "25": {
+        "$type": "color",
+        "$value": "#FFF8F8",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.014,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9517,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#FFEEED",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.963,
+            "C": 0.026,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.8852,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFDBD7",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.92,
+            "C": 0.052,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7683,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#FFB5AE",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.84,
+            "C": 0.098,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.5736,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#FF948C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7766,
+            "C": 0.15,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4433,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#F45A56",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.67,
+            "C": 0.19,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.2722,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#DB2B33",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.58,
+            "C": 0.21,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1703,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#BC001D",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.5,
+            "C": 0.205,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1078,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#A3061A",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4522,
+            "C": 0.18,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0799,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#6C000C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.335,
+            "C": 0.15,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0321,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#4B0005",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.26,
+            "C": 0.12,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0151,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#2E0002",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.19,
+            "C": 0.09,
+            "H": 25.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0059,
+          "com.circana-ds.gamutClipped": true
+        }
+      }
+    },
+    "blue": {
+      "$description": "Hue 250. Kept >40 degrees from primary purple (297) to stay visually distinct in adjacent UI. Assigned the 'info' functional role -- see semantic feedback.info.*.",
+      "25": {
+        "$type": "color",
+        "$value": "#F6FBFF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.013,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9581,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#EBF5FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.965,
+            "C": 0.024,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9019,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#D4E9FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.925,
+            "C": 0.048,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7949,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#A8D2FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.85,
+            "C": 0.088,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.6164,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#6FB7FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7603,
+            "C": 0.13,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4447,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#389EFB",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.685,
+            "C": 0.165,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3226,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#0081DE",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.595,
+            "C": 0.185,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.2097,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#006AB7",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.515,
+            "C": 0.185,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1373,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#00518F",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4302,
+            "C": 0.165,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0787,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#003967",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.34,
+            "C": 0.135,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0391,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#002648",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.265,
+            "C": 0.105,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0185,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#00152D",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.195,
+            "C": 0.08,
+            "H": 250.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0073,
+          "com.circana-ds.gamutClipped": true
+        }
+      }
+    },
+    "teal": {
+      "$description": "Hue 195. Base color, no functional role assigned yet -- available for a future semantic need (e.g. a fifth status, a secondary brand accent) without inventing a new hue.",
+      "25": {
+        "$type": "color",
+        "$value": "#F1FDFD",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.013,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9604,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#E2F9F8",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.965,
+            "C": 0.024,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.907,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#C2F1F0",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.925,
+            "C": 0.048,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.8067,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#84E0DF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.85,
+            "C": 0.088,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.6354,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#16C5C6",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7475,
+            "C": 0.125,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4418,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#00B0B0",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.685,
+            "C": 0.15,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3419,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#009191",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.595,
+            "C": 0.16,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.223,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#007777",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.515,
+            "C": 0.155,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1453,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#00595A",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4218,
+            "C": 0.14,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0788,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#004141",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.34,
+            "C": 0.115,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0416,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#002C2C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.265,
+            "C": 0.09,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0198,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#00191A",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.195,
+            "C": 0.068,
+            "H": 195.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0077,
+          "com.circana-ds.gamutClipped": true
+        }
+      }
+    },
+    "indigo": {
+      "$description": "Hue 278, between Blue (250) and Purple (297). Base color, no functional role assigned yet.",
+      "25": {
+        "$type": "color",
+        "$value": "#F9FAFF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.012,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9573,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#F0F3FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.965,
+            "C": 0.022,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.8985,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#E0E4FF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.925,
+            "C": 0.044,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7855,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#C2CAFF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.85,
+            "C": 0.082,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.6093,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#A2ACFF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7676,
+            "C": 0.128,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.4441,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#858EFF",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.69,
+            "C": 0.172,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3155,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#6868F5",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.595,
+            "C": 0.205,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1944,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#534ED9",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.515,
+            "C": 0.205,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.123,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#433EB5",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4474,
+            "C": 0.182,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0797,
+          "com.circana-ds.gamutClipped": false
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#2C2582",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.34,
+            "C": 0.15,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0347,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#1C175C",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.265,
+            "C": 0.118,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0163,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0F0B3B",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.195,
+            "C": 0.088,
+            "H": 278.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0066,
+          "com.circana-ds.gamutClipped": false
+        }
+      }
+    },
+    "orange": {
+      "$description": "Hue 48, between Red (25) and Amber (75). Base color, no functional role assigned yet.",
+      "25": {
+        "$type": "color",
+        "$value": "#FFF9F5",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.985,
+            "C": 0.017,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.956,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#FFF1EA",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.967,
+            "C": 0.03,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.9011,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFE0D1",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.928,
+            "C": 0.058,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.7917,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#FFC0A1",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.858,
+            "C": 0.105,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.6153,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#FF975E",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7737,
+            "C": 0.15,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.442,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance >=0.389 (>=7.3:1 vs neutral-950 dark canvas). Use for AAA body text/icons on dark surfaces."
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#F67214",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.7,
+            "C": 0.185,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.3168,
+          "com.circana-ds.gamutClipped": false
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#CF5C00",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.61,
+            "C": 0.2,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.2092,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#A94A00",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.525,
+            "C": 0.195,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.1333,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#863900",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.4434,
+            "C": 0.172,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0799,
+          "com.circana-ds.gamutClipped": true
+        },
+        "$description": "AAA anchor: solved so relative luminance <=0.095 (>=7.24:1 vs #FFFFFF). Use for AAA body text/icons on light surfaces."
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#602700",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.348,
+            "C": 0.14,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0394,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#431900",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.272,
+            "C": 0.108,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0189,
+          "com.circana-ds.gamutClipped": true
+        }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#280B00",
+        "$extensions": {
+          "com.circana-ds.oklch": {
+            "L": 0.196,
+            "C": 0.08,
+            "H": 48.0
+          },
+          "com.circana-ds.relativeLuminance": 0.0069,
+          "com.circana-ds.gamutClipped": true
+        }
+      }
+    }
+  }
+}

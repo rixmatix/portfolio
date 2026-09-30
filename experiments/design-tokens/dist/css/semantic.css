@@ -1,0 +1,94 @@
+/* Generated from tokens/semantic.light.json + semantic.dark.json. Do not hand-edit. */
+/* Theme switch: set data-theme="light"|"dark" on <html> (or any ancestor). Light is the default (no attribute needed). */
+
+:root, [data-theme="light"] {
+  --semantic-surface-canvas: var(--color-neutral-50);
+  --semantic-surface-raised: var(--color-base-white);
+  --semantic-surface-sunken: var(--color-neutral-100);
+  --semantic-surface-overlay: rgba(26, 25, 28, 0.48);
+  --semantic-surface-inverse: var(--color-neutral-950);
+  --semantic-text-primary: var(--color-neutral-900);
+  --semantic-text-secondary: var(--color-neutral-800);
+  --semantic-text-tertiary: var(--color-neutral-700);
+  --semantic-text-disabled: var(--color-neutral-400);
+  --semantic-text-inverse: var(--color-neutral-300);
+  --semantic-text-link: var(--color-purple-700);
+  --semantic-text-on-primary: var(--color-base-white);
+  --semantic-border-default: var(--color-neutral-600);
+  --semantic-border-subtle: var(--color-neutral-200);
+  --semantic-border-strong: var(--color-neutral-700);
+  --semantic-border-focus: var(--color-purple-600);
+  --semantic-focus-ring: var(--color-purple-600);
+  --semantic-interactive-primary-default: var(--color-purple-600);
+  --semantic-interactive-primary-hover: var(--color-purple-700);
+  --semantic-interactive-primary-active: var(--color-purple-800);
+  --semantic-interactive-primary-disabled: var(--color-neutral-200);
+  --semantic-interactive-primary-subtle: var(--color-purple-100);
+  --semantic-interactive-primary-on-primary: var(--color-base-white);
+  --semantic-feedback-success-background: var(--color-green-50);
+  --semantic-feedback-success-border: var(--color-green-600);
+  --semantic-feedback-success-text: var(--color-green-700);
+  --semantic-feedback-success-solid: var(--color-green-600);
+  --semantic-feedback-success-on-status: var(--color-base-white);
+  --semantic-feedback-warning-background: var(--color-amber-50);
+  --semantic-feedback-warning-border: var(--color-amber-600);
+  --semantic-feedback-warning-text: var(--color-amber-700);
+  --semantic-feedback-warning-solid: var(--color-amber-600);
+  --semantic-feedback-warning-on-status: var(--color-base-white);
+  --semantic-feedback-danger-background: var(--color-red-50);
+  --semantic-feedback-danger-border: var(--color-red-600);
+  --semantic-feedback-danger-text: var(--color-red-700);
+  --semantic-feedback-danger-solid: var(--color-red-600);
+  --semantic-feedback-danger-on-status: var(--color-base-white);
+  --semantic-feedback-info-background: var(--color-blue-50);
+  --semantic-feedback-info-border: var(--color-blue-600);
+  --semantic-feedback-info-text: var(--color-blue-700);
+  --semantic-feedback-info-solid: var(--color-blue-600);
+  --semantic-feedback-info-on-status: var(--color-base-white);
+}
+
+[data-theme="dark"] {
+  --semantic-surface-canvas: var(--color-neutral-950);
+  --semantic-surface-raised: var(--color-neutral-900);
+  --semantic-surface-sunken: var(--color-base-black);
+  --semantic-surface-overlay: rgba(0, 0, 0, 0.64);
+  --semantic-surface-inverse: var(--color-neutral-50);
+  --semantic-text-primary: var(--color-neutral-50);
+  --semantic-text-secondary: var(--color-neutral-100);
+  --semantic-text-tertiary: var(--color-neutral-300);
+  --semantic-text-disabled: var(--color-neutral-600);
+  --semantic-text-inverse: var(--color-neutral-700);
+  --semantic-text-link: var(--color-purple-300);
+  --semantic-text-on-primary: var(--color-base-black);
+  --semantic-border-default: var(--color-neutral-500);
+  --semantic-border-subtle: var(--color-neutral-800);
+  --semantic-border-strong: var(--color-neutral-400);
+  --semantic-border-focus: var(--color-purple-400);
+  --semantic-focus-ring: var(--color-purple-400);
+  --semantic-interactive-primary-default: var(--color-purple-400);
+  --semantic-interactive-primary-hover: var(--color-purple-300);
+  --semantic-interactive-primary-active: var(--color-purple-200);
+  --semantic-interactive-primary-disabled: var(--color-neutral-800);
+  --semantic-interactive-primary-subtle: var(--color-purple-950);
+  --semantic-interactive-primary-on-primary: var(--color-base-black);
+  --semantic-feedback-success-background: var(--color-green-950);
+  --semantic-feedback-success-border: var(--color-green-400);
+  --semantic-feedback-success-text: var(--color-green-300);
+  --semantic-feedback-success-solid: var(--color-green-600);
+  --semantic-feedback-success-on-status: var(--color-base-white);
+  --semantic-feedback-warning-background: var(--color-amber-950);
+  --semantic-feedback-warning-border: var(--color-amber-400);
+  --semantic-feedback-warning-text: var(--color-amber-300);
+  --semantic-feedback-warning-solid: var(--color-amber-600);
+  --semantic-feedback-warning-on-status: var(--color-base-white);
+  --semantic-feedback-danger-background: var(--color-red-950);
+  --semantic-feedback-danger-border: var(--color-red-400);
+  --semantic-feedback-danger-text: var(--color-red-300);
+  --semantic-feedback-danger-solid: var(--color-red-600);
+  --semantic-feedback-danger-on-status: var(--color-base-white);
+  --semantic-feedback-info-background: var(--color-blue-950);
+  --semantic-feedback-info-border: var(--color-blue-400);
+  --semantic-feedback-info-text: var(--color-blue-300);
+  --semantic-feedback-info-solid: var(--color-blue-600);
+  --semantic-feedback-info-on-status: var(--color-base-white);
+}

@@ -1,0 +1,43 @@
+/* Generated from tokens/charts.json. Do not hand-edit. */
+/* categorical/sequential/diverging are theme-independent; supporting tokens follow [data-theme] like semantic.css. */
+
+:root {
+  --chart-categorical-1-purple: #8959DB;
+  --chart-categorical-2-coral: #F89D79;
+  --chart-categorical-3-rose: #BB3F58;
+  --chart-categorical-4-sky-blue: #93B7FF;
+  --chart-categorical-5-mustard: #B28D00;
+  --chart-categorical-6-deep-teal: #007F96;
+  --chart-categorical-7-mint: #42D0C3;
+  --chart-categorical-8-olive-green: #7CA130;
+  --chart-sequential-0: #F6F3FE;
+  --chart-sequential-1: #E1D8FC;
+  --chart-sequential-2: #CBB7FD;
+  --chart-sequential-3: #B291FA;
+  --chart-sequential-4: #9769EC;
+  --chart-sequential-5: #7D40D6;
+  --chart-sequential-6: #612BAC;
+  --chart-sequential-7: #43187C;
+  --chart-sequential-8: #27084D;
+  --chart-diverging-neg-4: #5D0009;
+  --chart-diverging-neg-3: #940014;
+  --chart-diverging-neg-2: #CE2F34;
+  --chart-diverging-neg-1: #EB827B;
+  --chart-diverging-0: #DEDDE2;
+  --chart-diverging-pos-1: #36BABA;
+  --chart-diverging-pos-2: #008686;
+  --chart-diverging-pos-3: #005959;
+  --chart-diverging-pos-4: #003636;
+}
+
+:root, [data-theme="light"] {
+  --chart-supporting-axis-line: #69686E;
+  --chart-supporting-gridline: #86858A;
+  --chart-supporting-data-label-text: #514F55;
+}
+
+[data-theme="dark"] {
+  --chart-supporting-axis-line: #86858A;
+  --chart-supporting-gridline: #69686E;
+  --chart-supporting-data-label-text: #B2B1B5;
+}
