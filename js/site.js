@@ -2,7 +2,8 @@
    SITE.JS — the only JavaScript on this site. No frameworks, no build step.
 
    1. Mode toggle: switches between "ds" (dark, design systems — default)
-      and "gen" (light, generalist). Saves the choice to localStorage.
+      and "gen" (light, generalist). Saves the choice to sessionStorage, so
+      it lasts for the tab session only — every new visit opens in "ds".
       Note: a tiny inline script in each page <head> applies the saved mode
       BEFORE first paint so there's no color flash.
    2. Token readout: prints the site's LIVE CSS custom properties into the
@@ -19,7 +20,7 @@
   function setMode(mode) {
     if (mode === "gen") { root.setAttribute("data-mode", "gen"); }
     else { root.removeAttribute("data-mode"); mode = "ds"; }
-    try { localStorage.setItem("mode", mode); } catch (e) {}
+    try { sessionStorage.setItem("mode", mode); } catch (e) {}
     document.querySelectorAll(".mode-toggle button").forEach(function (btn) {
       btn.setAttribute("aria-pressed", btn.dataset.mode === mode ? "true" : "false");
     });

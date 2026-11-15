@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
-  <script>try{if(localStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Building Liquid: M1's First Design System — Ricky Sunay</title>
   <meta name="description" content="How Ricky Sunay built Liquid, M1 Finance's first design system, from zero to 80% company-wide adoption and a 30% efficiency improvement.">
