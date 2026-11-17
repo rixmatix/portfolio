@@ -99,6 +99,16 @@
   --header-h: 64px;         /* sticky header height (sub-navs offset by this) */
   --gutter: var(--space-6); /* page side padding; widens below 1280px (see main.css) */
 
+  /* Frame heights (svh, so mobile browser toolbars don't resize the frame) */
+  --frame-h-1:   48svh;
+  --frame-h-2:   64svh;
+  --frame-h-3:   80svh;
+  --frame-h-min: 20rem;     /* 320px floor */
+
+  /* Scroll passage: how far the page scrolls while a frame crosses the viewport
+     (viewport height + frame height; cqh = % of the nearest size container) */
+  --passage-1: calc(100svh + 100cqh);
+
 
   /* ------------------------------------------------------------------
      TIER 2 · SEMANTIC — components reference these only
@@ -133,6 +143,13 @@
   /* Focus ring */
   --focus-ring: 2px solid var(--red-400);
   --focus-offset: 3px;
+
+  /* Parallax gallery (layout/15) */
+  --parallax-h-sm:   var(--frame-h-1);
+  --parallax-h-md:   var(--frame-h-2);
+  --parallax-h-lg:   var(--frame-h-3);
+  --parallax-h-min:  var(--frame-h-min);
+  --parallax-passage: var(--passage-1);   /* a layer at --depth 0.8 lags the page by 20% of this */
 
   color-scheme: dark;
 }

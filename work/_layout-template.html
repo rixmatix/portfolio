@@ -52,6 +52,8 @@
     <a href="#process-flow-demo"><span class="subnav-label">Process flow</span></a>
     <a href="#case-cards-demo"><span class="subnav-label">Case cards</span></a>
     <a href="#token-chips-demo"><span class="subnav-label">Token chips</span></a>
+    <a href="#parallax-demo"><span class="subnav-label">Parallax</span></a>
+    <a href="#token-stack-demo"><span class="subnav-label">Token stack</span></a>
   </div>
 </nav>
 
@@ -671,6 +673,173 @@
             <span class="token-chip__var">--scale-300</span>
             <span class="token-chip__hex">1rem</span>
           </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: INSET PARALLAX GALLERY
+       A contained panel, set in from the page, with 3–5 layered images
+       that drift at slightly different speeds as the page scrolls.
+       Size the frame with .parallax--sm / --md / --lg, or override with
+       style="--parallax-h: 70svh" on .parallax. Add .parallax--bleed for
+       edge-to-edge (the heading stays in the column).
+       Each image is positioned with inline custom properties:
+         --x / --y  top-left corner, % of the frame
+         --h        height, % of the frame (width follows the image ratio —
+                    always give the <img> its real width/height attributes)
+         --depth    speed relative to the page: 1 = moves with the page,
+                    0.8 = 20% slower (farther back), 1.2 = 20% faster (closer)
+         --drift-x  optional sideways travel as a share of the frame width
+                    (0.15 = 15%); positive = moves right as you scroll down
+       HTML order is back-to-front. Add .parallax__item--lg-only to
+       images that should drop out below 768px (where motion is off).
+       Percentages are of the frame, so re-tune --x / --h when the frame
+       height changes a lot — the two demos below use different values.
+       .parallax__head (eyebrow + h3) and each <figcaption> are optional.
+       ============================================================ -->
+  <section class="section container prose case-section" id="parallax-demo">
+    <p class="eyebrow">layout/15</p>
+    <h2>Inset parallax gallery</h2>
+    <p>A window onto the work. Charts sit at the back and move slowly; phones stand in front and move a little faster, so the frame reads as having depth. Without motion (reduced-motion, narrow screens, older browsers) it is a finished static composition.</p>
+
+    <h3>Short frame (.parallax--sm)</h3>
+    <div class="parallax parallax--sm parallax--bleed">
+      <div class="parallax__frame">
+        <div class="parallax__stage">
+          <figure class="parallax__item parallax__item--lg-only" style="--x: 16%; --y: 8%; --h: 70%; --depth: 0.8; --drift-x: 0.15">
+            <img src="../assets/img/liquid-para-pie.png" width="458" height="342" alt="Soft-focus donut chart with an account avatar at its centre, flanked by blurred bar charts." loading="lazy">
+          </figure>
+          <figure class="parallax__item" style="--x: 28%; --y: 16%; --h: 62%; --depth: 0.9">
+            <img src="../assets/img/liquid-para-chart.png" width="897" height="481" alt="Liquid line-chart component showing portfolio value from January to April 2024, with a date-range picker, 1W to ALL period toggles, a hover tooltip, an open overflow menu, and a brush timeline under the plot." loading="lazy">
+            <figcaption>dataviz / line chart</figcaption>
+          </figure>
+          <figure class="parallax__item" style="--x: 58%; --y: 10%; --h: 84%; --depth: 1.05">
+            <img src="../assets/img/liquid-para-mobile1.png" width="798" height="1672" alt="M1 home screen built from Liquid components: net worth of $250,845, an assets-versus-liabilities bar, Invest, Spend, Borrow and Owner's Rewards Card tiles, and recent transfers." loading="lazy">
+          </figure>
+          <figure class="parallax__item parallax__item--lg-only" style="--x: 70%; --y: 4%; --h: 90%; --depth: 1.2">
+            <img src="../assets/img/liquid-para-mobile2.png" width="798" height="1672" alt="M1 Invest screen: a portfolio donut showing $934,349.73, sort and time-range controls, a list of holdings with daily change, and a cash summary footer." loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <h3>Tall frame (.parallax--lg), with optional heading</h3>
+    <div class="parallax parallax--lg parallax--bleed">
+      <header class="parallax__head">
+        <p class="eyebrow">One system, every surface</p>
+        <h3>Charts, data viz and mobile screens from the same parts</h3>
+      </header>
+      <div class="parallax__frame">
+        <div class="parallax__stage">
+          <figure class="parallax__item parallax__item--lg-only" style="--x: 0%; --y: 4%; --h: 58%; --depth: 0.8; --drift-x: 0.15">
+            <img src="../assets/img/liquid-para-pie.png" width="458" height="342" alt="Soft-focus donut chart with an account avatar at its centre, flanked by blurred bar charts." loading="lazy">
+          </figure>
+          <figure class="parallax__item" style="--x: 14%; --y: 26%; --h: 50%; --depth: 0.9">
+            <img src="../assets/img/liquid-para-chart.png" width="897" height="481" alt="Liquid line-chart component showing portfolio value from January to April 2024, with a date-range picker, 1W to ALL period toggles, a hover tooltip, an open overflow menu, and a brush timeline under the plot." loading="lazy">
+            <figcaption>dataviz / line chart</figcaption>
+          </figure>
+          <figure class="parallax__item" style="--x: 52%; --y: 14%; --h: 72%; --depth: 1.05">
+            <img src="../assets/img/liquid-para-mobile1.png" width="798" height="1672" alt="M1 home screen built from Liquid components: net worth of $250,845, an assets-versus-liabilities bar, Invest, Spend, Borrow and Owner's Rewards Card tiles, and recent transfers." loading="lazy">
+            <figcaption>ios / home</figcaption>
+          </figure>
+          <figure class="parallax__item parallax__item--lg-only" style="--x: 72%; --y: 4%; --h: 80%; --depth: 1.2">
+            <img src="../assets/img/liquid-para-mobile2.png" width="798" height="1672" alt="M1 Invest screen: a portfolio donut showing $934,349.73, sort and time-range controls, a list of holdings with daily change, and a cash summary footer." loading="lazy">
+            <figcaption>ios / invest</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PATTERN: TOKEN STACK (scrollytelling that builds a diagram)
+       Same shell as layout/09 (.scrolly[data-scrolly] + --steps), but the
+       media side is ONE <ol class="token-stack"> whose layers appear
+       cumulatively. data-build on each layer = the 0-based step it appears
+       at. Keep copy steps, layers and --steps in sync. Layers use the
+       layout/14 chip markup; the per-chip tier label is hidden in the stack
+       because the layer label covers it. First layer sits at the top; each
+       new layer is added below it.
+       Full six-layer example: work/ama-edhub.html, section "Taxonomy".
+       ============================================================ -->
+  <section class="section container prose case-section" id="token-stack-demo">
+    <p class="eyebrow">layout/16</p>
+    <h2>Token stack</h2>
+    <p>Scroll to build the architecture a layer at a time. Each copy step adds one layer; built layers stay.</p>
+    <div class="scrolly scrolly--stack" data-scrolly style="--steps: 3;">
+      <div class="scrolly__stage">
+        <div class="scrolly__copy">
+          <div class="scrolly-step is-current">
+            <p class="step-index">01 / 03</p>
+            <h3>Primitives</h3>
+            <p>Raw values with no opinion about where they're used. The foundation layer appears first, at the top; later layers are added beneath it.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">02 / 03</p>
+            <h3>Semantic roles</h3>
+            <p>What a value is for. Roles alias primitives; everything above only talks to roles.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">03 / 03</p>
+            <h3>Component</h3>
+            <p>Parts alias roles. The stack is complete; below 900px it shows fully built after the copy.</p>
+          </div>
+        </div>
+        <div class="scrolly__media">
+          <ol class="token-stack" aria-label="Token architecture layers">
+            <li class="token-stack__layer" data-build="0">
+              <span class="token-stack__label">01 Primitives <small>raw values</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Primitive</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #FF5C49"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Red 400</span><span class="token-chip__var">--red-400</span><span class="token-chip__hex">#FF5C49</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Primitive</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #0B0D10"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Ink 0</span><span class="token-chip__var">--ink-0</span><span class="token-chip__hex">#0B0D10</span></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="token-stack__layer" data-build="1">
+              <span class="token-stack__label">02 Semantic <small>roles</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Semantic</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #FF5C49"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Accent, foreground</span><span class="token-chip__var">--fg-accent</span><span class="token-chip__hex">&rarr; --red-400</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Semantic</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #0B0D10"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Canvas</span><span class="token-chip__var">--bg-canvas</span><span class="token-chip__hex">&rarr; --ink-0</span></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="token-stack__layer" data-build="2">
+              <span class="token-stack__label">03 Component <small>parts</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Component</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #FF5C49"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Button, primary fill</span><span class="token-chip__var">--btn-primary-bg</span><span class="token-chip__hex">&rarr; --fg-accent</span></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </div>

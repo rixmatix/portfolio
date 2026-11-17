@@ -17,7 +17,7 @@ index.html            Home: dual-mode hero + DS and generalist case grids
 about.html            About + circular headshot
 contact.html          Contact list + resume download
 work/
-  _layout-template.html   Internal pattern library (14 layout patterns) — copy from here
+  _layout-template.html   Internal pattern library (16 layout patterns) — copy from here
   liquid-m1.html          Done (flagship)
   unify.html              Done (Circana / Unify+)
   m1-onboarding.html      Done (generalist)

@@ -5,8 +5,8 @@
   <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
   <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMA Ed Hub: token architecture at brand scale — Ricky Sunay</title>
-  <meta name="description" content="AMA Ed Hub: token architecture at brand scale — case study by Ricky Sunay.">
+  <title>AMA Ed Hub: One Token System for 50 Brands — Ricky Sunay</title>
+  <meta name="description" content="How a multi-brand, multi-audience token architecture — with light, dark and AAA high-contrast themes — let AMA Ed Hub carry 50+ partner brands on one system. Case study by Ricky Sunay.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -36,18 +36,616 @@
 </header>
 
 <main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#impact"><span class="subnav-label">Impact</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#approach"><span class="subnav-label">Approach</span></a>
+    <a href="#taxonomy"><span class="subnav-label">Taxonomy</span></a>
+    <a href="#pipeline"><span class="subnav-label">Pipeline</span></a>
+    <a href="#themes"><span class="subnav-label">Themes</span></a>
+    <a href="#onboarding"><span class="subnav-label">Onboarding</span></a>
+    <a href="#results"><span class="subnav-label">Results</span></a>
+    <a href="#reflection"><span class="subnav-label">Reflection</span></a>
+  </div>
+</nav>
+
+
   <!-- ================= COPY: CASE HERO ================= -->
-  <section class="case-hero container">
-    <p class="eyebrow">Case study ds/edhub · American Medical Association · 2026</p>
-    <h1 class="display-lg">AMA Ed Hub: token architecture at brand scale</h1>
-    <p class="lede">A three-tier token architecture (primitive → semantic → component) and a flexible component system built to carry 50+ partner brands under one visual framework — supported by an AI-powered documentation workflow built on Claude and Figma.</p>
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study ds/edhub · AMA Ed Hub · 2026</p>
+    <h1 class="display-lg">One token system for fifty brands</h1>
+    <p class="lede">
+      AMA Ed Hub delivers accredited medical education from the AMA and more than
+      fifty partner organizations — each with its own brand, each serving two
+      very different audiences. I led the design of a token architecture that
+      turned that matrix into data: one taxonomy, three accessibility modes, and
+      a pipeline that generates every brand's theme instead of hand-building it.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Design Lead, token architecture</dd></div>
+      <div><dt>Timeline</dt><dd>Jan 2026 – Apr 2026</dd></div>
+      <div><dt>Team</dt><dd>Me + partner engineering team, brand and accessibility stakeholders</dd></div>
+      <div><dt>Stack</dt><dd>Figma Variables · Style Dictionary · Claude Code · CSS custom properties</dd></div>
+    </dl>
   </section>
   <!-- ================= END COPY: CASE HERO ================= -->
 
+  <div class="container prose">
+    <figure class="spec-figure spec-figure--bleed">
+      <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 21 / 9">
+        <span>FIG 01 · Hero — the same Ed Hub course page rendered in the AMA brand and two partner brands, light and dark side by side</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> One course page, three brands, two modes — every difference is a token value, not a design file.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: OUTCOMES ================= -->
+  <section class="section container prose case-section" id="impact">
+    <p class="eyebrow">Impact</p>
+    <h2>Outcomes</h2>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">50+</span><span class="metric__label">partner brands running on one semantic token model</span></li>
+      <li class="metric"><span class="metric__value">300+</span><span class="metric__label">generated themes — every brand × light, dark and high-contrast × educator and learner</span></li>
+      <li class="metric"><span class="metric__value">&lt; 1 day</span><span class="metric__label">to onboard a new partner brand, down from roughly three weeks of manual theming</span></li>
+    </ul>
+    <p>
+      Every text and surface pairing passes WCAG AA in light and dark, and AAA in
+      the high-contrast set — verified by an automated audit on every build, not
+      by a designer with a contrast checker.
+    </p>
+  </section>
+  <!-- ================= END COPY: OUTCOMES ================= -->
+
+  <!-- ================= COPY: THE PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>A platform wearing fifty costumes</h2>
+    <p>
+      Ed Hub is one product, but partners expect their courses to feel like
+      theirs. Each new partner arrived with a brand guide, and each one got a
+      bespoke theme: a designer pulled colours into Figma, an engineer transcribed
+      them into a stylesheet, and QA caught whatever fell between. Nobody owned the
+      whole picture, because the whole picture was fifty pictures.
+    </p>
+    <p>
+      Underneath the brands sat a second split. Educators publish, review and
+      track outcomes in dense, data-heavy tools; learners read, watch and take
+      assessments in a layout built for focus. Those two audiences had drifted into
+      two visual languages that shared a logo and little else.
+    </p>
+    <h3>What I found in the first two weeks</h3>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Brand as a fork</h3>
+        <p>Each partner theme was a copy of the last one with values swapped by hand. A fix to the base system had to be re-applied fifty times, so it usually wasn't.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>Accessibility as an afterthought</h3>
+        <p>Partner colours were applied as given. Some failed AA as body text; high contrast existed only as a browser setting nobody had designed for.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>Two products in one</h3>
+        <p>Educator and learner surfaces used different spacing, type scales and component variants, with no shared vocabulary to describe the difference.</p>
+      </li>
+    </ul>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--placeholder">
+        <span>FIG 02 · Before — a collage of six partner course pages showing inconsistent headers, buttons and type, with a few contrast failures circled</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> Six partners, six interpretations of the same page.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: THE PROBLEM ================= -->
+
+  <!-- ================= COPY: APPROACH ================= -->
+  <section class="section container prose case-section" id="approach">
+    <p class="eyebrow">Approach</p>
+    <h2>Treat the matrix as data</h2>
+    <p>
+      Fifty brands, three modes and two audiences is three hundred themes. No team
+      hand-builds three hundred themes, and no team should. I set three rules for
+      the architecture before touching a single colour:
+    </p>
+    <ul class="principles">
+      <li class="principle">
+        <span class="principle__index">principle/01</span>
+        <h3>Brands change values, never names</h3>
+        <p>A partner can change what <code>color.action.primary</code> points at. It can't add, rename or remove a token. The vocabulary is the system; the values are the brand.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">principle/02</span>
+        <h3>Every dimension is a layer</h3>
+        <p>Brand, mode and audience are separate layers that compose, not variants that multiply. Adding a fourth mode means one new layer, not fifty new files.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">principle/03</span>
+        <h3>Generate, then audit</h3>
+        <p>Anything that can be derived from a brand's primitives is generated by the pipeline and checked by a script. Designers decide the rules; the build applies them.</p>
+      </li>
+    </ul>
+    <p>
+      The partner engineering team and I agreed on the contract early: the design
+      system owns the taxonomy and the generated output; product teams consume
+      tokens by role and never by value. That line is what let four months of work
+      scale to fifty brands without fifty conversations.
+    </p>
+  </section>
+  <!-- ================= END COPY: APPROACH ================= -->
+
+  <!-- ================= COPY: TAXONOMY (token stack scrolly) =================
+       The media side is ONE diagram that builds a layer at a time. Keep the
+       number of .scrolly-step blocks equal to the number of .token-stack__layer
+       items and to --steps. data-build = the 0-based step a layer appears at. -->
+  <section class="section container prose case-section" id="taxonomy">
+    <p class="eyebrow">Taxonomy</p>
+    <h2>Building the stack, one layer at a time</h2>
+    <p>
+      The architecture is six layers. Each one answers a single question, and each
+      one only knows about the layer before it. Scroll to build it.
+    </p>
+
+    <div class="scrolly scrolly--stack" data-scrolly style="--steps: 6;">
+      <div class="scrolly__stage">
+        <div class="scrolly__copy">
+          <div class="scrolly-step is-current">
+            <p class="step-index">01 / 06 · Primitives</p>
+            <h3>Every raw value, no opinions</h3>
+            <p>The first layer is a flat inventory: colour ramps, a type scale, a spacing grid, radii. The AMA palette lives here — and so does every partner palette, normalised into the same 50–900 ramps so every layer built on top of this one can address them identically.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">02 / 06 · Semantic roles</p>
+            <h3>What a value is <em>for</em></h3>
+            <p>Roles describe intent: text that is primary, a surface that is raised, an action that is the main one on the page. This is the vocabulary partners never see and never change. Around 140 roles cover the whole product.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">03 / 06 · Component</p>
+            <h3>Roles applied to parts</h3>
+            <p>Component tokens alias roles, not primitives. A button's fill points at <code>action.primary</code>; it has no idea which blue that is. Teams theme components by changing what a role resolves to, never by editing the component.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">04 / 06 · Modes</p>
+            <h3>Light, dark and high contrast</h3>
+            <p>Modes remap the semantic layer only. The high-contrast mode isn't a darker dark: it is a separate set tuned to pass WCAG AAA for every text pairing, with thicker hairlines and no colour-only states. It is one more column in the same table.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">05 / 06 · Brands</p>
+            <h3>Fifty remaps, not fifty forks</h3>
+            <p>A brand is a file that says which primitives the roles use. Figma holds the AMA brand and a handful of reference partners; the other forty-plus are generated from each partner's brand guide and never need a design file.</p>
+          </div>
+          <div class="scrolly-step">
+            <p class="step-index">06 / 06 · Audience</p>
+            <h3>Educator and learner</h3>
+            <p>The last layer carries the only differences the two audiences actually need: density, type scale and reading measure. Educators get a compact grid for tables and dashboards; learners get a comfortable one for reading. Colour never changes here.</p>
+          </div>
+        </div>
+
+        <div class="scrolly__media">
+          <ol class="token-stack" aria-label="The six layers of the token architecture">
+            <li class="token-stack__layer" data-build="0">
+              <span class="token-stack__label">01 Primitives <small>raw values</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Primitive</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #1B3F8F"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Blue 700</span><span class="token-chip__var">blue.700 · #1B3F8F</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Primitive</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #0F8B8D"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Teal 500 · partner</span><span class="token-chip__var">teal.500 · #0F8B8D</span></span>
+                  </div>
+                </div>
+              <div class="token-chip">
+                  <span class="token-chip__tier">Primitive</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #121417"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Neutral 900</span><span class="token-chip__var">neutral.900 · #121417</span></span>
+                  </div>
+                </div>
+                </div>
+            </li>
+            <li class="token-stack__layer" data-build="1">
+              <span class="token-stack__label">02 Semantic <small>roles</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Semantic</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #121417"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Text, primary</span><span class="token-chip__var">color.text.primary &rarr; neutral.900</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Semantic</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #1B3F8F"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Action, primary</span><span class="token-chip__var">color.action.primary &rarr; blue.700</span></span>
+                  </div>
+                </div>
+              <div class="token-chip">
+                  <span class="token-chip__tier">Semantic</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #FFFFFF"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Surface, canvas</span><span class="token-chip__var">color.surface.canvas &rarr; neutral.0</span></span>
+                  </div>
+                </div>
+                </div>
+            </li>
+            <li class="token-stack__layer" data-build="2">
+              <span class="token-stack__label">03 Component <small>parts</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Component</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #1B3F8F"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Button, primary fill</span><span class="token-chip__var">button.primary.bg &rarr; action.primary</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Component</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #F5F7FA"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Course card, surface</span><span class="token-chip__var">card.surface &rarr; surface.raised</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Component</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #1B3F8F"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Progress, fill</span><span class="token-chip__var">progress.fill &rarr; action.primary</span></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="token-stack__layer" data-build="3">
+              <span class="token-stack__label">04 Modes <small>light · dark · AAA</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Mode</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #000000"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">High contrast</span><span class="token-chip__var">text.primary · 21:1 AAA</span></span>
+                  </div>
+                </div>
+              <div class="token-chip">
+                  <span class="token-chip__tier">Mode</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #121417"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Light</span><span class="token-chip__var">text.primary · 17.4:1 AA</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Mode</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #F2F4F7"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Dark</span><span class="token-chip__var">text.primary · 16.9:1 AA</span></span>
+                  </div>
+                </div>
+                </div>
+            </li>
+            <li class="token-stack__layer" data-build="4">
+              <span class="token-stack__label">05 Brands <small>×50 remaps</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Brand</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #1B3F8F"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">AMA</span><span class="token-chip__var">brand.ama &rarr; blue.700</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Brand</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch" style="--chip: #0F8B8D"></span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Partner society</span><span class="token-chip__var">brand.partner-012 &rarr; teal.500</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Brand</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch token-chip__swatch--value">+48</span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Generated partners</span><span class="token-chip__var">brand.partner-* · generated</span></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="token-stack__layer" data-build="5">
+              <span class="token-stack__label">06 Audience <small>educator · learner</small></span>
+              <div class="token-stack__chips">
+                <div class="token-chip">
+                  <span class="token-chip__tier">Audience</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch token-chip__swatch--value">4px</span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Educator · compact</span><span class="token-chip__var">density.compact · 14px / 4px</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Audience</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch token-chip__swatch--value">8px</span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Learner · comfortable</span><span class="token-chip__var">density.comfortable · 16px / 8px</span></span>
+                  </div>
+                </div>
+                <div class="token-chip">
+                  <span class="token-chip__tier">Audience</span>
+                  <div class="token-chip__body">
+                    <span class="token-chip__swatch token-chip__swatch--value">68ch</span>
+                    <span class="token-chip__meta"><span class="token-chip__name">Reading measure</span><span class="token-chip__var">text.measure · 68ch</span></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <h3>How a value resolves</h3>
+    <p>Read from the primitives outward, a single pixel on a partner's course page resolves like this:</p>
+    <div class="token-flow">
+      <div class="token-chip">
+        <span class="token-chip__tier">Primitive · partner-012</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #0F8B8D"></span>
+          <span class="token-chip__meta"><span class="token-chip__name">Teal 500</span><span class="token-chip__var">teal.500</span><span class="token-chip__hex">#0F8B8D</span></span>
+        </div>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="token-chip token-chip--active">
+        <span class="token-chip__tier">Semantic · light mode</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #0F8B8D"></span>
+          <span class="token-chip__meta"><span class="token-chip__name">Action, primary</span><span class="token-chip__var">color.action.primary</span><span class="token-chip__hex">&rarr; teal.500</span></span>
+        </div>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="token-chip">
+        <span class="token-chip__tier">Component · learner</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #0F8B8D"></span>
+          <span class="token-chip__meta"><span class="token-chip__name">Button, primary fill</span><span class="token-chip__var">button.primary.bg</span><span class="token-chip__hex">&rarr; action.primary</span></span>
+        </div>
+      </div>
+    </div>
+    <p>
+      In CSS that lands as one custom property, scoped by two attributes on the
+      root — <code>data-brand</code> and <code>data-mode</code> — with the audience
+      layer applied by the page template. Swapping a partner is swapping an
+      attribute.
+    </p>
+  </section>
+  <!-- ================= END COPY: TAXONOMY ================= -->
+
+  <!-- ================= COPY: PIPELINE ================= -->
+  <section class="section container prose case-section" id="pipeline">
+    <p class="eyebrow">Pipeline</p>
+    <h2>Figma holds the model; the build holds the brands</h2>
+    <p>
+      The decision that made the rest possible: Figma Variables carry the
+      taxonomy, the AMA brand and five reference partners. The remaining partners
+      exist only as JSON. Fifty brand modes in Figma would have been unmanageable
+      for designers and unnecessary for engineers — partners don't get design
+      files, they get themes.
+    </p>
+    <div class="process-flow">
+      <div class="process-flow__step">
+        <span class="process-flow__label">Model</span>
+        <span class="process-flow__name">Figma Variables</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Source of truth</span>
+        <span class="process-flow__name">DTCG JSON in git</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step process-flow__step--active">
+        <span class="process-flow__label">Generate + audit</span>
+        <span class="process-flow__name">Claude Code</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Transform</span>
+        <span class="process-flow__name">Style Dictionary</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Output</span>
+        <span class="process-flow__name">CSS vars · theme JSON · Figma sync</span>
+      </div>
+    </div>
+
+    <div class="split split--sticky">
+      <div class="split__copy">
+        <h3>Where the AI earned its place</h3>
+        <p>
+          I used Claude Code as a member of the team with a very specific job:
+          the repetitive, rule-bound work that scales with the number of brands.
+          It never decided what a role meant. It applied the rules I'd written,
+          fifty times, and reported where they broke.
+        </p>
+        <ul>
+          <li><strong>Brand intake.</strong> Given a partner's brand guide, it drafted the primitive ramp file: normalising their two or three brand colours into 50–900 ramps, flagging any colour that couldn't reach AA as text.</li>
+          <li><strong>Transforms.</strong> It wrote and maintained the Style Dictionary config and custom transforms, including the attribute-scoped CSS output.</li>
+          <li><strong>Contrast audit.</strong> Every build checks every text-on-surface pairing in every theme — AA for light and dark, AAA for high contrast — and fails the build with a readable report instead of a warning nobody reads.</li>
+          <li><strong>Documentation.</strong> Each partner gets a generated theme page: their ramps, their role mappings, and a rendered component sheet.</li>
+        </ul>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 03 · Claude Code session generating a partner's primitive ramp file from a brand guide PDF, with AA flags inline</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 03</span> Brand intake: a guide in, a normalised ramp file out.</figcaption>
+        </figure>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 04 · The contrast audit report — a matrix of brands × modes with pass/fail cells and the three pairings it auto-adjusted</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 04</span> The audit runs on every build. Red cells block the merge.</figcaption>
+        </figure>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 05 · Figma Variables panel showing the four collections: Primitives, Semantic (3 modes), Audience (2 modes), Component</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 05</span> The model in Figma: four collections, six brands, every mode.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: PIPELINE ================= -->
+
+  <!-- ================= COPY: THEMES ================= -->
+  <section class="section container prose case-section" id="themes">
+    <p class="eyebrow">Themes</p>
+    <h2>Dark mode is a remap. High contrast is a commitment.</h2>
+    <p>
+      Light and dark were straightforward once the semantic layer existed: two
+      columns of values for the same roles, with the primitives untouched. High
+      contrast was the layer that tested the architecture, because AAA is not
+      "more contrast" — it changes what the system is allowed to do.
+    </p>
+    <div class="split">
+      <div class="split__copy">
+        <h3>What the AAA set changes</h3>
+        <ul>
+          <li>Every text pairing at 7:1 or better, including partner accents — which meant generating a darkened "text-safe" step for every brand colour rather than using the brand's own.</li>
+          <li>Hairlines become 2px strong borders; disabled states keep 4.5:1 instead of fading out.</li>
+          <li>No colour-only meaning: status chips, progress and validation gain icons and text through component tokens, so the change is automatic.</li>
+          <li>Focus rings resolve to a fixed high-contrast pair regardless of brand.</li>
+        </ul>
+        <p>Because each of these is a token, the high-contrast set applies to all fifty brands the moment it exists. No partner had to be revisited.</p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 06 · A learner assessment screen in light, dark and high-contrast modes, stacked, same brand</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 06</span> One screen, three modes. The high-contrast version adds icons and thicker borders by token, not by hand.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bento">
+      <div class="bento__item bento__item--wide bento__item--tall">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 07 · Grid of 12 partner brands rendered on the same course card, light mode</span>
+        </div>
+      </div>
+      <div class="bento__item bento__item--text">
+        <span class="metric__value">3</span>
+        <span class="metric__label">modes per brand — light, dark, AAA high contrast</span>
+      </div>
+      <div class="bento__item">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 08 · Educator dashboard, compact density</span>
+        </div>
+      </div>
+      <div class="bento__item">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 09 · Learner course page, comfortable density</span>
+        </div>
+      </div>
+      <div class="bento__item bento__item--wide">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 10 · Generated theme documentation page for one partner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: THEMES ================= -->
+
+  <!-- ================= COPY: ONBOARDING ================= -->
+  <section class="section container prose case-section" id="onboarding">
+    <p class="eyebrow">Onboarding</p>
+    <h2>A new partner is a pull request</h2>
+    <div class="aside-split">
+      <div>
+        <p>
+          The real test of the system was the first partner onboarded after it
+          shipped. Their brand guide arrived on a Tuesday morning. By the afternoon
+          they had a theme in all three modes, a contrast report, and a generated
+          documentation page — reviewed by a designer, merged by an engineer,
+          never opened in Figma.
+        </p>
+        <p>
+          The intake flow I designed with the partner team has four steps, and only
+          the first one involves a person making a judgement call:
+        </p>
+        <ol>
+          <li><strong>Extract.</strong> A designer confirms the two or three brand colours and the type family from the guide.</li>
+          <li><strong>Generate.</strong> The pipeline builds the primitive ramps, a text-safe step for each accent, and the brand's role mapping from the default template.</li>
+          <li><strong>Audit.</strong> Every pairing is checked; anything failing AA or AAA is adjusted toward the nearest passing step and reported.</li>
+          <li><strong>Review.</strong> The designer reviews the rendered component sheet against the brand guide and approves or adjusts the mapping. Merge.</li>
+        </ol>
+      </div>
+      <p class="aside-note">
+        Three weeks to under a day is the headline number, but the quieter win is
+        that a base-system fix now reaches all fifty partners on the next build,
+        instead of being re-applied by hand fifty times, or not at all.
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: ONBOARDING ================= -->
+
+  <!-- ================= COPY: RESULTS ================= -->
+  <section class="section container prose case-section" id="results">
+    <p class="eyebrow">Results</p>
+    <h2>From fifty themes to one system</h2>
+    <p>
+      In four months the partner team and I replaced fifty hand-maintained themes
+      with one taxonomy of roughly 180 primitives per brand, 140 semantic roles and
+      210 component tokens, generating more than 300 theme outputs. Every one of
+      them passes its accessibility target on every build.
+    </p>
+    <h3>What changed for the teams</h3>
+    <ul>
+      <li>Designers theme by changing role mappings in one place. Nobody copies a theme file any more.</li>
+      <li>Engineers consume one set of custom properties and two root attributes. Brand-specific CSS went to zero.</li>
+      <li>Accessibility moved from a review step to a build step. The AAA set shipped to every partner at once.</li>
+      <li>Educator and learner surfaces share every colour and component and differ only in the audience layer, which is now a documented, intentional difference.</li>
+    </ul>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame spec-figure__frame--placeholder">
+        <span>FIG 11 · Before / after — the same partner's course page, hand-themed versus generated, with the token names annotated on the after</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 11</span> Same partner, same page. The difference is that the right-hand one can be regenerated.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: RESULTS ================= -->
+
+  <!-- ================= COPY: REFLECTION ================= -->
+  <section class="section container prose case-section" id="reflection">
+    <p class="eyebrow">Reflection</p>
+    <h2>Taxonomy is the product</h2>
+    <p>
+      On a multi-brand system the colours are the least important decision. The
+      names are the architecture: get the roles right and brands, modes and
+      audiences become columns in a table that a machine can fill in. Get them
+      wrong and every brand is a fork again, however good the tooling is.
+    </p>
+    <p>Three things I'd carry to the next one:</p>
+    <ul>
+      <li><strong>Decide what Figma is for.</strong> It's the place designers reason about the model, not a database of every brand. Putting fifty modes in it would have slowed the designers and helped nobody.</li>
+      <li><strong>Give the AI a rulebook, not a brief.</strong> Claude Code was most useful when the rules were explicit enough that its output could be audited mechanically. The audit script was worth more than any single generated file.</li>
+      <li><strong>Design the hardest mode first.</strong> AAA forced decisions that made light and dark better too. If I'd added it last, it would have been a patch.</li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: REFLECTION ================= -->
+
   <nav class="case-nav container" aria-label="Case study navigation">
     <a class="btn btn--ghost" href="../index.html">← All work</a>
-    <a class="btn btn--primary" href="../about.html#contact">Ask me about this project →</a>
+    <a class="btn btn--ghost" href="unify.html">Next: Circana Unify+ →</a>
   </nav>
+
 </main>
 
 <!-- ================= FOOTER (identical on every page) ================= -->

@@ -78,7 +78,7 @@ li { margin-bottom: var(--space-2); }
    (Fix for the case grid rendering single-column, and the card trio capping
    at reading width.) NOTE: any future ul-based layout component must be
    added to this list, or it will be capped at 68ch. */
-.case-grid, .metrics, .principles, .how-i-work, .contact-list, .card-trio {
+.case-grid, .metrics, .principles, .how-i-work, .contact-list, .card-trio, .token-stack {
   max-width: none;
   padding-left: 0;
 }
@@ -397,6 +397,23 @@ li { margin-bottom: var(--space-2); }
   background: var(--bg-raised);
 }
 .spec-figure__frame img { width: 100%; }
+
+/* PLACEHOLDER — for a figure whose image hasn't arrived yet. Reserves the
+   space (set --ph-ratio to the planned image ratio) and shows the shot
+   description. To replace: swap the whole <div> for
+     <div class="spec-figure__frame"><img src="…" alt="…" loading="lazy"></div> */
+.spec-figure__frame--placeholder {
+  aspect-ratio: var(--ph-ratio, 16 / 9);
+  display: grid; place-items: center;
+  border-style: dashed;
+  background: var(--bg-canvas);
+  padding-inline: var(--space-6);
+  font-family: var(--text-technical);
+  font-size: var(--scale-100);
+  letter-spacing: 0.06em;
+  color: var(--fg-tertiary);
+  text-align: center;
+}
 .spec-figure figcaption {
   display: flex; gap: var(--space-3); align-items: baseline;
   font-family: var(--text-technical);
@@ -1109,6 +1126,196 @@ html:not([data-mode="gen"]) .mode-gen { display: none !important; }
   :root { --gutter: 1.75rem; }  /* 28px on phones */
 }
 
+/* --- Inset parallax gallery (layout/15): a clipped panel holding 3–5 layered
+   images that drift at slightly different speeds as the page scrolls. ---
+   Markup (demo + copy-paste source in work/_layout-template.html):
+     <div class="parallax parallax--md">          size: --sm / --md / --lg, or an
+       <header class="parallax__head">…</header>    inline style="--parallax-h: 70svh";
+       <div class="parallax__frame">                add --bleed for edge-to-edge
+         <div class="parallax__stage">
+           <figure class="parallax__item" style="--x: 10%; --y: 20%; --h: 50%; --depth: 0.9">
+             <img src="…" width="897" height="481" alt="…" loading="lazy">
+             <figcaption>optional label</figcaption>
+           </figure>
+           …more items, back to front…
+   Per image:  --x / --y   top-left corner, as a % of the frame
+               --h         height as a % of the frame (width follows the image's
+                           own ratio — give every <img> its real width/height).
+                           An image never scales past its own pixel size, so
+                           export at about 2× the size it will be shown at.
+               --depth     speed relative to the page: 1 = moves with the page,
+                           0.8 = 20% slower (reads farther back), 1.2 = 20%
+                           faster (closer). Keep the spread within ~0.8 → 1.2.
+               --drift-x   optional sideways travel, as a share of the frame
+                           width (0.15 = 15%); positive = moves right as you
+                           scroll down. Good for soft background layers.
+   HTML order is back-to-front. Add .parallax__item--lg-only to images that
+   should disappear below 768px (where motion is off and the composition
+   simplifies). The frame is NOT a scroll container: the page scroll drives
+   the drift and the frame just clips it. Drift is a share of the scroll
+   passage (viewport + frame height), so short and tall frames read the same. */
+.parallax { margin-block: var(--space-12); --parallax-h: var(--parallax-h-md); }
+.parallax--sm { --parallax-h: var(--parallax-h-sm); }
+.parallax--md { --parallax-h: var(--parallax-h-md); }
+.parallax--lg { --parallax-h: var(--parallax-h-lg); }
+/* edge-to-edge: same break-out as .spec-figure--bleed; the heading stays in the column */
+.parallax--bleed .parallax__frame {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 0;
+  border-inline: 0;
+}
+
+.parallax__head { margin-bottom: var(--space-6); }
+.parallax__head h3 { margin-top: 0; }
+
+.parallax__frame {
+  /* never shorter than the floor token, never taller than the space under the header */
+  height: clamp(var(--parallax-h-min), var(--parallax-h), calc(100svh - var(--header-h)));
+  padding-block: var(--space-6);
+  padding-inline: var(--space-6);
+  background: var(--bg-raised);
+  border: var(--line-1) solid var(--border-hairline);
+  border-radius: var(--radius-3);
+  overflow: clip;                   /* clip, not hidden — no scroll container, no trapped wheel */
+  view-timeline: --parallax block;  /* progress = how far the frame has crossed the viewport */
+}
+.parallax__stage {
+  position: relative;
+  height: 100%;
+  container-type: size;             /* lets --parallax-travel (cqh) mean "% of the frame" */
+}
+.parallax__item {
+  position: absolute;
+  left: var(--x, 0%);
+  top: var(--y, 0%);
+  height: var(--h, 50%);
+  margin: 0;                        /* shrink-wraps the image; never wider than the space to its right */
+}
+.parallax__item img {
+  width: auto; height: auto;
+  max-width: 100%; max-height: 100%;
+  border-radius: var(--radius-2);
+}
+.parallax__item figcaption {
+  position: absolute; left: 0; top: calc(100% + var(--space-2));
+  font-family: var(--text-technical);
+  font-size: var(--scale-100);
+  letter-spacing: 0.06em;
+  color: var(--fg-tertiary);
+  white-space: nowrap;
+}
+
+/* Motion: CSS scroll-driven animation. While the frame crosses the viewport
+   (the "passage"), a layer at --depth d is displaced by (d − 1) × passage,
+   i.e. it moves at d × page speed. transform: none is the midpoint, which is
+   also the static composition for reduced motion. Browsers without view()
+   get the same math from the small fallback in js/site.js. */
+@supports (animation-timeline: view()) {
+  .parallax__item {
+    animation: parallax-drift linear both;
+    animation-timeline: --parallax;   /* must come after the shorthand, which resets it */
+  }
+  @keyframes parallax-drift {
+    from { transform: translate(calc(var(--drift-x, 0) * -50cqw), calc((var(--depth, 1) - 1) * var(--parallax-passage) / 2)); }
+    to   { transform: translate(calc(var(--drift-x, 0) *  50cqw), calc((1 - var(--depth, 1)) * var(--parallax-passage) / 2)); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax__item { animation: none; }
+}
+@media (max-width: 767px) {
+  .parallax__item { animation: none; }
+  .parallax__item--lg-only { display: none; }
+}
+
+/* --- Token stack (layout/16): scrollytelling where the media side is ONE
+   diagram that builds up a layer at a time instead of swapping images. ---
+   Markup (demo + copy-paste source in work/_layout-template.html):
+     <div class="scrolly" data-scrolly style="--steps: 6">
+       <div class="scrolly__stage">
+         <div class="scrolly__copy">  .scrolly-step × N, exactly as layout/09  </div>
+         <div class="scrolly__media">
+           <ol class="token-stack">
+             <li class="token-stack__layer" data-build="0">   ← appears at step 1
+               <span class="token-stack__label">Primitives</span>
+               <div class="token-stack__chips"> .token-chip × 2–4 (layout/14 markup) </div>
+             </li>
+             <li class="token-stack__layer" data-build="1">   ← appears at step 2
+             …
+   data-build is the 0-based step at which a layer appears. site.js adds
+   .is-built to every layer at or below the current step and .is-current to
+   the newest one. The first layer sits at the TOP of the stage and each new
+   layer is added beneath it, so the diagram grows downward as you scroll.
+   Below 900px the whole stack shows statically after the copy. */
+.scrolly--stack .scrolly__stage { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }  /* the diagram needs the width */
+.token-stack {
+  list-style: none; margin: 0;
+  display: flex; flex-direction: column;   /* first layer at the top */
+  justify-content: flex-start;             /* …packed to the top edge */
+  gap: var(--space-3);
+  height: 100%;
+}
+.token-stack__layer {
+  display: grid;
+  grid-template-columns: minmax(5rem, 6rem) 1fr;
+  gap: var(--space-3);
+  align-items: center;
+  margin: 0;                        /* cancels the global li margin — six of them would overflow the stage */
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border: var(--line-1) solid var(--border-hairline);
+  border-radius: var(--radius-2);
+  background: var(--bg-raised);
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  transition: opacity var(--duration-2) var(--ease-out),
+              transform var(--duration-2) var(--ease-out),
+              border-color var(--duration-2) var(--ease-out);
+}
+.token-stack__layer.is-built { opacity: 1; transform: none; }
+.token-stack__layer.is-current { border-color: var(--border-accent); }
+.token-stack__label {
+  font-family: var(--text-technical);
+  font-size: var(--scale-100);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  line-height: 1.4;
+}
+.token-stack__layer.is-current .token-stack__label { color: var(--fg-accent); }
+.token-stack__label small {
+  display: block;
+  font-size: inherit;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--fg-tertiary);
+}
+.token-stack__chips { display: flex; flex-wrap: nowrap; gap: var(--space-2); min-width: 0; }
+/* compact chips inside the stack: one row per layer, so six layers fit a
+   pinned stage. The layer label replaces the per-chip tier, and the hex line
+   is hidden — put the resolution ("→ neutral.900") in .token-chip__var. */
+.token-stack .token-chip { flex: 1 1 0; min-width: 0; padding-block: var(--space-2); padding-inline: var(--space-2); }
+.token-stack .token-chip__body { gap: var(--space-2); }
+.token-stack .token-chip__tier, .token-stack .token-chip__hex { display: none; }
+.token-stack .token-chip__swatch { width: var(--space-6); height: var(--space-6); }
+.token-stack .token-chip__name { font-size: var(--scale-100); }
+
+/* room check: six layers must fit the pinned stage. Below 1600px only the
+   first two chips of each layer show, so put the least essential chip third. */
+@media (min-width: 900px) and (max-width: 1599px) {
+  .token-stack .token-chip:nth-child(n+3) { display: none; }
+}
+@media (max-width: 899px) {
+  .token-stack { height: auto; order: 99; }   /* after the copy, first layer first */
+  .token-stack__layer { opacity: 1; transform: none; }
+  .token-stack__chips { flex-wrap: wrap; }
+  .token-stack .token-chip { flex-basis: 10rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .token-stack__layer { transition: none; }
+}
+
 
 /* 15 · SCROLLYTELLING SECTION (pinned copy + image steps) ---------------------
    Structure: .scrolly[data-scrolly][style="--steps: N"]
@@ -1168,6 +1375,10 @@ html:not([data-mode="gen"]) .mode-gen { display: none !important; }
   .scrolly__media .scrolly-step:nth-child(3) { order: 6; }
   .scrolly__copy .scrolly-step:nth-child(4) { order: 7; }
   .scrolly__media .scrolly-step:nth-child(4) { order: 8; }
+  .scrolly__copy .scrolly-step:nth-child(5) { order: 9; }
+  .scrolly__media .scrolly-step:nth-child(5) { order: 10; }
+  .scrolly__copy .scrolly-step:nth-child(6) { order: 11; }
+  .scrolly__media .scrolly-step:nth-child(6) { order: 12; }
   .scrolly-step {
     position: static;
     opacity: 1; transform: none; pointer-events: auto;

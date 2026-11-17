@@ -20,7 +20,8 @@ Static HTML/CSS/JS. No CMS, no framework, no build step. Open any file, edit, sa
 `work/_layout-template.html` is an internal page (noindex, not linked anywhere)
 demoing every available layout with copy-paste markup: full-width / full-bleed /
 centered figures, half-and-half splits (plus flipped and sticky variants), a 3:4
-portrait grid, a 3/4 + 1/4 aside, a bento grid, scrollytelling, and a carousel.
+portrait grid, a 3/4 + 1/4 aside, a bento grid, scrollytelling, a carousel,
+an inset parallax gallery, and a token stack (scrollytelling that builds a diagram).
 Each section has an HTML comment explaining usage. The styles live in
 `css/main.css` section 17.
 
