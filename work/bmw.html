@@ -5,8 +5,8 @@
   <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
   <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMW's first internal design system — Ricky Sunay</title>
-  <meta name="description" content="BMW's first internal design system — case study by Ricky Sunay.">
+  <title>BMW's First Internal Design System — Ricky Sunay</title>
+  <meta name="description" content="How a two-month freeze window became BMW's first cross-platform pattern library for the BMW and MINI apps — atomic design, Material 2.0 form fields, and one file shared from Chicago to Munich. Case study by Ricky Sunay.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -36,18 +36,387 @@
 </header>
 
 <main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#audience"><span class="subnav-label">Audience</span></a>
+    <a href="#opportunity"><span class="subnav-label">Opportunity</span></a>
+    <a href="#material"><span class="subnav-label">Material</span></a>
+    <a href="#development"><span class="subnav-label">Development</span></a>
+    <a href="#library"><span class="subnav-label">Library</span></a>
+    <a href="#cross-platform"><span class="subnav-label">Cross-platform</span></a>
+    <a href="#reflection"><span class="subnav-label">Reflection</span></a>
+  </div>
+</nav>
+
+
   <!-- ================= COPY: CASE HERO ================= -->
-  <section class="case-hero container">
+  <section class="case-hero container case-section" id="overview">
     <p class="eyebrow">Case study ds/bmw · BMW Technology · 2018–2019</p>
     <h1 class="display-lg">BMW's first internal design system</h1>
-    <p class="lede">The first reusable pattern library for the BMW and MINI companion apps — UI patterns and interaction standards defined for consistency at scale, in collaboration with Munich-based teams. Full case study coming soon.</p>
+    <p class="lede">
+      As lead designer for the BMW and MINI Android apps, I led the creation and
+      implementation of a pattern library for both brands across Android and iOS —
+      the first shared source of truth for a design team split between Chicago,
+      Munich and China.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Senior UI/UX Designer, lead for Android</dd></div>
+      <div><dt>Timeline</dt><dd>Apr 2018 – Mar 2019 · library built in a two-month window</dd></div>
+      <div><dt>Team</dt><dd>12 designers in Chicago, a dozen more in Munich, Android and iOS engineering</dd></div>
+      <div><dt>Stack</dt><dd>Sketch · InVision · Material Design 2.0 · Confluence</dd></div>
+    </dl>
   </section>
   <!-- ================= END COPY: CASE HERO ================= -->
 
+  <div class="container prose">
+    <figure class="spec-figure spec-figure--narrow">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-01.png" alt="BMW Connected app home screen concept on a phone: 'Welcome back Jennifer, your ALPINA B7 is ready', with miles to empty, location, a scheduled engine start, temperature, a red ALPINA B7 and remote controls for engine, doors, windows and lights.">
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The BMW Connected app, home screen concept.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: THE PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>One app, owned in slices</h2>
+    <p>
+      BMW's applications were divided by verticals. Each vertical represented a
+      different piece or flow of the app, and each was owned by a different team
+      and a different designer. The result was a lot of inconsistency across the
+      application, and no easy way to share files across our international teams.
+      We needed a centralized repository that could serve as a pattern library for
+      all of the applications.
+    </p>
+    <div class="aside-split">
+      <div>
+        <h3>BMW and MINI</h3>
+        <p>
+          At the beginning of my tenure there was a gap when the Android apps were
+          frozen from front-end enhancements. That gave me a two-month window to
+          create a pattern library for BMW and MINI that could be used across teams
+          and platforms.
+        </p>
+        <p>
+          We had a style guide built in Sketch, but nothing in it was dynamic, and
+          there were elements and components in production that it didn't
+          represent at all.
+        </p>
+      </div>
+      <p class="aside-note">
+        Two brands, two platforms, three offices, one freeze window. The library
+        had to be useful to everyone on day one or it would be ignored on day two.
+      </p>
+    </div>
+    <figure class="spec-figure spec-figure--narrow">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-02.png" alt="The BMW roundel and the MINI winged logo side by side." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> Two brands, one library.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: THE PROBLEM ================= -->
+
+  <!-- ================= COPY: AUDIENCE ================= -->
+  <section class="section container prose case-section" id="audience">
+    <p class="eyebrow">My audience</p>
+    <h2>Twenty-four designers, four teams, four uses</h2>
+    <p>
+      The Chicago office had 12 designers, with another dozen at BMW headquarters
+      in Munich. Because of strict company restrictions, BMW was behind in adopting
+      newer tools like Sketch and InVision; the company had only just begun using
+      them fully across product lanes.
+    </p>
+    <p>
+      At the time I was all about atomic design, and about teaching the
+      methodology and how it could be applied to our application for the good of
+      the brand. Atomic design builds systems of interfaces from a base of small
+      parts, which allows for far greater flexibility and agility. To start, I
+      held meetings with all of the designers in the Chicago office to learn our
+      current processes and to get them involved in the interface inventory.
+    </p>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-03.png" alt="Two typography style guide sheets, one for BMW on black and one for MINI on navy, listing font families, font colours and every iOS and HTML type style with its size and hex value." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 03</span> The typography sheets, BMW and MINI: the style guide we had, and the start of the one we needed.</figcaption>
+    </figure>
+    <p>The new pattern library needed to meet the needs of several teams and serve several purposes at once:</p>
+    <div class="split">
+      <div class="split__copy">
+        <h3>Pattern library users</h3>
+        <ul>
+          <li>Chicago team</li>
+          <li>Munich team</li>
+          <li>China team</li>
+          <li>Agency partners</li>
+        </ul>
+      </div>
+      <div class="split__copy">
+        <h3>Pattern library uses</h3>
+        <ul>
+          <li>Style guide</li>
+          <li>Pattern library</li>
+          <li>Documentation</li>
+          <li>Spec sheet</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-04.jpg" alt="Six spec sheets side by side: BMW and MINI buttons, BMW and MINI navigation bars, and BMW and MINI notifications, each with redlined measurements and every state." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 04</span> Spec sheets for buttons, navigation and notifications in both brands: style guide, pattern library, documentation and spec sheet in one.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: AUDIENCE ================= -->
+
+  <!-- ================= COPY: OPPORTUNITY ================= -->
+  <section class="section container prose case-section" id="opportunity">
+    <p class="eyebrow">Opportunity</p>
+    <h2>A scheduling flow full of forms</h2>
+    <p>
+      To start the redesign I needed a good entry point: something that would
+      prove the case and show off what the new components could do. The perfect
+      opportunity came when a teammate had to redesign BMW's scheduling service.
+      It was a flow that used a lot of text fields and form elements, and one of
+      the many verticals built in HTML. That made it a unique chance to redesign
+      a core component with the right amount of dev support available.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-05.png" alt="The Schedule Service flow in seven phone screens, from services and repairs through date and time, contact details and review to a booked confirmation, annotated with which elements are new styles and which are dev work: checkbox, input field, select day, select time, text field and dialog." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 05</span> The scheduling service: a vertical made of forms, annotated for the developers.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: OPPORTUNITY ================= -->
+
+  <!-- ================= COPY: MATERIAL ================= -->
+  <section class="section container prose case-section" id="material">
+    <p class="eyebrow">Material Design</p>
+    <h2>Build on a framework I could sell</h2>
+    <p>
+      I started by rebuilding our forms, following specs from a framework I knew
+      I could sell to my developers, fellow designers and upper management. I
+      redesigned our form fields into three variations supported by Material
+      Design.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-06.jpg" alt="Three form-field variations on a dark background, each in accent and neutral: Material 1.0 underline, background fill, and outline, shown in default, disabled, initiated, input, entered, validated and error states." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 06</span> Three form-field variations, each in accent and neutral, across seven states.</figcaption>
+    </figure>
+    <div class="split split--sticky">
+      <div class="split__copy">
+        <p>
+          Forms were the obvious place to start, with a clear case for redesigning
+          them cross-platform. With the release of Material 2.0 we had more options
+          to build on components that had already been put through extensive
+          testing and were continually improved by Google.
+        </p>
+        <p>
+          I presented my redesign options and was given permission to take the
+          component further. To get it ready for production, the team wanted to
+          see every state of the form field we would need. So I took our variant
+          and made sure the new pattern worked for every instance and occurrence
+          where we had form fields.
+        </p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/bmw-np-07.jpg" alt="A tall sheet of every form-field occurrence in the app: short and long forms, search fields and tags, multi-line text areas, password requirements and validation, dropdowns, large lists and links, with redlined specs." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 07</span> Every instance and occurrence of a form field, before production.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: MATERIAL ================= -->
+
+  <!-- ================= COPY: DEVELOPMENT ================= -->
+  <section class="section container prose case-section" id="development">
+    <p class="eyebrow">Development</p>
+    <h2>Roll the standard out one component at a time</h2>
+    <p>
+      Coordinating with development became the biggest hurdle to pushing the
+      standards forward. Not only did we have multiple code bases per platform,
+      we also had third-party apps where we had no control over styling. Together
+      with the developers we decided to roll changes out slowly, component by
+      component, as each one met the new standard.
+    </p>
+    <p>
+      Whenever there was an opportunity to rebuild a component, I helped
+      coordinate the release of the new pattern with the iOS and Android teams.
+      Pretty soon the style guide would match reality.
+    </p>
+    <div class="process-flow">
+      <div class="process-flow__step">
+        <span class="process-flow__label">1</span>
+        <span class="process-flow__name">Component is due a rebuild</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">2</span>
+        <span class="process-flow__name">Pattern defined in the library</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">3</span>
+        <span class="process-flow__name">Android and iOS release coordinated</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step process-flow__step--active">
+        <span class="process-flow__label">4</span>
+        <span class="process-flow__name">Style guide matches production</span>
+      </div>
+    </div>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-08.jpg" alt="Three BMW Connected app screens in production: the Hub tab with updates and accessories, the Vehicle tab for a 540i xDrive with fuel level, range and remote actions, and a Lights confirmation dialog." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 08</span> The app in production, with the new patterns rolled out.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: DEVELOPMENT ================= -->
+
+  <!-- ================= COPY: LIBRARY ================= -->
+  <section class="section container prose case-section" id="library">
+    <p class="eyebrow">Library use</p>
+    <h2>One component, three jobs</h2>
+    <p>
+      I got a lot of support from the other designers once I started sharing the
+      full capabilities of components and smart objects. I built a hierarchy that
+      could accommodate the three crucial ways our components were used:
+    </p>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-09.jpg" alt="Android 2.0 style guide sheet titled BMW List Items: single-line and multi-line list items in small and medium sizes, actionable and non-actionable, with headings, swipe-to-delete, checkboxes, radios and toggles in enabled and disabled states." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 09</span> List items: one component, every size, state and control.</figcaption>
+    </figure>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">📐 Guides</span>
+        <h3>For developers</h3>
+        <p>A place to find the specs: measurements, spacing and behaviour for every component.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">🛠 Layout</span>
+        <h3>For UX</h3>
+        <p>The ability to build wireframes with the latest pattern, without redrawing it.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">😎 Style</span>
+        <h3>For UI</h3>
+        <p>A way to represent multiple steps and states from a single component.</p>
+      </li>
+    </ul>
+    <p>
+      Underneath those three sat the rest of the naming hierarchy — 🚦 State,
+      ✏️ Title and 🐼 Icon — so every symbol in the file could be found by what it
+      was, not by who had drawn it.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-10.png" alt="Two Android list screens in Sketch, Destinations Recent and Favorites, next to the symbol overrides panel showing the hierarchy for one list item: Styles, Layout, Icon, icon colour, Copy State, Title, Sub Headline, border colour and background colour." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 10</span> The symbol hierarchy in use: one list item, every override named by what it is.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: LIBRARY ================= -->
+
+  <!-- ================= COPY: CROSS-PLATFORM ================= -->
+  <section class="section container prose case-section" id="cross-platform">
+    <p class="eyebrow">Cross-platform design</p>
+    <h2>One file for Chicago, then for the world</h2>
+    <p>
+      For the first time we were all sharing an identical file across the Chicago
+      office, and we were able to bring all of our features up to standard with the
+      new library. The new challenge became sharing it with our international
+      teams, in a company that heavily regulated any cloud service.
+    </p>
+    <div class="split">
+      <div class="split__copy">
+        <h3>Sharing under regulation</h3>
+        <p>
+          To stay within the rules and still get the new files to the whole team,
+          I opted to post everything on Confluence. It wasn't ideal, but it gave me
+          a way to share and gather feedback from the international teams.
+        </p>
+        <p>
+          One of the new goals for the file was to serve as onboarding for new
+          designers and for the agencies we might work with. I delivered a file
+          that contained not only the style guide and pattern library, but every
+          root page in the app, so anyone could get a full, high-level view of the
+          product.
+        </p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/bmw-np-11.png" alt="The complete Android 5.1 style guide as one overview: typography, colour, buttons, notifications, dialogs, input fields, form inputs, list items, accordions, trays, cards, vehicle area and map controls." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 11</span> The whole style guide on one page, as shared on Confluence.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-12.png" alt="Every root page of the app laid out by platform: starter screens, then iOS and Android columns for first-time use, login and register, vehicle mapping, vehicle, destinations, activity and more tabs, and an HTML column for hub, service booking, my car is born and more." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 12</span> Every root page in the app, iOS, Android and HTML: the high-level view for anyone new to the product.</figcaption>
+    </figure>
+    <h3>MINI, and UX fidelity</h3>
+    <p>
+      All of this work was replicated for the MINI brand. There was also a new
+      need to serve our UX designers as well as UI, so I combined the libraries
+      so that each element could be switched between UI and UX fidelity —
+      giving the style guide even further use.
+    </p>
+  </section>
+  <!-- ================= END COPY: CROSS-PLATFORM ================= -->
+
+  <!-- ================= COPY: REFLECTION ================= -->
+  <section class="section container prose case-section" id="reflection">
+    <p class="eyebrow">Reflection</p>
+    <h2>The case for a dedicated role</h2>
+    <p>
+      This was a really fun project to work on, full of challenges and unique
+      obstacles. And although the work proved its value to the team, it was quickly
+      becoming deprecated, and by the end of the journey we realized it needed to
+      be a specialized role. What I could give them was guidance and an awareness
+      of the need for a library and for cross-platform consistency — something they
+      began to plan for as part of a complete redesign.
+    </p>
+    <h3>Concept work</h3>
+    <p>
+      There was a lot of the BMW app we had no control over: the style, colour and
+      icons of certain things were set in stone, and I disagreed with some of them.
+      But at the end of the day the most fun was the concept work, and getting to
+      really push the application.
+    </p>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/bmw-np-13.jpg" alt="BMW IPA Concept: annotated concept screens for a voice-assisted app, including login with fingerprint, a home screen with remote actions and trip summary, IPA voice command and response, a dark cockpit mode, navigation, hub and guide articles, and a profile with ride history charts." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 13</span> The BMW IPA concept: a voice-assisted app, from login to cockpit mode.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: REFLECTION ================= -->
+
   <nav class="case-nav container" aria-label="Case study navigation">
     <a class="btn btn--ghost" href="../index.html">← All work</a>
-    <a class="btn btn--primary" href="../about.html#contact">Ask me about this project →</a>
+    <a class="btn btn--ghost" href="unify.html">Next: Circana Unify+ →</a>
   </nav>
+
 </main>
 
 <!-- ================= FOOTER (identical on every page) ================= -->

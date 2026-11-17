@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpinionLab: Enterprise SaaS Dashboards &mdash; Ricky Sunay</title>
+  <meta name="description" content="Leading UI and UX for OpinionLab's next-generation reporting application — accessible comment cards, advanced filtering, trending dashboards and a location dashboard. Case study by Ricky Sunay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER (identical on every page — edit everywhere if you change it) ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="../index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#comment-card"><span class="subnav-label">Comment card</span></a>
+    <a href="#data-viz"><span class="subnav-label">Data viz</span></a>
+    <a href="#o-trend"><span class="subnav-label">O-Trend</span></a>
+    <a href="#filtering"><span class="subnav-label">Filtering</span></a>
+    <a href="#complexity"><span class="subnav-label">Complexity</span></a>
+    <a href="#dashboards"><span class="subnav-label">Dashboards</span></a>
+    <a href="#location"><span class="subnav-label">Location</span></a>
+  </div>
+</nav>
+
+
+  <!-- ================= COPY: CASE HERO ================= -->
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study product/opinionlab &middot; OpinionLab &middot; [TODO: years]</p>
+    <h1 class="display-lg">Enterprise SaaS dashboards</h1>
+    <p class="lede">
+      Empowering the voice of customers to improve the brands they care about.
+      At OpinionLab I led all UI and UX initiatives to bring new features and
+      functionality into a new reporting application.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>UI/UX Designer, lead for all UI and UX initiatives</dd></div>
+      <div><dt>Timeline</dt><dd>Nearly two years &middot; [TODO: Mon YYYY – Mon YYYY]</dd></div>
+      <div><dt>Team</dt><dd>Product, the analytics department, and marketing</dd></div>
+      <div><dt>Stack</dt><dd>[TODO: tools — e.g. Sketch · InVision]</dd></div>
+    </dl>
+  </section>
+  <!-- ================= END COPY: CASE HERO ================= -->
+
+  <div class="container prose">
+    <figure class="spec-figure spec-figure--bleed">
+      <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 21 / 9">
+        <span>FIG 01 · Hero — the new-generation dashboard application: a trending dashboard with the live filter bar along the top</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The new-generation reporting application.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: O-LAB ================= -->
+  <section class="section container prose case-section" id="o-lab">
+    <p class="eyebrow">O-Lab</p>
+    <h2>Helping brands hear their customers</h2>
+    <p>
+      For nearly two years I was at OpinionLab, where we helped companies gather
+      feedback from their customers. In addition to collecting their Net Promoter
+      Score, we could aggregate data to help brands make more timely and impactful
+      decisions based on real customer pain points. We offered different forms of
+      analysis of all that data: reports, consulting services, and a self-service
+      dashboard application that I was in charge of.
+    </p>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Reports</h3>
+        <p>Scheduled, designed reports like O-Trend that most clients relied on to digest their data.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>Consulting</h3>
+        <p>Analysts who read the data for clients and turned it into recommendations.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>Self-service dashboard</h3>
+        <p>The application I owned: clients exploring their own data, live, without waiting for a report.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: O-LAB ================= -->
+
+  <!-- ================= COPY: COMMENT CARD ================= -->
+  <section class="section container prose case-section" id="comment-card">
+    <p class="eyebrow">Comment card</p>
+    <h2>Where every data point started</h2>
+    <div class="split">
+      <div class="split__copy">
+        <p>
+          Our company started with a feedback tab and a comment card. Living on
+          our clients' websites, we were there for customers to leave their
+          sentiment, give feedback and submit an NPS.
+        </p>
+        <p>
+          Our comment cards captured user data based on the Net Promoter Score as
+          well as our own custom Likert scale. We tested multiple variations of
+          scale, type and taxonomy, but ultimately found a 5-point scale worked
+          best for our needs.
+        </p>
+        <p>
+          The main goal for the comment cards was accessibility. Per our contract
+          agreements, the cards had to comply with the full Web Content
+          Accessibility Guidelines (WCAG).
+        </p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 02 · The feedback tab and comment card on a client site, with the NPS question and the 5-point Likert scale</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 02</span> The feedback tab and comment card: NPS plus our 5-point scale, fully WCAG compliant.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: COMMENT CARD ================= -->
+
+  <!-- ================= COPY: DATA VIZ ================= -->
+  <section class="section container prose case-section" id="data-viz">
+    <p class="eyebrow">Data viz</p>
+    <h2>A new application, one feature at a time</h2>
+    <p>
+      The new-generation application was still a brand new offering, slowly
+      taking shape as we added more features. From a competitive standpoint we
+      aimed to include the complexity of tools like Qualtrics and Looker, with
+      the ease of use of Survey Monkey and Usabilla.
+    </p>
+    <div class="split">
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 03 · The original product I began working on — the existing client web portal</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 03</span> The original product I began working on.</figcaption>
+        </figure>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 04 · My first release of the new platform, living inside the existing portal</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 04</span> My first release of the new platform.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>
+      We had a web portal where clients accessed all of their data. The "new gen"
+      application would temporarily live inside that interface until it could
+      stand on its own.
+    </p>
+  </section>
+  <!-- ================= END COPY: DATA VIZ ================= -->
+
+  <!-- ================= COPY: O-TREND REPORT ================= -->
+  <section class="section container prose case-section" id="o-trend">
+    <p class="eyebrow">O-Trend report</p>
+    <h2>The 20-page report that set the roadmap</h2>
+    <div class="aside-split">
+      <div>
+        <p>
+          O-Trend was a 20-page report used by 75% of our clients to digest their
+          data, and a lot of the features we prioritized came from this one
+          report. It focused on specified sections, or custom reports, that
+          tracked month-over-month and year-over-year trends to make user
+          behaviour and engagement easy to spot. Our first goal was to improve
+          filtering, so users could replicate the original report's views
+          themselves.
+        </p>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder">
+            <span>FIG 05 · A sample O-Trend report — a spread of pages showing the month-over-month and year-over-year trend sections</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 05</span> A sample O-Trend report: everything clients were used to, and the baseline for what the app had to offer.</figcaption>
+        </figure>
+      </div>
+      <p class="aside-note">
+        I wanted an overview of everything O-Trend offered clients, to find ways
+        to give them all the information they were used to while empowering them
+        to do more.
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: O-TREND REPORT ================= -->
+
+  <!-- ================= COPY: ADVANCED FILTERING ================= -->
+  <section class="section container prose case-section" id="filtering">
+    <p class="eyebrow">Advanced filtering</p>
+    <h2>Release the complexity gradually</h2>
+    <p>
+      Filtering was going to be a long, ongoing improvement. We planned to include
+      all of our taxonomies, variables and custom IDs that clients could control.
+      But we knew the upgrade would have to be released gradually, slowly
+      increasing the complexity.
+    </p>
+    <p>
+      As with a lot of the projects I worked on, I started by learning from subject
+      matter experts and looking at the data on current usage. Through surveys and
+      internal critiques I gathered feedback on my decisions by showing work in
+      progress.
+    </p>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Basic filters</h3>
+        <p>The handful of filters most users touched, and nothing else in the way.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>All options exposed</h3>
+        <p>Every taxonomy, variable and custom ID visible at once, for the power user replicating a report.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>Categorized</h3>
+        <p>The full set, grouped by category, so complexity could grow without the list becoming a wall.</p>
+      </li>
+    </ul>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--placeholder">
+        <span>FIG 06 · The three base filtering templates side by side — basic, all options exposed, and categorized</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 06</span> Three base templates for filtering. Usage data and internal interviews set the list order, grouping and industry standards used in the final design.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: ADVANCED FILTERING ================= -->
+
+  <!-- ================= COPY: MAPPING COMPLEXITY ================= -->
+  <section class="section container prose case-section" id="complexity">
+    <p class="eyebrow">Mapping complexity</p>
+    <h2>Design the most complex state, then work backwards</h2>
+    <div class="split split--sticky">
+      <div class="split__copy">
+        <p>
+          The hardest part of managing all the changing components was having
+          multiple versions of the product at once: the working web portal, a newer
+          version we planned to release, and a future version for user testing. It
+          was simpler to map out every component from its most complex state and
+          work backwards, to make sure the patterns we were using would hold up.
+        </p>
+        <p>
+          Part of the challenge was our own Likert scale. There was a marketing need
+          to prove its worth as a valuable and informative measure of how engaged
+          our clients' users were with their brand.
+        </p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 07 · One component mapped from its most complex state back to its simplest, across the three product versions</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 07</span> One component, three product versions, mapped from most complex backwards.</figcaption>
+        </figure>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 08 · A series of Likert-scale visualization variations</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 08</span> Variations on the Likert scale, meeting marketing's requirements while managing the product team's growing complexity.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: MAPPING COMPLEXITY ================= -->
+
+  <!-- ================= COPY: TRENDING DASHBOARDS ================= -->
+  <section class="section container prose case-section" id="dashboards">
+    <p class="eyebrow">Trending dashboards</p>
+    <h2>Four views, one live filter bar</h2>
+    <p>
+      I decided to create four different dashboard views that together could
+      hold the majority of the information in our O-Trend reports. Combined with
+      a new live filtering system along the top, we could give users quick access
+      to the metrics and views they used most.
+    </p>
+    <p>
+      I built four prototypes and circulated them with my team and our analytics
+      department to get feedback on the views, and on the functionality needed
+      to make them most useful.
+    </p>
+    <div class="bento">
+      <div class="bento__item bento__item--wide bento__item--tall">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 09 · Dashboard view one, with the live filter bar along the top</span>
+        </div>
+      </div>
+      <div class="bento__item">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 10 · Dashboard view two</span>
+        </div>
+      </div>
+      <div class="bento__item">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 11 · Dashboard view three</span>
+        </div>
+      </div>
+      <div class="bento__item bento__item--wide">
+        <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: auto; height: 100%">
+          <span>FIG 12 · Dashboard view four</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: TRENDING DASHBOARDS ================= -->
+
+  <!-- ================= COPY: LOCATION DASHBOARD ================= -->
+  <section class="section container prose case-section" id="location">
+    <p class="eyebrow">Location dashboard</p>
+    <h2>Stop catching up. Lead with something unique.</h2>
+    <p>
+      The truth was that our application was chasing a market with giants, and
+      despite our efforts to come out with new features, we were really only
+      catching up. Location services offered a trait that was unique in the
+      market. Our new goal became releasing an industry-leading feature to bridge
+      the gap between captured reviews and physical experiences.
+    </p>
+    <div class="aside-split">
+      <div>
+        <h3>Just a demo</h3>
+        <p>
+          To release the new functionality in such a short time, I had a short
+          window to ideate different mapping techniques that would meet our needs
+          and be simple enough to implement.
+        </p>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder">
+            <span>FIG 13 · The location dashboard demo — a map of a client's locations with captured feedback plotted against each one</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 13</span> The location dashboard demo: reviews plotted against the physical places they happened.</figcaption>
+        </figure>
+      </div>
+      <p class="aside-note">
+        [TODO: Business impact — what the location demo led to, e.g. a client win, a release, or a roadmap decision.]
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: LOCATION DASHBOARD ================= -->
+
+  <nav class="case-nav container" aria-label="Case study navigation">
+    <a class="btn btn--ghost" href="../index.html">&#8592; All work</a>
+    <a class="btn btn--ghost" href="purple-pen.html">Next: The Purple Pen &#8594;</a>
+  </nav>
+
+</main>
+
+<!-- ================= FOOTER (identical on every page) ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, one small JS file. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

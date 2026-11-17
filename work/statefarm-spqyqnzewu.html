@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State Farm: A Linter for an Enterprise Design System — Ricky Sunay</title>
+  <meta name="description" content="Unlisted case study by Ricky Sunay: building a linter for State Farm's enterprise design system.">
+  <!-- UNLISTED: this page is not linked from the site and must not be indexed. Keep this tag. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER (identical on every page — edit everywhere if you change it) ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="../index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#impact"><span class="subnav-label">Impact</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#approach"><span class="subnav-label">Approach</span></a>
+    <a href="#linter"><span class="subnav-label">The linter</span></a>
+    <a href="#rules"><span class="subnav-label">Rules</span></a>
+    <a href="#rollout"><span class="subnav-label">Rollout</span></a>
+    <a href="#results"><span class="subnav-label">Results</span></a>
+    <a href="#reflection"><span class="subnav-label">Reflection</span></a>
+  </div>
+</nav>
+
+
+  <!-- ================= COPY: CASE HERO ================= -->
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study ds/statefarm · State Farm · [TODO: year] · unlisted</p>
+    <h1 class="display-lg">A linter for an enterprise design system</h1>
+    <p class="lede">
+      State Farm's enterprise design system served [TODO: number] product teams,
+      and every one of them drifted from it a little differently. I built a
+      linter that checks work against the system automatically — tokens,
+      components, type, spacing and contrast — so the system could be enforced
+      without a designer reviewing every file by hand.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>[TODO: role title]</dd></div>
+      <div><dt>Timeline</dt><dd>[TODO: Mon YYYY – Mon YYYY]</dd></div>
+      <div><dt>Team</dt><dd>[TODO: who you worked with]</dd></div>
+      <div><dt>Stack</dt><dd>[TODO: e.g. Figma Plugin API · design tokens · TypeScript]</dd></div>
+    </dl>
+  </section>
+  <!-- ================= END COPY: CASE HERO ================= -->
+
+  <div class="container prose">
+    <figure class="spec-figure spec-figure--bleed">
+      <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 21 / 9">
+        <span>FIG 01 · Hero — the linter running on a design file, with issues listed in the panel and highlighted on the canvas</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The linter in use: every deviation from the system, found in one pass.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: OUTCOMES (placeholder metrics — replace every value and label) ================= -->
+  <section class="section container prose case-section" id="impact">
+    <p class="eyebrow">Impact</p>
+    <h2>Outcomes</h2>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">XX</span><span class="metric__label">[TODO: lint rules shipped]</span></li>
+      <li class="metric"><span class="metric__value">X,XXX</span><span class="metric__label">[TODO: issues caught before handoff in the first N months]</span></li>
+      <li class="metric"><span class="metric__value">XX%</span><span class="metric__label">[TODO: reduction in system defects found in dev review]</span></li>
+      <li class="metric"><span class="metric__value">XX</span><span class="metric__label">[TODO: product teams running the linter]</span></li>
+    </ul>
+    <p>[TODO: one sentence on the overall outcome — what the system could do after the linter that it couldn't before.]</p>
+  </section>
+  <!-- ================= END COPY: OUTCOMES ================= -->
+
+  <!-- ================= COPY: THE PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>A system everyone used and nobody followed</h2>
+    <p>
+      The design system existed. It had tokens, a component library and
+      documentation, and most teams had adopted it. The problem was what happened
+      after adoption. A designer would detach a component to make one change, pick
+      a colour by eye because it was close enough, or nudge a spacing value off the
+      grid to make something fit. Each change was small and reasonable on its own.
+      Across [TODO: number] teams they added up to a system that looked consistent
+      in the library and inconsistent in the product.
+    </p>
+    <p>
+      The only check was a design review, and a review can't scale. Reviewers
+      caught what they happened to notice, late, after the work was done and the
+      designer had moved on. The same mistakes were found again and again, by
+      hand, by people whose time was better spent on the system itself.
+    </p>
+    <h3>What the reviews kept finding</h3>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Values instead of tokens</h3>
+        <p>Raw hex colours, hand-typed font sizes and spacing values that were close to the scale but not on it. Invisible in a file, visible in the product.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>Detached and deprecated components</h3>
+        <p>Components detached for a one-off change and never reattached, and old versions still in use long after they'd been replaced.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>Accessibility found last</h3>
+        <p>Contrast failures discovered in dev review or QA, after the design had been approved and built.</p>
+      </li>
+    </ul>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--placeholder">
+        <span>FIG 02 · Before — a design review comment thread, or a side-by-side of the library component and three drifted copies of it in product files</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> One component in the library, three versions of it in product files.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: THE PROBLEM ================= -->
+
+  <!-- ================= COPY: APPROACH ================= -->
+  <section class="section container prose case-section" id="approach">
+    <p class="eyebrow">Approach</p>
+    <h2>Make the rules executable</h2>
+    <p>
+      Every one of those findings was a rule the system already had, written down
+      in documentation nobody re-read. If a rule can be written down, it can be
+      checked by a machine. I set out to turn the system's rules into a linter —
+      the same idea engineers have relied on for decades, pointed at design work.
+    </p>
+    <ul class="principles">
+      <li class="principle">
+        <span class="principle__index">principle/01</span>
+        <h3>Check early, not late</h3>
+        <p>The linter runs while the work is being made, in the designer's own file. A problem found at that point costs a click to fix. The same problem found in QA costs a sprint.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">principle/02</span>
+        <h3>Every finding comes with a fix</h3>
+        <p>A linter that only complains gets turned off. Each rule names the nearest valid token, component or value, and applies it in one action where it safely can.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">principle/03</span>
+        <h3>The system is the source of the rules</h3>
+        <p>Rules read the token set and component library directly. When a token is added or a component deprecated, the linter knows on the next run, with no rule rewritten.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: APPROACH ================= -->
+
+  <!-- ================= COPY: THE LINTER ================= -->
+  <section class="section container prose case-section" id="linter">
+    <p class="eyebrow">The linter</p>
+    <h2>How a pass works</h2>
+    <div class="process-flow">
+      <div class="process-flow__step">
+        <span class="process-flow__label">Input</span>
+        <span class="process-flow__name">Design file or selection</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Reference</span>
+        <span class="process-flow__name">Tokens + component library</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step process-flow__step--active">
+        <span class="process-flow__label">Check</span>
+        <span class="process-flow__name">Rules run per layer</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Report</span>
+        <span class="process-flow__name">Issues, grouped by rule</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Fix</span>
+        <span class="process-flow__name">Apply the nearest valid value</span>
+      </div>
+    </div>
+    <div class="split split--sticky">
+      <div class="split__copy">
+        <h3>What a designer sees</h3>
+        <p>
+          The linter is a panel beside the canvas. Run it on a page or a selection
+          and it walks every layer, compares what it finds to the token set and
+          the library, and lists what doesn't match. Each issue names the rule,
+          the layer, and the fix. Clicking one selects the layer; clicking the fix
+          applies it.
+        </p>
+        <p>
+          Findings are grouped by rule, not by layer, because a file with forty
+          raw colours usually has one or two mistakes repeated forty times. Fixing
+          by rule turns forty clicks into one.
+        </p>
+        <p>
+          [TODO: anything specific about where the linter runs — a Figma plugin,
+          a CI check on code, both — and how designers trigger it.]
+        </p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 03 · The linter panel — a list of findings grouped by rule, with a count per rule and a fix-all action</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 03</span> Findings grouped by rule, each with a fix.</figcaption>
+        </figure>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 04 · One finding in detail — the offending layer highlighted on the canvas, the raw value, and the nearest token it will be replaced with</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 04</span> One finding: the raw value, the layer, the nearest token.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: THE LINTER ================= -->
+
+  <!-- ================= COPY: RULES ================= -->
+  <section class="section container prose case-section" id="rules">
+    <p class="eyebrow">Rules</p>
+    <h2>What it checks</h2>
+    <p>
+      The first release shipped [TODO: number] rules. Each one maps to a rule the
+      system already documented; the linter didn't add policy, it enforced the
+      policy that existed.
+    </p>
+    <div class="token-flow">
+      <div class="token-chip">
+        <span class="token-chip__tier">Found</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #D62E2E"></span>
+          <span class="token-chip__meta"><span class="token-chip__name">Raw fill</span><span class="token-chip__var">fill: #D62E2E</span><span class="token-chip__hex">not a token</span></span>
+        </div>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="token-chip token-chip--active">
+        <span class="token-chip__tier">Rule · color/no-raw-value</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #D62E2E"></span>
+          <span class="token-chip__meta"><span class="token-chip__name">Nearest token</span><span class="token-chip__var">color.brand.primary</span><span class="token-chip__hex">ΔE 0.0 · exact match</span></span>
+        </div>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="token-chip">
+        <span class="token-chip__tier">Fixed</span>
+        <div class="token-chip__body">
+          <span class="token-chip__swatch" style="--chip: #D62E2E"></span>
+          <span class="token-chip__meta"><span class="token-chip__name">Bound to token</span><span class="token-chip__var">fill &rarr; color.brand.primary</span><span class="token-chip__hex">updates with the system</span></span>
+        </div>
+      </div>
+    </div>
+    <p><em>The example values above are illustrative.</em> [TODO: replace with a real rule name, token and value from the system.]</p>
+    <div class="split">
+      <div class="split__copy">
+        <h3>Tokens</h3>
+        <ul>
+          <li><strong>Colour.</strong> Any fill, stroke or text colour that isn't bound to a token. Suggests the nearest token by colour distance; flags when nothing is close.</li>
+          <li><strong>Type.</strong> Text not using a type style from the scale, or a style with a local override.</li>
+          <li><strong>Spacing.</strong> Padding, gaps and offsets that aren't on the spacing scale.</li>
+          <li><strong>Radius and elevation.</strong> Corner radii and shadows that aren't a system value.</li>
+        </ul>
+      </div>
+      <div class="split__copy">
+        <h3>Components and accessibility</h3>
+        <ul>
+          <li><strong>Detached instances.</strong> Frames that were library components and no longer are, with the original named.</li>
+          <li><strong>Deprecated components.</strong> Instances of anything the library has retired, with the replacement named.</li>
+          <li><strong>Overrides.</strong> Instance overrides that change a property the component doesn't expose.</li>
+          <li><strong>Contrast.</strong> Text-on-background pairings below WCAG AA, checked against the resolved colours.</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 16 / 9">
+        <span>FIG 05 · The rule catalogue — a table of every rule: id, what it checks, severity, whether it has an auto-fix</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 05</span> The rule catalogue. Every rule has an id, a severity and, where safe, a fix.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: RULES ================= -->
+
+  <!-- ================= COPY: ROLLOUT ================= -->
+  <section class="section container prose case-section" id="rollout">
+    <p class="eyebrow">Rollout</p>
+    <h2>Warnings first, then errors</h2>
+    <div class="aside-split">
+      <div>
+        <p>
+          A linter that fails everything on day one gets uninstalled on day two.
+          Every rule shipped as a warning first. Teams ran it, saw what it found,
+          and fixed what they could. Only once a rule's findings were down to a
+          manageable level did it become an error — [TODO: whether errors blocked
+          anything, such as handoff or a release check].
+        </p>
+        <p>
+          [TODO: how the linter was introduced to teams — a pilot with N teams,
+          office hours, a channel for false positives — and roughly how long the
+          rollout took.]
+        </p>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder">
+            <span>FIG 06 · Rollout — a chart of findings per file over time, or the pilot team's before/after lint report</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 06</span> Findings per file over the rollout.</figcaption>
+        </figure>
+      </div>
+      <p class="aside-note">
+        False positives were treated as bugs in the linter, not mistakes by the
+        designer. A rule that was wrong often enough got fixed or removed, which
+        is the only way a tool like this keeps its credibility.
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: ROLLOUT ================= -->
+
+  <!-- ================= COPY: RESULTS ================= -->
+  <section class="section container prose case-section" id="results">
+    <p class="eyebrow">Results</p>
+    <h2>What changed</h2>
+    <p>[TODO: two or three sentences on the measurable outcome, matching the metrics band above.]</p>
+    <ul>
+      <li>[TODO: result — e.g. system defects caught before handoff instead of in QA]</li>
+      <li>[TODO: result — e.g. design review time freed up for the system itself]</li>
+      <li>[TODO: result — e.g. token adoption measurable per file for the first time]</li>
+      <li>[TODO: result — e.g. deprecated components retired on a schedule instead of lingering]</li>
+    </ul>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame spec-figure__frame--placeholder">
+        <span>FIG 07 · After — the same product file from FIG 02, linted clean, or the adoption dashboard the linter's output fed</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 07</span> The same file, linted clean.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: RESULTS ================= -->
+
+  <!-- ================= COPY: REFLECTION ================= -->
+  <section class="section container prose case-section" id="reflection">
+    <p class="eyebrow">Reflection</p>
+    <h2>Governance is a tool, not a meeting</h2>
+    <p>
+      The lesson I keep taking from this one is that a design system's rules are
+      only real when something enforces them. Documentation describes the system;
+      a linter makes it true. The second lesson is about trust: the linter only
+      worked because every finding came with a fix and every false positive was
+      taken seriously. Enforcement that feels like being policed gets routed
+      around. Enforcement that feels like help gets adopted.
+    </p>
+    <p>[TODO: one or two personal learnings from the project.]</p>
+  </section>
+  <!-- ================= END COPY: REFLECTION ================= -->
+
+  <nav class="case-nav container" aria-label="Case study navigation">
+    <a class="btn btn--ghost" href="../index.html">← All work</a>
+    <a class="btn btn--primary" href="../about.html#contact">Ask me about this project →</a>
+  </nav>
+
+</main>
+
+<!-- ================= FOOTER (identical on every page) ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, one small JS file. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

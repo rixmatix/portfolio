@@ -5,8 +5,8 @@
   <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
   <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZS Design System — Ricky Sunay</title>
-  <meta name="description" content="ZS Design System — case study by Ricky Sunay.">
+  <title>ZS Enterprise Design System — Ricky Sunay</title>
+  <meta name="description" content="A three-month initiative that moved ZS from a Sketch pattern library to a token-driven, atomic design system in Figma — 72 components, 200+ designers onboarded, 75% adoption after a month. Case study by Ricky Sunay.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -36,18 +36,328 @@
 </header>
 
 <main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#impact"><span class="subnav-label">Impact</span></a>
+    <a href="#problem"><span class="subnav-label">Problem</span></a>
+    <a href="#approach"><span class="subnav-label">Approach</span></a>
+    <a href="#process"><span class="subnav-label">Process</span></a>
+    <a href="#release"><span class="subnav-label">Release</span></a>
+    <a href="#results"><span class="subnav-label">Results</span></a>
+    <a href="#learnings"><span class="subnav-label">Learnings</span></a>
+  </div>
+</nav>
+
+
   <!-- ================= COPY: CASE HERO ================= -->
-  <section class="case-hero container">
-    <p class="eyebrow">Case study ds/zs</p>
-    <h1 class="display-lg">ZS Design System</h1>
-    <p class="lede">Full case study coming soon.</p>
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study ds/zs · ZS · 2021</p>
+    <h1 class="display-lg">ZS Enterprise Design System</h1>
+    <p class="lede">
+      A three-month initiative that transformed how ZS builds digital products.
+      The existing pattern library lived in Sketch and had stopped keeping up with
+      a fast-moving analytics business. I rebuilt it from the ground up as a
+      token-driven, atomic design system — and onboarded two hundred designers to
+      Figma and a new way of working.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Design Lead</dd></div>
+      <div><dt>Timeline</dt><dd>Jan 2021 – Apr 2021</dd></div>
+      <div><dt>Team</dt><dd>Me + two engineering leads</dd></div>
+      <div><dt>Stack</dt><dd>Sketch &rarr; Figma · design tokens · atomic design</dd></div>
+    </dl>
   </section>
   <!-- ================= END COPY: CASE HERO ================= -->
 
+  <div class="container prose">
+    <figure class="spec-figure spec-figure--bleed">
+      <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 21 / 9">
+        <span>FIG 01 · Hero — the finished ZS Design Library: a component overview page or a spread of key components on desktop and mobile</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The ZS Design Library — 72 components, one source of truth.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: OUTCOMES ================= -->
+  <section class="section container prose case-section" id="impact">
+    <p class="eyebrow">Impact</p>
+    <h2>Outcomes</h2>
+    <ul class="metrics">
+      <li class="metric"><span class="metric__value">72</span><span class="metric__label">new dynamic components documented and published</span></li>
+      <li class="metric"><span class="metric__value">200+</span><span class="metric__label">designers trained and onboarded to the new system</span></li>
+      <li class="metric"><span class="metric__value">75%</span><span class="metric__label">adoption after a month, from 25% in the first week</span></li>
+      <li class="metric"><span class="metric__value">20%</span><span class="metric__label">less time to create new experiences and applications</span></li>
+    </ul>
+    <p>
+      The project addressed fundamental challenges around consistency, quality and
+      accessibility across ZS's enterprise analytics platform — and replaced a
+      static library with one a team of two hundred could actually build on.
+    </p>
+  </section>
+  <!-- ================= END COPY: OUTCOMES ================= -->
+
+  <!-- ================= COPY: THE PROBLEM ================= -->
+  <section class="section container prose case-section" id="problem">
+    <p class="eyebrow">The problem</p>
+    <h2>A fast-moving analytics business, a static library</h2>
+    <p>
+      ZS's design team was working in a fragmented design ecosystem. The existing
+      pattern library lived in Sketch, which created real barriers to collaboration
+      and efficiency: components were static, hard to share, and drifted the moment
+      they were copied into a working file. For a design team of 200 working
+      alongside 1,200 engineers, the library had become a bottleneck rather than a
+      foundation.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame spec-figure__frame--placeholder">
+        <span>FIG 02 · Before — the Sketch pattern library: a few pages of static symbols, with the same component appearing in different states across different files</span>
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> The Sketch pattern library before the rebuild.</figcaption>
+    </figure>
+    <h3>Observations</h3>
+    <ul class="principles">
+      <li class="principle">
+        <span class="principle__index">finding/01</span>
+        <h3>Broken components, many tools</h3>
+        <p>Components were scattered across multiple tools, and many were broken or out of date. There was no reliable place to go for the current version of anything.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">finding/02</span>
+        <h3>Static, inflexible assets</h3>
+        <p>Design assets couldn't adapt to evolving needs. Changing content or state meant detaching and redrawing, so every instance became a one-off.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">finding/03</span>
+        <h3>No single source of truth</h3>
+        <p>Without one, products diverged. The same control looked and behaved differently from one product to the next, and nobody could say which was right.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">finding/04</span>
+        <h3>Scale the library couldn't meet</h3>
+        <p>Two hundred designers and twelve hundred engineers need a system that scales with them. A Sketch library maintained by hand does not.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: THE PROBLEM ================= -->
+
+  <!-- ================= COPY: APPROACH ================= -->
+  <section class="section container prose case-section" id="approach">
+    <p class="eyebrow">Approach</p>
+    <h2>Rebuild, don't convert</h2>
+    <p>
+      Rather than simply converting the existing Sketch files, I architected a new
+      system from the ground up using industry best practices. Converting would
+      have carried every foundational problem into Figma. Starting fresh
+      let us fix them.
+    </p>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Atomic design</h3>
+        <p>Followed the atomic methodology to create a logical, scalable component hierarchy — atoms, molecules and organisms that compose instead of duplicate.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>Token architecture</h3>
+        <p>Installed tokens for consistent design decisions across every component, so a change to a colour, type or spacing value lands everywhere at once.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>Documentation</h3>
+        <p>Comprehensive documentation to support adoption across a large, distributed team. A component nobody knows how to use isn't a component.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: APPROACH ================= -->
+
+  <!-- ================= COPY: PROCESS ================= -->
+  <section class="section container prose case-section" id="process">
+    <p class="eyebrow">Process</p>
+    <h2>Four phases in three months</h2>
+    <div class="process-flow">
+      <div class="process-flow__step">
+        <span class="process-flow__label">Phase 1</span>
+        <span class="process-flow__name">Audit &amp; strategy</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Phase 2</span>
+        <span class="process-flow__name">Token foundation</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Phase 3</span>
+        <span class="process-flow__name">Component build</span>
+      </div>
+      <span class="process-flow__arrow" aria-hidden="true"></span>
+      <div class="process-flow__step">
+        <span class="process-flow__label">Phase 4</span>
+        <span class="process-flow__name">Documentation</span>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="split__copy">
+        <h3>Audit &amp; strategy</h3>
+        <p>Analyzed the existing patterns and identified the gaps before designing anything new.</p>
+        <ul>
+          <li>Gathered end-to-end experiences across the platform</li>
+          <li>Looked at usage patterns: which components were used, where, and how often</li>
+          <li>Interviewed designers on their pain points</li>
+          <li>Analyzed the existing files and components</li>
+        </ul>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 03 · Audit — the component inventory spreadsheet or board: existing patterns tagged by usage, state and gap</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 03</span> The audit: every existing pattern, where it was used, and what was missing.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="split split--flip">
+      <div class="split__copy">
+        <h3>Token foundation</h3>
+        <p>Established the design tokens — colour, typography, spacing and more — that every component would be built on.</p>
+        <ul>
+          <li>Designed a token architecture that could accommodate brand flexibility</li>
+          <li>Ensured WCAG AA compliance across the colour system</li>
+          <li>Spread the token structure into the components, so no value lives in a component by hand</li>
+        </ul>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 04 · Tokens — the colour, type and spacing token sets, with AA contrast pairings shown</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 04</span> The token foundation: colour, type and spacing, verified for AA.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="split__copy">
+        <h3>Component build</h3>
+        <p>Systematically rebuilt 70+ components using atomic design principles, and kept the whole design org in the loop while it happened.</p>
+        <ul>
+          <li>Rebuilt components for dynamic content and flexibility, so they adapt instead of being detached</li>
+          <li>Two Slack channels: one for announcements, one for async collaboration</li>
+          <li>Weekly updates sharing progress, upcoming work and adoption metrics</li>
+        </ul>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 05 · Build — a component's variants and states laid out in the new library (a button or data table works well), or a weekly update post</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 05</span> One of 72 components, with every state and variant built in.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="split split--flip">
+      <div class="split__copy">
+        <h3>Documentation</h3>
+        <p>Created clear guidance for proper component usage, written for a designer who has never seen the system before.</p>
+        <ul>
+          <li>Documentation for each component's usage and the triggers that call for it</li>
+          <li>Covered the whole component user experience, not just the visual spec</li>
+        </ul>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder" style="--ph-ratio: 4 / 3">
+            <span>FIG 06 · Documentation — a component's documentation page: usage guidance, do/don't, and when to use it</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 06</span> Documentation that answers "when" and "why", not just "what".</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: PROCESS ================= -->
+
+  <!-- ================= COPY: RELEASE ================= -->
+  <section class="section container prose case-section" id="release">
+    <p class="eyebrow">Release</p>
+    <h2>An org-wide onboarding, then a month of momentum</h2>
+    <div class="aside-split">
+      <div>
+        <p>
+          At the start of the project we promised an org-wide onboarding session for
+          the new system, and after three months of work we delivered it. Not every
+          designer could attend, and adoption still reached 25% in the first
+          week. With continued training and onboarding it grew to 75% after a
+          month.
+        </p>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame spec-figure__frame--placeholder">
+            <span>FIG 07 · Release — the onboarding session deck or recording, or the adoption chart climbing from 25% in week one to 75% at a month</span>
+          </div>
+          <figcaption><span class="fig-id">FIG 07</span> The onboarding session, and the adoption that followed it.</figcaption>
+        </figure>
+      </div>
+      <p class="aside-note">
+        Phased adoption with training support beat expecting everyone to switch at
+        once. The Slack channels and weekly updates from the build phase became the
+        support system for the rollout.
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: RELEASE ================= -->
+
+  <!-- ================= COPY: RESULTS ================= -->
+  <section class="section container prose case-section" id="results">
+    <p class="eyebrow">Results</p>
+    <h2>What changed for the teams</h2>
+    <p>The new ZS Design Library transformed how the design and engineering teams work together:</p>
+    <ul>
+      <li><strong>25% adoption</strong> in the first week after the onboarding session.</li>
+      <li><strong>75% adoption</strong> after a month, with continued training and onboarding.</li>
+      <li><strong>20% reduction</strong> in the time it takes to create new experiences and applications.</li>
+      <li><strong>200 designers</strong> successfully onboarded from Sketch to Figma and a completely new workflow.</li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: RESULTS ================= -->
+
+  <!-- ================= COPY: LEARNINGS ================= -->
+  <section class="section container prose case-section" id="learnings">
+    <p class="eyebrow">Key learnings</p>
+    <h2>What leading the migration reinforced</h2>
+    <ul class="principles">
+      <li class="principle">
+        <span class="principle__index">learning/01</span>
+        <h3>Documentation is as important as components</h3>
+        <p>Great components mean nothing if people don't know how to use them.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">learning/02</span>
+        <h3>Phased adoption beats a hard cutover</h3>
+        <p>Phased adoption with training support drives higher success rates than expecting immediate, full adoption.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">learning/03</span>
+        <h3>Tokens upfront save hours later</h3>
+        <p>Putting the token architecture in place first saved countless hours of updates down the line.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__index">learning/04</span>
+        <h3>Rebuilding &gt; converting</h3>
+        <p>Starting fresh allowed us to fix foundational issues rather than perpetuating them.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ================= END COPY: LEARNINGS ================= -->
+
   <nav class="case-nav container" aria-label="Case study navigation">
     <a class="btn btn--ghost" href="../index.html">← All work</a>
-    <a class="btn btn--primary" href="../about.html#contact">Ask me about this project →</a>
+    <a class="btn btn--ghost" href="liquid-m1.html">Next: Building Liquid →</a>
   </nav>
+
 </main>
 
 <!-- ================= FOOTER (identical on every page) ================= -->

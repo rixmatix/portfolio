@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Applies the saved mode before first paint (no color flash). Default is dark / design systems. -->
+  <script>try{if(sessionStorage.getItem("mode")==="gen")document.documentElement.setAttribute("data-mode","gen")}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Purple Pen: Empowering Teachers and Students &mdash; Ricky Sunay</title>
+  <meta name="description" content="Helping The Purple Pen turn a year of spreadsheets into a demo-ready application for building personal lesson plans — a pattern library, a curriculum wizard, and an InVision feedback loop. Case study by Ricky Sunay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ================= HEADER (identical on every page — edit everywhere if you change it) ================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="../index.html"><svg class="logo__glyph" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M11.9635 5.33774C11.9874 5.55522 12 5.77616 12 6C12 9.31371 9.31371 12 6 12C3.51556 12 1.38392 10.4899 0.472559 8.3376H1.75767L1.75781 8.33774H6.35068V5.33774H11.9635ZM7.44155 9.42861H2.56904C3.44839 10.3186 4.66951 10.8702 6.01948 10.8702C8.5606 10.8702 10.645 8.91606 10.8527 6.42861H7.44155V9.42861ZM6 0C8.70372 0 10.9895 1.7884 11.7396 4.24673H5.37671V7.24673H0.130078C0.0450733 6.84452 0 6.42752 0 6C0 2.68629 2.68629 0 6 0ZM6.01948 1.1688C3.34054 1.1688 1.1688 3.34054 1.1688 6.01948C1.1688 6.06509 1.16945 6.11055 1.1707 6.15586H4.28569V3.15586H9.93486C9.05231 1.95115 7.62731 1.16881 6.01948 1.1688Z" fill="currentColor"/></svg>Ricky Sunay</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+      <a href="../assets/docs/RickySunay-Resume.pdf" download>Resume ↓</a>
+      <div class="mode-toggle mode-toggle--compact" role="group" aria-label="Portfolio mode">
+        <button type="button" data-mode="ds" aria-pressed="true" title="Design systems portfolio">DS</button>
+        <button type="button" data-mode="gen" aria-pressed="false" title="Generalist product design portfolio">Gen</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= STICKY SECTION NAV (edit labels/anchors here) ================= -->
+<nav class="case-subnav" aria-label="Case study sections">
+  <div class="case-subnav__inner">
+    <a href="#overview" class="is-active"><span class="subnav-label">Overview</span></a>
+    <a href="#kickoff"><span class="subnav-label">Kickoff</span></a>
+    <a href="#flow"><span class="subnav-label">The flow</span></a>
+    <a href="#priorities"><span class="subnav-label">Priorities</span></a>
+    <a href="#wizard"><span class="subnav-label">The wizard</span></a>
+    <a href="#prototypes"><span class="subnav-label">Prototypes</span></a>
+    <a href="#branding"><span class="subnav-label">Branding</span></a>
+    <a href="#outcome"><span class="subnav-label">Outcome</span></a>
+  </div>
+</nav>
+
+
+  <!-- ================= COPY: CASE HERO ================= -->
+  <section class="case-hero container case-section" id="overview">
+    <p class="eyebrow">Case study product/purple-pen &middot; The Purple Pen &middot; 2020</p>
+    <h1 class="display-lg">Empowering teachers and students</h1>
+    <p class="lede">
+      I helped The Purple Pen flesh out a system that gives teachers and students
+      a tool to create personal lessons based on authentic learning principles —
+      from a year of spreadsheets and sketches to a high-fidelity prototype they
+      could demo end to end.
+    </p>
+
+    <dl class="meta-grid">
+      <div><dt>Role</dt><dd>Design Lead</dd></div>
+      <div><dt>Timeline</dt><dd>2020</dd></div>
+      <div><dt>Team</dt><dd>Barry, the founder, and The Purple Pen advisory group</dd></div>
+      <div><dt>Stack</dt><dd>Style guide + pattern library &middot; InVision prototypes</dd></div>
+    </dl>
+  </section>
+  <!-- ================= END COPY: CASE HERO ================= -->
+
+  <div class="container prose">
+    <figure class="spec-figure spec-figure--bleed">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-01.jpg" alt="The Purple Pen on a laptop and a phone: the curriculum wizard's 'In this project, what matters more?' dial between Content Knowledge and Academic Skills, and the mobile login for The Curriculum Wizard.">
+      </div>
+      <figcaption><span class="fig-id">FIG 01</span> The Purple Pen: the curriculum wizard on desktop and mobile.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ================= COPY: THE PURPLE PEN ================= -->
+  <section class="section container prose case-section" id="kickoff">
+    <p class="eyebrow">The Purple Pen</p>
+    <h2>A call from my high school teacher</h2>
+    <p>
+      This project started when my high school teacher contacted me to ask a
+      couple of questions about my profession. It turned out he had a project that
+      needed a lot of design work — and it couldn't have been one I believed in
+      more. I'm a product of the Chicago Public Schools system myself, but nobody
+      knew it better than Barry, who had taught in some of the best and worst
+      schools across Chicago.
+    </p>
+    <p>
+      Barry and a group of supporters wanted to change the way children are
+      taught by giving parents and teachers the ability to create their own lesson
+      plans and learning criteria: aligned to the Common Core State Standards, but
+      tailored to the needs of an individual learner. The guiding principle was to
+      find the optimal education experience by balancing authentic learning with
+      common standards and assessments.
+    </p>
+    <figure class="spec-figure spec-figure--narrow">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-02.jpg" alt="The Purple Pen's guiding principles diagram: Authentic Performance Learning, project-, problem- and portfolio-based, inside a ring of local design and local control, inside a square of Common Core and other standards and standardized assessments, surrounded by Authentic Learning, Control and Results." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 02</span> The guiding principles: authentic learning, balanced against common standards and assessments.</figcaption>
+    </figure>
+    <h3>The kickoff</h3>
+    <div class="aside-split">
+      <div>
+        <p>
+          The Purple Pen group had been working on the product for over a year,
+          developing their own assets and methods of documentation. There were
+          even some fully articulated interface designs for a few of the
+          application's key dashboards and page views. I began by talking with
+          Barry about the problem they faced, the methods educators used today,
+          and what the ideal process for an educator would look like. To help
+          them, I realized I needed a higher-level view of the whole process
+          before I could get a real grasp of the product.
+        </p>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-03.jpg" alt="Two of the team's original interface designs: a student activity page for developing a driving question, and a wizard curriculum design tool page asking what type of authentic learning you are designing." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 03</span> Where the team was when I joined: a year of work and a few finished screens.</figcaption>
+        </figure>
+      </div>
+      <p class="aside-note">
+        A year of thinking had gone into the product before a designer touched it.
+        The first job wasn't to design anything. It was to understand it.
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: THE PURPLE PEN ================= -->
+
+  <!-- ================= COPY: GETTING CAUGHT UP ================= -->
+  <section class="section container prose case-section" id="flow">
+    <p class="eyebrow">Getting caught up</p>
+    <h2>The whole flow lived in spreadsheets</h2>
+    <p>
+      The only place the entire flow had been documented was a series of Excel
+      sheets and text documents. Reading through them, and mapping them back to
+      the screens that already existed, was how I built the high-level view I
+      needed.
+    </p>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-04.jpg" alt="A collage of the spreadsheets that documented the product: a wizard navigation sheet listing every page by section, dashboard sheets for student and administrator, and rubric tables." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 04</span> The product, as documented: spreadsheets and text files.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: GETTING CAUGHT UP ================= -->
+
+  <!-- ================= COPY: SPLITTING PRIORITIES ================= -->
+  <section class="section container prose case-section" id="priorities">
+    <p class="eyebrow">Splitting priorities</p>
+    <h2>Three flows that held the whole product</h2>
+    <p>
+      After multiple rounds of feedback we were able to agree on three product
+      flows that together encapsulated the entire product the team envisioned.
+      Splitting the work that way gave every conversation a home and kept the
+      wizard — by far the most complex piece — from swallowing everything else.
+    </p>
+    <ul class="card-trio">
+      <li class="card-trio__cell">
+        <span class="card-trio__index">01</span>
+        <h3>Educator</h3>
+        <p>The teacher's side: setting up a project, its design team, and building the curriculum through the wizard.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">02</span>
+        <h3>Learner</h3>
+        <p>The student's side: working through the activities a teacher has designed for them.</p>
+      </li>
+      <li class="card-trio__cell">
+        <span class="card-trio__index">03</span>
+        <h3>Admin</h3>
+        <p>Accounts, roles and institutions: who can see and manage what across a school.</p>
+      </li>
+    </ul>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-05.jpg" alt="Three architecture diagrams side by side, version 1.0: the site map with sign up, sign in, account and project; the wizard's six curriculum sections and every step within them; and the teacher screens for account, project and help." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 05</span> The architecture, v1.0: three flows, one product.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: SPLITTING PRIORITIES ================= -->
+
+  <!-- ================= COPY: THE WIZARD ================= -->
+  <section class="section container prose case-section" id="wizard">
+    <p class="eyebrow">The wizard</p>
+    <h2>A pattern library first, then every screen</h2>
+    <p>
+      A lot of the project's complexity was contained in the curriculum wizard: a
+      long series of selections and options to customize your result. The Purple
+      Pen team was ready to start building the product, so to give the initial
+      screens some guidance I created a style guide and pattern library we could
+      all reference and eventually add to.
+    </p>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-06.jpg" alt="An architecture sheet of the wizard's reading strategies: sixty strategies from A's and B's and 5W's Chart through Venn Diagram and Notecards, laid out in eight rows as a selectable sequence." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 06</span> One corner of the wizard's complexity: sixty reading strategies a teacher can choose from.</figcaption>
+    </figure>
+    <figure class="spec-figure">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-07.jpg" alt="The Purple Pen style guide in four sheets: logo and colour palette, typography, forms with radios and checkboxes, and buttons and icons including the pen-nib dial controls." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 07</span> The style guide and pattern library everyone could reference and add to.</figcaption>
+    </figure>
+    <div class="split split--sticky">
+      <div class="split__copy">
+        <p>
+          With the pattern library in place I was able to quickly redesign every
+          screen they had originally created and begin working on new
+          functionality. With the whole flow in high fidelity and ready for a
+          prototype, I could start focusing on the complexity inside each step
+          of the process.
+        </p>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-08.png" alt="Every wizard screen redesigned with the pattern library, arranged in columns by section: basics, curriculum non-cognitive academic skills, interstitial, overall authentic design, cognitive academic skills, content knowledge and the long wizard summary with its states." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 08</span> Every screen, redesigned on the pattern library.</figcaption>
+        </figure>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-10.png" alt="A content knowledge wizard step, The Types and Number of Sources, with a Conference Proceedings panel open for adding sources and choosing pre-, during- and post-reading strategies, above a list of other source categories." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 09</span> One step, in detail: choosing the types and number of sources for a project.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: THE WIZARD ================= -->
+
+  <!-- ================= COPY: FEEDBACK LOOP ================= -->
+  <section class="section container prose case-section" id="prototypes">
+    <p class="eyebrow">Constant feedback loop</p>
+    <h2>Prototype, share, test, adjust</h2>
+    <div class="split">
+      <div class="split__copy">
+        <p>
+          As soon as I developed a new flow or a complex selection sequence, I
+          shared the prototype on InVision so the whole team could test and
+          approve the functionality.
+        </p>
+        <p>
+          The prototypes let us quickly test different controls and patterns
+          against the same problem. I could diagnose issues before they happened,
+          and make adjustments based on scenarios I hadn't addressed or planned
+          for.
+        </p>
+        <div class="process-flow">
+          <div class="process-flow__step">
+            <span class="process-flow__label">1</span>
+            <span class="process-flow__name">New flow or sequence</span>
+          </div>
+          <span class="process-flow__arrow" aria-hidden="true"></span>
+          <div class="process-flow__step">
+            <span class="process-flow__label">2</span>
+            <span class="process-flow__name">InVision prototype</span>
+          </div>
+          <span class="process-flow__arrow" aria-hidden="true"></span>
+          <div class="process-flow__step">
+            <span class="process-flow__label">3</span>
+            <span class="process-flow__name">Whole team tests</span>
+          </div>
+          <span class="process-flow__arrow" aria-hidden="true"></span>
+          <div class="process-flow__step process-flow__step--active">
+            <span class="process-flow__label">4</span>
+            <span class="process-flow__name">Adjust and approve</span>
+          </div>
+        </div>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-11.jpg" alt="Six variations of the dial selection control used to set a value: student reading level, what matters more in this project, confidence with reading instruction, the critical and creative thinking hierarchy, and pre- and post-activity confidence." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 10</span> The same control, six problems: prototypes let us test each one.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END COPY: FEEDBACK LOOP ================= -->
+
+  <!-- ================= COPY: OPPORTUNE BRANDING ================= -->
+  <section class="section container prose case-section" id="branding">
+    <p class="eyebrow">Opportune branding</p>
+    <h2>The logo was every control</h2>
+    <p>
+      When I first began working with The Purple Pen I was told repeatedly how
+      important the brand was, and how important it was that users were well
+      aware of it. Early on, that had led the team to make every single control
+      the logo symbol. Checkboxes, radios, even arrows: the logo was being
+      heavily overused.
+    </p>
+    <div class="split">
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-12.jpg" alt="The original selection controls: pen-nib symbols used as selected and unselected radio buttons for choosing who determines the subject, and as back and next arrows." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 11</span> The original selection controls: the logo as radio, and as arrow.</figcaption>
+        </figure>
+      </div>
+      <div class="split__media">
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-13.gif" alt="Animated: the Critical and Creative Thinking Hierarchy step, where a pen-nib dial rotates to point at a level from Decode and Comprehend up to Create and Apply." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 12</span> Where the logo earned its spot: the pen nib as a dial for setting a value.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>
+      After some initial pushback from the advisory group, I was able to convince
+      them there were better opportunities to use the logo, and that for
+      accessibility's sake we should stick to standard controls. And thankfully I
+      found the perfect opportunity to use the branding: a few selection controls
+      used throughout the process to set a value.
+    </p>
+    <figure class="spec-figure spec-figure--medium">
+      <div class="spec-figure__frame">
+        <img src="../assets/img/tpp-np-14.png" alt="The finished 'In this project, what matters more?' step: a pen-nib dial pointing between Content Knowledge on the left and Academic Skills on the right, numbered 0 to 7 each way, with a Next button." loading="lazy">
+      </div>
+      <figcaption><span class="fig-id">FIG 13</span> The branded dial in the finished wizard.</figcaption>
+    </figure>
+  </section>
+  <!-- ================= END COPY: OPPORTUNE BRANDING ================= -->
+
+  <!-- ================= COPY: OUTCOME ================= -->
+  <section class="section container prose case-section" id="outcome">
+    <p class="eyebrow">Outcome</p>
+    <h2>An application they could demo end to end</h2>
+    <div class="aside-split">
+      <div>
+        <p>
+          I helped The Purple Pen deliver an application they could fully demo and
+          present — one that completely shows the new tool's ability to complete
+          an entire lesson plan. The Purple Pen recently won an award for
+          innovation from Reimagine Education, and is currently looking for
+          investors.
+        </p>
+        <figure class="spec-figure">
+          <div class="spec-figure__frame">
+            <img src="../assets/img/tpp-np-15.jpg" alt="Seven finished wizard screens: the project's local design team, prioritizing and selecting academic standards, determining the subject and topic, the critical and creative thinking hierarchy, what matters more, the types and number of sources, and the project's stages and deadlines." loading="lazy">
+          </div>
+          <figcaption><span class="fig-id">FIG 14</span> The finished wizard: a complete lesson plan, step by step.</figcaption>
+        </figure>
+      </div>
+      <p class="aside-note">
+        A project I believed in from the first phone call. The best part was
+        watching a year of spreadsheets become something a teacher could pick up
+        and use.
+      </p>
+    </div>
+  </section>
+  <!-- ================= END COPY: OUTCOME ================= -->
+
+  <nav class="case-nav container" aria-label="Case study navigation">
+    <a class="btn btn--ghost" href="../index.html">&#8592; All work</a>
+    <a class="btn btn--ghost" href="pangea.html">Next: Launching a debit card &#8594;</a>
+  </nav>
+
+</main>
+
+<!-- ================= FOOTER (identical on every page) ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <details class="token-details">
+      <summary>/* view live design tokens */</summary>
+      <pre class="token-readout" data-token-readout aria-label="Live design token values from this site's stylesheet"></pre>
+    </details>
+    <div class="site-footer__meta">
+      <span>© 2026 Ricky Sunay · Chicago, IL</span>
+      <span>Built by hand — HTML, CSS custom properties, one small JS file. Press <kbd>G</kbd> for the grid.</span>
+      <span>
+        <a href="mailto:RickySunay@gmail.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/rickysunay">LinkedIn</a> ·
+        <a href="https://www.behance.net/rsunay">Behance</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
